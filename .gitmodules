@@ -1,0 +1,3 @@
+[submodule ".deploy/coreos-kubernetes"]
+	path = .deploy/coreos-kubernetes
+	url = https://github.com/alligrader/coreos-kubernetes
