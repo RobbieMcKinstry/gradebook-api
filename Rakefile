@@ -5,6 +5,8 @@ end
 
 task go_generate: [] do
     sh "goagen bootstrap -o src/ -d github.com/alligrader/gradebook-api/designs"
+    sh "goagen gen               -d github.com/alligrader/gradebook-api/designs --pkg-path=github.com/goadesign/gorma"
+    sh "goagen gen               -d github.com/alligrader/gradebook-api/designs --pkg-path=github.com/kkeuning/reduxa"
 end
 
 task go_build: [ :go_generate ] do

@@ -1,0 +1,8 @@
+package: github.com/alligrader/gradebook-api
+import:
+- package: github.com/goadesign/goa
+  subpackages:
+  - design
+  - design/apidsl
+- package: github.com/kkeuning/reduxa
+- package: github.com/goadesign/gorma
