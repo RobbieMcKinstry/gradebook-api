@@ -77,6 +77,4 @@ var BugProfile = Type("bug_profile", func() {
 	Attribute("name")
 	Attribute("checkstyle", Checkstyle)
 	Attribute("findbugs", FindBugs)
-	// TODO add the member definition for the bug profile, for find bugs
-
 })
