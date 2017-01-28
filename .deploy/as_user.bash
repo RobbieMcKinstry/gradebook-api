@@ -31,6 +31,7 @@ function install_godeps {
     go get github.com/snikch/goodman
     go get bitbucket.org/liamstask/goose/cmd/goose
     go get github.com/Masterminds/glide
+    go get -u github.com/goadesign/goa/...
     cd $APPDIR
     glide i
     cd -

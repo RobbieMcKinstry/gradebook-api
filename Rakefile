@@ -1,6 +1,10 @@
-task :default => [:build]
+task :default => [:all]
 
 task build: [ :go_build ] do
+end
+
+task all: [ :go_generate, :build ] do
+
 end
 
 task go_generate: [] do
@@ -9,7 +13,7 @@ task go_generate: [] do
     sh "goagen gen               -d github.com/alligrader/gradebook-api/designs --pkg-path=github.com/kkeuning/reduxa"
 end
 
-task go_build: [ :go_generate ] do
+task go_build: [] do
     sh "go build -o main ./src"
 end
 

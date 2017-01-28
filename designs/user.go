@@ -15,6 +15,7 @@ var _ = Resource("user", func() {
 		Routing(POST("/"))
 		Payload(UserCreate)
 		Response(OK, UserMedia)
+		Response(InternalServerError)
 	})
 })
 

@@ -226,3 +226,9 @@ func (ctx *CreateUserContext) OKGithub(r *UserMtGithub) error {
 	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
 	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
 }
+
+// InternalServerError sends a HTTP response with status code 500.
+func (ctx *CreateUserContext) InternalServerError() error {
+	ctx.ResponseData.WriteHeader(500)
+	return nil
+}

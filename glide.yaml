@@ -6,3 +6,5 @@ import:
   - design/apidsl
 - package: github.com/kkeuning/reduxa
 - package: github.com/goadesign/gorma
+- package: github.com/jinzhu/gorm
+  version: ~1.0.0

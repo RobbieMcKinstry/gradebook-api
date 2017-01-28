@@ -1202,6 +1202,8 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/UserMt'
+        "500":
+          description: Internal Server Error
       schemes:
       - http
       summary: create user
@@ -1210,6 +1212,8 @@ paths:
 produces:
 - application/json
 responses:
+  InternalServerError:
+    description: Internal Server Error
   NotFound:
     description: Not Found
   OK:

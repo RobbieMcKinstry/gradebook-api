@@ -1,8 +1,14 @@
 package main
 
 import (
+	"log"
+
 	"github.com/alligrader/gradebook-api/src/app"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/goadesign/goa"
+	"github.com/jinzhu/gorm"
+
+	"github.com/alligrader/gradebook-api/src/models"
 )
 
 // UserController implements the user resource.
@@ -19,9 +25,21 @@ func NewUserController(service *goa.Service) *UserController {
 func (c *UserController) Create(ctx *app.CreateUserContext) error {
 	// UserController_Create: start_implement
 
-	// Put your logic here
+	// Open the connection to the DB
+	db, err := gorm.Open("mysql", "root:root@tcp(127.0.0.1:3306)/alligrader")
+	db.AutoMigrate(&models.User{})
+	if err != nil {
+		log.Println(err)
+		return ctx.InternalServerError()
+	}
+	userDB := models.NewUserDB(db)
+
+	// Fetch the user out of the request context
+	u := models.UserFromuser(ctx.Payload)
+
+	// Add that user to the database
+	userDB.Add(ctx, u)
 
 	// UserController_Create: end_implement
-	res := &app.UserMt{}
-	return ctx.OK(res)
+	return ctx.OK(u.UserToUserMt())
 }
