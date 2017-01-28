@@ -1,15 +1,20 @@
-task :default => [:build]
+task :default => [:all]
 
 task build: [ :go_build ] do
 end
 
-task go_generate: [] do
-    sh "goagen bootstrap -o src/ -d github.com/alligrader/gradebook-api/designs"
-    sh "goagen gen               -d github.com/alligrader/gradebook-api/designs --pkg-path=github.com/goadesign/gorma"
-    sh "goagen gen               -d github.com/alligrader/gradebook-api/designs --pkg-path=github.com/kkeuning/reduxa"
+task all: [ :go_generate, :build ] do
+
 end
 
-task go_build: [ :go_generate ] do
+task go_generate: [] do
+    sh "goagen bootstrap -o src/ -d github.com/alligrader/gradebook-api/designs"
+    sh "goagen gen -o src/       -d github.com/alligrader/gradebook-api/designs --pkg-path=github.com/goadesign/gorma"
+    sh "goagen gen               -d github.com/alligrader/gradebook-api/designs --pkg-path=github.com/kkeuning/reduxa"
+    sh "swagger2blueprint src/swagger/swagger.json apiary.apib"
+end
+
+task go_build: [] do
     sh "go build -o main ./src"
 end
 

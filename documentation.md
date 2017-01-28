@@ -1,3 +1,11 @@
+# GitHub OAuth Application:
+
+Client ID:
+    669cbe2df86a3442ba9c
+
+Client Secret:
+    c7e3e7e468a52251c9cfc04ee206d2c5fc12235a
+
 # Golang
 
 - [Writing Web Applications - The Go Programming Language](https://golang.org/doc/articles/wiki/)
