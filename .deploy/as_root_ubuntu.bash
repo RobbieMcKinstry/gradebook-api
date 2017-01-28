@@ -68,6 +68,8 @@ function install_dredd {
     echo '~~ Installing dredd ~~'
     sudo npm install -g dredd@2.2.5
     echo '~~ dredd installed successfully ~~'
+    sudo npm install -g swagger2blueprint
+    echo '~~ swagger2blueprint installed successfully ~~'
 }
 
 function main {
