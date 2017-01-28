@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"strconv"
 
 	"github.com/alligrader/gradebook-api/src/app"
 	_ "github.com/go-sql-driver/mysql"
@@ -19,6 +20,14 @@ type UserController struct {
 // NewUserController creates a user controller.
 func NewUserController(service *goa.Service) *UserController {
 	return &UserController{Controller: service.NewController("UserController")}
+}
+
+func (c *UserController) Read(ctx *app.ReadUserContext) error {
+	return ctx.OK(&app.UserMt{})
+}
+
+func (c *UserController) Update(ctx *app.UpdateUserContext) error {
+	return ctx.OK(&app.UserMt{})
 }
 
 // Create runs the create action.
@@ -39,7 +48,10 @@ func (c *UserController) Create(ctx *app.CreateUserContext) error {
 
 	// Add that user to the database
 	userDB.Add(ctx, u)
+	mediaUser := u.UserToUserMtGithub()
+	url := "/api/user" + strconv.Itoa(*mediaUser.ID)
+	mediaUser.Callback = &url
 
 	// UserController_Create: end_implement
-	return ctx.OK(u.UserToUserMt())
+	return ctx.OKGithub(mediaUser)
 }

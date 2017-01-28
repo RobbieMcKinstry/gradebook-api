@@ -5,6 +5,19 @@ import (
 	. "github.com/goadesign/goa/design/apidsl"
 )
 
+var _ = Resource("GithubToken", func() {
+
+	BasePath("/GHtoken")
+	Description("This is your GitHub API token")
+
+	Action("read", func() {
+		Description("Returns the GH token")
+		Routing(GET("/"))
+
+		Response(OK, GithubToken)
+	})
+})
+
 var _ = Resource("user", func() {
 	BasePath("/user")
 	Description("Represents a user of the site")
@@ -14,8 +27,44 @@ var _ = Resource("user", func() {
 		Description("Sign up for the first time")
 		Routing(POST("/"))
 		Payload(UserCreate)
+		Response(OK, func() {
+			Status(200)
+			Media(UserMedia, "github")
+		})
+		Response(InternalServerError)
+	})
+
+	Action("update", func() {
+		Description("Adjust your account settings")
+		Routing(PUT("/:userID"))
+		Payload(UserCreate)
 		Response(OK, UserMedia)
 		Response(InternalServerError)
+
+		Params(func() {
+			Param("userID", Integer, "The user's unique identifier")
+		})
+	})
+
+	Action("read", func() {
+		Description("Get the detials about this particular account")
+		Routing(GET("/:userID"))
+		Response(OK, UserMedia)
+		Response(InternalServerError)
+
+		Params(func() {
+			Param("userID", Integer, "The user's unique identifier")
+		})
+	})
+})
+
+var GithubToken = MediaType("application/githubToken.mt", func() {
+	Attributes(func() {
+		Attribute("token")
+	})
+
+	View("default", func() {
+		Attribute("token")
 	})
 })
 

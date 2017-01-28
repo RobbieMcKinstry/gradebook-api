@@ -12,6 +12,13 @@ package app
 
 import "github.com/goadesign/goa"
 
+// GithubtokenMt media type (default view)
+//
+// Identifier: application/githubtoken.mt; view=default
+type GithubtokenMt struct {
+	Token *string `form:"token,omitempty" json:"token,omitempty" xml:"token,omitempty"`
+}
+
 // UserMt media type (default view)
 //
 // Identifier: application/user.mt; view=default

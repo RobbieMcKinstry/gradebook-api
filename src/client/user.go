@@ -16,6 +16,7 @@ import (
 	"golang.org/x/net/context"
 	"net/http"
 	"net/url"
+	"strconv"
 )
 
 // CreateUserPath computes a request path to the create action of user.
@@ -46,6 +47,71 @@ func (c *Client) NewCreateUserRequest(ctx context.Context, path string, payload 
 	}
 	u := url.URL{Host: c.Host, Scheme: scheme, Path: path}
 	req, err := http.NewRequest("POST", u.String(), &body)
+	if err != nil {
+		return nil, err
+	}
+	return req, nil
+}
+
+// ReadUserPath computes a request path to the read action of user.
+func ReadUserPath(userID int) string {
+	param0 := strconv.Itoa(userID)
+
+	return fmt.Sprintf("/api/user/%s", param0)
+}
+
+// Get the detials about this particular account
+func (c *Client) ReadUser(ctx context.Context, path string) (*http.Response, error) {
+	req, err := c.NewReadUserRequest(ctx, path)
+	if err != nil {
+		return nil, err
+	}
+	return c.Client.Do(ctx, req)
+}
+
+// NewReadUserRequest create the request corresponding to the read action endpoint of the user resource.
+func (c *Client) NewReadUserRequest(ctx context.Context, path string) (*http.Request, error) {
+	scheme := c.Scheme
+	if scheme == "" {
+		scheme = "http"
+	}
+	u := url.URL{Host: c.Host, Scheme: scheme, Path: path}
+	req, err := http.NewRequest("GET", u.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+	return req, nil
+}
+
+// UpdateUserPath computes a request path to the update action of user.
+func UpdateUserPath(userID int) string {
+	param0 := strconv.Itoa(userID)
+
+	return fmt.Sprintf("/api/user/%s", param0)
+}
+
+// Adjust your account settings
+func (c *Client) UpdateUser(ctx context.Context, path string, payload *User) (*http.Response, error) {
+	req, err := c.NewUpdateUserRequest(ctx, path, payload)
+	if err != nil {
+		return nil, err
+	}
+	return c.Client.Do(ctx, req)
+}
+
+// NewUpdateUserRequest create the request corresponding to the update action endpoint of the user resource.
+func (c *Client) NewUpdateUserRequest(ctx context.Context, path string, payload *User) (*http.Request, error) {
+	var body bytes.Buffer
+	err := c.Encoder.Encode(payload, &body, "*/*")
+	if err != nil {
+		return nil, fmt.Errorf("failed to encode body: %s", err)
+	}
+	scheme := c.Scheme
+	if scheme == "" {
+		scheme = "http"
+	}
+	u := url.URL{Host: c.Host, Scheme: scheme, Path: path}
+	req, err := http.NewRequest("PUT", u.String(), &body)
 	if err != nil {
 		return nil, err
 	}

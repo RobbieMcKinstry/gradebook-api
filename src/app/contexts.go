@@ -16,6 +16,30 @@ import (
 	"strconv"
 )
 
+// ReadGithubTokenContext provides the GithubToken read action context.
+type ReadGithubTokenContext struct {
+	context.Context
+	*goa.ResponseData
+	*goa.RequestData
+}
+
+// NewReadGithubTokenContext parses the incoming request URL and body, performs validations and creates the
+// context used by the GithubToken controller read action.
+func NewReadGithubTokenContext(ctx context.Context, service *goa.Service) (*ReadGithubTokenContext, error) {
+	var err error
+	resp := goa.ContextResponse(ctx)
+	resp.Service = service
+	req := goa.ContextRequest(ctx)
+	rctx := ReadGithubTokenContext{Context: ctx, ResponseData: resp, RequestData: req}
+	return &rctx, err
+}
+
+// OK sends a HTTP response with status code 200.
+func (ctx *ReadGithubTokenContext) OK(r *GithubtokenMt) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/githubtoken.mt")
+	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
+}
+
 // CreateBugProfileContext provides the bug_profile create action context.
 type CreateBugProfileContext struct {
 	context.Context
@@ -215,12 +239,6 @@ func NewCreateUserContext(ctx context.Context, service *goa.Service) (*CreateUse
 	return &rctx, err
 }
 
-// OK sends a HTTP response with status code 200.
-func (ctx *CreateUserContext) OK(r *UserMt) error {
-	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
-	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
-}
-
 // OKGithub sends a HTTP response with status code 200.
 func (ctx *CreateUserContext) OKGithub(r *UserMtGithub) error {
 	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
@@ -229,6 +247,99 @@ func (ctx *CreateUserContext) OKGithub(r *UserMtGithub) error {
 
 // InternalServerError sends a HTTP response with status code 500.
 func (ctx *CreateUserContext) InternalServerError() error {
+	ctx.ResponseData.WriteHeader(500)
+	return nil
+}
+
+// ReadUserContext provides the user read action context.
+type ReadUserContext struct {
+	context.Context
+	*goa.ResponseData
+	*goa.RequestData
+	UserID int
+}
+
+// NewReadUserContext parses the incoming request URL and body, performs validations and creates the
+// context used by the user controller read action.
+func NewReadUserContext(ctx context.Context, service *goa.Service) (*ReadUserContext, error) {
+	var err error
+	resp := goa.ContextResponse(ctx)
+	resp.Service = service
+	req := goa.ContextRequest(ctx)
+	rctx := ReadUserContext{Context: ctx, ResponseData: resp, RequestData: req}
+	paramUserID := req.Params["userID"]
+	if len(paramUserID) > 0 {
+		rawUserID := paramUserID[0]
+		if userID, err2 := strconv.Atoi(rawUserID); err2 == nil {
+			rctx.UserID = userID
+		} else {
+			err = goa.MergeErrors(err, goa.InvalidParamTypeError("userID", rawUserID, "integer"))
+		}
+	}
+	return &rctx, err
+}
+
+// OK sends a HTTP response with status code 200.
+func (ctx *ReadUserContext) OK(r *UserMt) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
+	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
+}
+
+// OKGithub sends a HTTP response with status code 200.
+func (ctx *ReadUserContext) OKGithub(r *UserMtGithub) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
+	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
+}
+
+// InternalServerError sends a HTTP response with status code 500.
+func (ctx *ReadUserContext) InternalServerError() error {
+	ctx.ResponseData.WriteHeader(500)
+	return nil
+}
+
+// UpdateUserContext provides the user update action context.
+type UpdateUserContext struct {
+	context.Context
+	*goa.ResponseData
+	*goa.RequestData
+	UserID  int
+	Payload *User
+}
+
+// NewUpdateUserContext parses the incoming request URL and body, performs validations and creates the
+// context used by the user controller update action.
+func NewUpdateUserContext(ctx context.Context, service *goa.Service) (*UpdateUserContext, error) {
+	var err error
+	resp := goa.ContextResponse(ctx)
+	resp.Service = service
+	req := goa.ContextRequest(ctx)
+	rctx := UpdateUserContext{Context: ctx, ResponseData: resp, RequestData: req}
+	paramUserID := req.Params["userID"]
+	if len(paramUserID) > 0 {
+		rawUserID := paramUserID[0]
+		if userID, err2 := strconv.Atoi(rawUserID); err2 == nil {
+			rctx.UserID = userID
+		} else {
+			err = goa.MergeErrors(err, goa.InvalidParamTypeError("userID", rawUserID, "integer"))
+		}
+	}
+	return &rctx, err
+}
+
+// OK sends a HTTP response with status code 200.
+func (ctx *UpdateUserContext) OK(r *UserMt) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
+	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
+}
+
+// OKGithub sends a HTTP response with status code 200.
+func (ctx *UpdateUserContext) OKGithub(r *UserMtGithub) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
+	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
+}
+
+// InternalServerError sends a HTTP response with status code 500.
+func (ctx *UpdateUserContext) InternalServerError() error {
 	ctx.ResponseData.WriteHeader(500)
 	return nil
 }

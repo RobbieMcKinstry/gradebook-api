@@ -15,6 +15,20 @@ import (
 	"net/http"
 )
 
+// GithubtokenMt media type (default view)
+//
+// Identifier: application/githubtoken.mt; view=default
+type GithubtokenMt struct {
+	Token *string `form:"token,omitempty" json:"token,omitempty" xml:"token,omitempty"`
+}
+
+// DecodeGithubtokenMt decodes the GithubtokenMt instance encoded in resp body.
+func (c *Client) DecodeGithubtokenMt(resp *http.Response) (*GithubtokenMt, error) {
+	var decoded GithubtokenMt
+	err := c.Decoder.Decode(&decoded, resp.Body, resp.Header.Get("Content-Type"))
+	return &decoded, err
+}
+
 // UserMt media type (default view)
 //
 // Identifier: application/user.mt; view=default

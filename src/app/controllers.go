@@ -27,6 +27,33 @@ func initService(service *goa.Service) {
 	service.Decoder.Register(goa.NewJSONDecoder, "*/*")
 }
 
+// GithubTokenController is the controller interface for the GithubToken actions.
+type GithubTokenController interface {
+	goa.Muxer
+	Read(*ReadGithubTokenContext) error
+}
+
+// MountGithubTokenController "mounts" a GithubToken resource controller on the given service.
+func MountGithubTokenController(service *goa.Service, ctrl GithubTokenController) {
+	initService(service)
+	var h goa.Handler
+
+	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
+		// Check if there was an error loading the request
+		if err := goa.ContextError(ctx); err != nil {
+			return err
+		}
+		// Build the context
+		rctx, err := NewReadGithubTokenContext(ctx, service)
+		if err != nil {
+			return err
+		}
+		return ctrl.Read(rctx)
+	}
+	service.Mux.Handle("GET", "/api/GHtoken", ctrl.MuxHandler("Read", h, nil))
+	service.LogInfo("mount", "ctrl", "GithubToken", "action", "Read", "route", "GET /api/GHtoken")
+}
+
 // BugProfileController is the controller interface for the BugProfile actions.
 type BugProfileController interface {
 	goa.Muxer
@@ -154,6 +181,8 @@ func unmarshalUpdateBugProfilePayload(ctx context.Context, service *goa.Service,
 type UserController interface {
 	goa.Muxer
 	Create(*CreateUserContext) error
+	Read(*ReadUserContext) error
+	Update(*UpdateUserContext) error
 }
 
 // MountUserController "mounts" a User resource controller on the given service.
@@ -181,10 +210,61 @@ func MountUserController(service *goa.Service, ctrl UserController) {
 	}
 	service.Mux.Handle("POST", "/api/user", ctrl.MuxHandler("Create", h, unmarshalCreateUserPayload))
 	service.LogInfo("mount", "ctrl", "User", "action", "Create", "route", "POST /api/user")
+
+	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
+		// Check if there was an error loading the request
+		if err := goa.ContextError(ctx); err != nil {
+			return err
+		}
+		// Build the context
+		rctx, err := NewReadUserContext(ctx, service)
+		if err != nil {
+			return err
+		}
+		return ctrl.Read(rctx)
+	}
+	service.Mux.Handle("GET", "/api/user/:userID", ctrl.MuxHandler("Read", h, nil))
+	service.LogInfo("mount", "ctrl", "User", "action", "Read", "route", "GET /api/user/:userID")
+
+	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
+		// Check if there was an error loading the request
+		if err := goa.ContextError(ctx); err != nil {
+			return err
+		}
+		// Build the context
+		rctx, err := NewUpdateUserContext(ctx, service)
+		if err != nil {
+			return err
+		}
+		// Build the payload
+		if rawPayload := goa.ContextRequest(ctx).Payload; rawPayload != nil {
+			rctx.Payload = rawPayload.(*User)
+		} else {
+			return goa.MissingPayloadError()
+		}
+		return ctrl.Update(rctx)
+	}
+	service.Mux.Handle("PUT", "/api/user/:userID", ctrl.MuxHandler("Update", h, unmarshalUpdateUserPayload))
+	service.LogInfo("mount", "ctrl", "User", "action", "Update", "route", "PUT /api/user/:userID")
 }
 
 // unmarshalCreateUserPayload unmarshals the request body into the context request data Payload field.
 func unmarshalCreateUserPayload(ctx context.Context, service *goa.Service, req *http.Request) error {
+	payload := &user{}
+	if err := service.DecodeRequest(req, payload); err != nil {
+		return err
+	}
+	if err := payload.Validate(); err != nil {
+		// Initialize payload with private data structure so it can be logged
+		goa.ContextRequest(ctx).Payload = payload
+		return err
+	}
+	goa.ContextRequest(ctx).Payload = payload.Publicize()
+	return nil
+}
+
+// unmarshalUpdateUserPayload unmarshals the request body into the context request data Payload field.
+func unmarshalUpdateUserPayload(ctx context.Context, service *goa.Service, req *http.Request) error {
 	payload := &user{}
 	if err := service.DecodeRequest(req, payload); err != nil {
 		return err

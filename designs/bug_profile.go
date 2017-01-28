@@ -62,7 +62,6 @@ var _ = Resource("bug_profile", func() {
 			Param("profileID", Integer, "The profile's unique identifier")
 		})
 
-		// TODO put in payload information
 		Payload(BugProfile)
 
 		Response(OK)

@@ -19,11 +19,14 @@ func main() {
 	service.Use(middleware.Recover())
 
 	// Mount "bug_profile" controller
-	c := NewBugProfileController(service)
+	var (
+		c  = NewBugProfileController(service)
+		c2 = NewUserController(service)
+		c3 = NewGithubTokenController(service)
+	)
 	app.MountBugProfileController(service, c)
-	// Mount "user" controller
-	c2 := NewUserController(service)
 	app.MountUserController(service, c2)
+	app.MountGithubTokenController(service, c3)
 
 	// Start service
 	if err := service.ListenAndServe(":8081"); err != nil {
