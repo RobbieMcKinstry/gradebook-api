@@ -16,7 +16,7 @@ NODE_IP = kuber_ip
 NODE_VCPUS = 1
 NODE_MEMORY_SIZE = 2048
 USER_DATA_PATH = File.expand_path(".deploy/coreos-kubernetes/single-node/user-data")
-SSL_TARBALL_PATH = File.expand_path("ssl/controller.tar")
+SSL_TARBALL_PATH = File.expand_path(".deploy/coreos-kubernetes/single-node/ssl/controller.tar")
 
 Vagrant.configure(2) do |config|
 
