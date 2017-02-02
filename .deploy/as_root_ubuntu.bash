@@ -20,6 +20,7 @@ function install_deps {
         zip \
         unzip \
         vim-nox \
+        mercurial \
         npm
 }
 
@@ -72,6 +73,12 @@ function install_dredd {
     echo '~~ swagger2blueprint installed successfully ~~'
 }
 
+function install_kubectl {
+    curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+    chmod +x ./kubectl
+    sudo mv ./kubectl /usr/local/bin/kubectl
+}
+
 function main {
     update
     install_deps
@@ -79,7 +86,11 @@ function main {
     install_go
     install_packer
     install_dredd
+    install_kubectl
 }
 
+set -e
+set -x
+set -u
 main
-echo '~~ Provisioning complete ~~'
+echo '~~ Root Provisioning Complete ~~'
