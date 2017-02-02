@@ -1,6 +1,17 @@
-# Tools for your Host Machine
+# Rake Commands
 
-For your host machine, you should probably install [Virtualbox](https://www.virtualbox.org/wiki/Downloads), [Vagrant](https://www.vagrantup.com/downloads.html) (and Ruby), and [git](https://git-scm.com/downloads).
+Rake comes baked into the Vagrant environment. If you're trying to start related to the API, there's probably a `rake` command for it.
+
+For example, if you want to launch the kubernetes dashboard, you can run the rake task `rake k8s` from inside the Vagrantbox, and then visit `http://localhost:8001/ui` to view the dashboard.
+
+Other rake commands include:
+
+- `rake build`: This command will compile the Go source code. Can be run from the VM or the host.
+- `rake`:       This command will regeneate the Goa boilerplate and compile the Go source code. Must be run from within the VM.
+- `rake clean`: This deletes the binary created with `rake build`. Can be run from either the VM or the host.
+- `rake go_generate`: This command regenerates the Goa boilerplate. Must be run from within the VM.
+
+There are other aliases for these commands, but they're internally a little bit longer than what I have here.
 
 # Vagrant
 
@@ -32,3 +43,9 @@ To build the binary, run `go build main.go`.
 To run the Dredd tests, run `go build main.go` and then run `dredd`. Before submitting a PR, your commit should pass both the `dredd` tests and the `go test` tests. 
 
 I'm going to try to use `rake` to alias these commands. That's on my TODO list.
+
+# Tools for your Host Machine
+
+For your host machine, you should probably install [Virtualbox](https://www.virtualbox.org/wiki/Downloads), [Vagrant](https://www.vagrantup.com/downloads.html) (and Ruby), and [git](https://git-scm.com/downloads).
+
+
