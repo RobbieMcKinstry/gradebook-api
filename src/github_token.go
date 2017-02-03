@@ -1,6 +1,9 @@
 package main
 
 import (
+	"io/ioutil"
+	"log"
+
 	"github.com/alligrader/gradebook-api/src/app"
 	"github.com/goadesign/goa"
 )
@@ -20,9 +23,13 @@ func (c *GithubTokenController) Read(ctx *app.ReadGithubTokenContext) error {
 	// GithubTokenController_Read: start_implement
 
 	// Put your logic here
+	bytes, err := ioutil.ReadFile("./.deploy/github_api.txt")
+	if err != nil {
+		log.Println(err)
+	}
+	var token string = string(bytes)
 
 	// GithubTokenController_Read: end_implement
-	var token string = "9726f0609e3219e036a6490c3d72e13e2b3eb341"
 	res := &app.GithubtokenMt{&token}
 	return ctx.OK(res)
 }

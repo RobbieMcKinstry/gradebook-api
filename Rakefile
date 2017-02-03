@@ -21,3 +21,7 @@ end
 task clean: [] do
     sh "rm main"
 end
+
+task k8s: [] do
+    sh "kubectl proxy --address='0.0.0.0'"
+end
