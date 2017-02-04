@@ -21,7 +21,8 @@ function install_deps {
         unzip \
         vim-nox \
         mercurial \
-        npm
+        npm \
+        rake
 }
 
 function make_gopath {
@@ -84,7 +85,7 @@ function main {
     install_deps
     make_gopath
     install_go
-    install_packer
+    # install_packer
     install_dredd
     install_kubectl
 }

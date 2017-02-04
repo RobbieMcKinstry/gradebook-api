@@ -40,7 +40,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "web", primary: true do |web|
 
-      web.vm.box = "ubuntu/trusty64"
+      web.vm.box = "rem89/alligrader"
       web.vm.network "forwarded_port", guest: 443, host: 443
       web.vm.network "forwarded_port", guest: 5000, host: 5000
       web.vm.network "forwarded_port", guest: 8000, host: 8000
@@ -64,20 +64,18 @@ Vagrant.configure(2) do |config|
         v.cpus = 2
       end
 
-      web.vm.provision "shell", path: ".deploy/as_root_ubuntu.bash", name: "Root"
-      web.vm.provision "shell", path: ".deploy/as_user.bash", privileged: false, name: "User"
-      web.vm.provision "docker" do |d|
-        d.run "mysql",  image: "mysql",    args: "-p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=root -e MYSQL_DATABASE=alligrader"
-      end
+      # web.vm.provision "shell", path: ".deploy/as_root_ubuntu.bash", name: "Root"
+      # web.vm.provision "shell", path: ".deploy/as_user.bash", privileged: false, name: "User"
+      # web.vm.provision "docker" do |d|
+      #   d.run "mysql",  image: "mysql",    args: "-p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=root -e MYSQL_DATABASE=alligrader"
+      # end
   end
 
   config.vm.define "kubernetes" do |kubernetes|
 
-      system("mkdir -p ssl && ./.deploy/coreos-kubernetes/lib/init-ssl-ca ssl") or abort ("failed generating SSL CA artifacts")
-      system("./.deploy/coreos-kubernetes/lib/init-ssl ssl apiserver controller IP.1=#{NODE_IP},IP.2=#{CLUSTER_IP}") or abort ("failed generating SSL certificate artifacts")
-      system("./.deploy/coreos-kubernetes/lib/init-ssl ssl admin kube-admin") or abort("failed generating admin SSL artifacts")
-
-      kubernetes.vm.box = "apache"
+      # system("mkdir -p ssl && ./.deploy/coreos-kubernetes/lib/init-ssl-ca ssl") or abort ("failed generating SSL CA artifacts")
+      # system("./.deploy/coreos-kubernetes/lib/init-ssl ssl apiserver controller IP.1=#{NODE_IP},IP.2=#{CLUSTER_IP}") or abort ("failed generating SSL certificate artifacts")
+      # system("./.deploy/coreos-kubernetes/lib/init-ssl ssl admin kube-admin") or abort("failed generating admin SSL artifacts")
 
       # always use Vagrant's insecure key
       kubernetes.ssh.insert_key = false
@@ -111,6 +109,5 @@ Vagrant.configure(2) do |config|
 
       kubernetes.vm.provision :file, :source => USER_DATA_PATH, :destination => "/tmp/vagrantfile-user-data"
       kubernetes.vm.provision :shell, :inline => "mv /tmp/vagrantfile-user-data /var/lib/coreos-vagrant/", :privileged => true
-
   end
 end

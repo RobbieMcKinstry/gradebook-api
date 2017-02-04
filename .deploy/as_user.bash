@@ -57,7 +57,7 @@ function make_storage {
 }
 
 function configure_kubectl {
-    echo "export KUBECONFIG=${KUBECONFIG}:$APPDIR/.deploy/kubeconfig" >> $HOME/.profile
+    echo "export KUBECONFIG=$APPDIR/.deploy/kubeconfig" >> $HOME/.profile
     echo "kubectl config use-context vagrant-single"                  >> $HOME/.profile
 }
 
