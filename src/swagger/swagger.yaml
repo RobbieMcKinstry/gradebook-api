@@ -1,4 +1,3 @@
-basePath: /api
 consumes:
 - application/json
 definitions:
@@ -1131,7 +1130,7 @@ info:
   title: Gradebook
   version: ""
 paths:
-  /GHtoken:
+  /api/GHtoken:
     get:
       description: Returns the GH token
       operationId: GithubToken#read
@@ -1145,7 +1144,7 @@ paths:
       summary: read GithubToken
       tags:
       - GithubToken
-  /bug-profile:
+  /api/bug-profile:
     get:
       description: Show all of my bug profiles
       operationId: bug_profile#list
@@ -1175,7 +1174,7 @@ paths:
       summary: create bug_profile
       tags:
       - bug_profile
-  /bug-profile/{profileID}:
+  /api/bug-profile/{profileID}:
     delete:
       description: I don't want this bug profile anymore
       operationId: bug_profile#delete
@@ -1239,7 +1238,18 @@ paths:
       summary: update bug_profile
       tags:
       - bug_profile
-  /user:
+  /api/swagger.json:
+    get:
+      operationId: swagger#/api/swagger.json
+      responses:
+        "200":
+          description: File downloaded
+          schema:
+            type: file
+      schemes:
+      - http
+      summary: Download src/swagger/swagger.json
+  /api/user:
     post:
       description: Sign up for the first time
       operationId: user#create
@@ -1262,7 +1272,7 @@ paths:
       summary: create user
       tags:
       - user
-  /user/{userID}:
+  /api/user/{userID}:
     get:
       description: Get the detials about this particular account
       operationId: user#read

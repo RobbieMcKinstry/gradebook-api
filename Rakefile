@@ -9,6 +9,7 @@ end
 
 task go_generate: [] do
     sh "goagen bootstrap -o src/ -d github.com/alligrader/gradebook-api/designs"
+    sh "goagen js        -o src/ -d github.com/alligrader/gradebook-api/designs"
     sh "goagen gen -o src/       -d github.com/alligrader/gradebook-api/designs --pkg-path=github.com/goadesign/gorma"
     sh "goagen gen               -d github.com/alligrader/gradebook-api/designs --pkg-path=github.com/kkeuning/reduxa"
     sh "swagger2blueprint src/swagger/swagger.json apiary.apib"

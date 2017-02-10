@@ -23,10 +23,12 @@ func main() {
 		c  = NewBugProfileController(service)
 		c2 = NewUserController(service)
 		c3 = NewGithubTokenController(service)
+		c4 = NewSwaggerController(service)
 	)
 	app.MountBugProfileController(service, c)
 	app.MountUserController(service, c2)
 	app.MountGithubTokenController(service, c3)
+	app.MountSwaggerController(service, c4)
 
 	// Start service
 	if err := service.ListenAndServe(":8081"); err != nil {
