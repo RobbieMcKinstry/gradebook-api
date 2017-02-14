@@ -92,6 +92,48 @@ export const listBug-Profile = (path) => {
   };
 };
 
+// loginGh calls the login action of the gh resource.
+// path is the request path, the format is "/api/gh"
+// This function returns a promise which dispatches an error if the HTTP response is a 4xx or 5xx.
+export const loginGh = (path) => {
+  return (dispatch) => {
+    dispatch(actions.requestLoginGh());
+    return axios({
+      timeout: 20000,
+      url: 'http://localhost:8081' + path,
+      method: 'post',
+      responseType: 'json'
+    })
+      .then((response) => {
+        dispatch(actions.receiveLoginGhSuccess(response.data, response.status));
+      })
+      .catch((response) => {
+        dispatch(actions.receiveLoginGhError(response.data, response.status));
+      });
+  };
+};
+
+// login2Gh calls the login2 action of the gh resource.
+// path is the request path, the format is "/api/gh"
+// This function returns a promise which dispatches an error if the HTTP response is a 4xx or 5xx.
+export const login2Gh = (path) => {
+  return (dispatch) => {
+    dispatch(actions.requestLogin2Gh());
+    return axios({
+      timeout: 20000,
+      url: 'http://localhost:8081' + path,
+      method: 'get',
+      responseType: 'json'
+    })
+      .then((response) => {
+        dispatch(actions.receiveLogin2GhSuccess(response.data, response.status));
+      })
+      .catch((response) => {
+        dispatch(actions.receiveLogin2GhError(response.data, response.status));
+      });
+  };
+};
+
 // Returns the GH token
 // path is the request path, the format is "/api/GHtoken"
 // This function returns a promise which dispatches an error if the HTTP response is a 4xx or 5xx.

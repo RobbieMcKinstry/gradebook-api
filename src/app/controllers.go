@@ -178,6 +178,49 @@ func unmarshalUpdateBugProfilePayload(ctx context.Context, service *goa.Service,
 	return nil
 }
 
+// GhController is the controller interface for the Gh actions.
+type GhController interface {
+	goa.Muxer
+	Login(*LoginGhContext) error
+	Login2(*Login2GhContext) error
+}
+
+// MountGhController "mounts" a Gh resource controller on the given service.
+func MountGhController(service *goa.Service, ctrl GhController) {
+	initService(service)
+	var h goa.Handler
+
+	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
+		// Check if there was an error loading the request
+		if err := goa.ContextError(ctx); err != nil {
+			return err
+		}
+		// Build the context
+		rctx, err := NewLoginGhContext(ctx, service)
+		if err != nil {
+			return err
+		}
+		return ctrl.Login(rctx)
+	}
+	service.Mux.Handle("POST", "/api/gh", ctrl.MuxHandler("Login", h, nil))
+	service.LogInfo("mount", "ctrl", "Gh", "action", "Login", "route", "POST /api/gh")
+
+	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
+		// Check if there was an error loading the request
+		if err := goa.ContextError(ctx); err != nil {
+			return err
+		}
+		// Build the context
+		rctx, err := NewLogin2GhContext(ctx, service)
+		if err != nil {
+			return err
+		}
+		return ctrl.Login2(rctx)
+	}
+	service.Mux.Handle("GET", "/api/gh", ctrl.MuxHandler("Login2", h, nil))
+	service.LogInfo("mount", "ctrl", "Gh", "action", "Login2", "route", "GET /api/gh")
+}
+
 // SwaggerController is the controller interface for the Swagger actions.
 type SwaggerController interface {
 	goa.Muxer

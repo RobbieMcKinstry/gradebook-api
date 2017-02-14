@@ -220,6 +220,58 @@ func (ctx *UpdateBugProfileContext) NotFound() error {
 	return nil
 }
 
+// LoginGhContext provides the gh login action context.
+type LoginGhContext struct {
+	context.Context
+	*goa.ResponseData
+	*goa.RequestData
+}
+
+// NewLoginGhContext parses the incoming request URL and body, performs validations and creates the
+// context used by the gh controller login action.
+func NewLoginGhContext(ctx context.Context, service *goa.Service) (*LoginGhContext, error) {
+	var err error
+	resp := goa.ContextResponse(ctx)
+	resp.Service = service
+	req := goa.ContextRequest(ctx)
+	rctx := LoginGhContext{Context: ctx, ResponseData: resp, RequestData: req}
+	return &rctx, err
+}
+
+// OK sends a HTTP response with status code 200.
+func (ctx *LoginGhContext) OK(resp []byte) error {
+	ctx.ResponseData.Header().Set("Content-Type", "text/plain")
+	ctx.ResponseData.WriteHeader(200)
+	_, err := ctx.ResponseData.Write(resp)
+	return err
+}
+
+// Login2GhContext provides the gh login2 action context.
+type Login2GhContext struct {
+	context.Context
+	*goa.ResponseData
+	*goa.RequestData
+}
+
+// NewLogin2GhContext parses the incoming request URL and body, performs validations and creates the
+// context used by the gh controller login2 action.
+func NewLogin2GhContext(ctx context.Context, service *goa.Service) (*Login2GhContext, error) {
+	var err error
+	resp := goa.ContextResponse(ctx)
+	resp.Service = service
+	req := goa.ContextRequest(ctx)
+	rctx := Login2GhContext{Context: ctx, ResponseData: resp, RequestData: req}
+	return &rctx, err
+}
+
+// OK sends a HTTP response with status code 200.
+func (ctx *Login2GhContext) OK(resp []byte) error {
+	ctx.ResponseData.Header().Set("Content-Type", "text/plain")
+	ctx.ResponseData.WriteHeader(200)
+	_, err := ctx.ResponseData.Write(resp)
+	return err
+}
+
 // CreateUserContext provides the user create action context.
 type CreateUserContext struct {
 	context.Context

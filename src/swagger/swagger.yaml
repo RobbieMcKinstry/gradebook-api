@@ -1238,6 +1238,27 @@ paths:
       summary: update bug_profile
       tags:
       - bug_profile
+  /api/gh:
+    get:
+      operationId: gh#login2
+      responses:
+        "200":
+          description: OK
+      schemes:
+      - http
+      summary: login2 gh
+      tags:
+      - gh
+    post:
+      operationId: gh#login
+      responses:
+        "200":
+          description: OK
+      schemes:
+      - http
+      summary: login gh
+      tags:
+      - gh
   /api/swagger.json:
     get:
       operationId: swagger#/api/swagger.json

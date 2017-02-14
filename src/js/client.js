@@ -95,6 +95,42 @@ define(['axios'] , function (axios) {
     return client(cfg);
   }
 
+  // loginGh calls the login action of the gh resource.
+  // path is the request path, the format is "/api/gh"
+  // config is an optional object to be merged into the config built by the function prior to making the request.
+  // The content of the config object is described here: https://github.com/mzabriskie/axios#request-api
+  // This function returns a promise which raises an error if the HTTP response is a 4xx or 5xx.
+  client.loginGh = function (path, config) {
+    cfg = {
+      timeout: timeout,
+      url: urlPrefix + path,
+      method: 'post',
+      responseType: 'json'
+    };
+    if (config) {
+      cfg = merge(cfg, config);
+    }
+    return client(cfg);
+  }
+
+  // login2Gh calls the login2 action of the gh resource.
+  // path is the request path, the format is "/api/gh"
+  // config is an optional object to be merged into the config built by the function prior to making the request.
+  // The content of the config object is described here: https://github.com/mzabriskie/axios#request-api
+  // This function returns a promise which raises an error if the HTTP response is a 4xx or 5xx.
+  client.login2Gh = function (path, config) {
+    cfg = {
+      timeout: timeout,
+      url: urlPrefix + path,
+      method: 'get',
+      responseType: 'json'
+    };
+    if (config) {
+      cfg = merge(cfg, config);
+    }
+    return client(cfg);
+  }
+
   // Returns the GH token
   // path is the request path, the format is "/api/GHtoken"
   // config is an optional object to be merged into the config built by the function prior to making the request.

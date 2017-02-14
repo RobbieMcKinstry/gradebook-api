@@ -67,6 +67,16 @@ type (
 		PrettyPrint bool
 	}
 
+	// LoginGhCommand is the command line data structure for the login action of gh
+	LoginGhCommand struct {
+		PrettyPrint bool
+	}
+
+	// Login2GhCommand is the command line data structure for the login2 action of gh
+	Login2GhCommand struct {
+		PrettyPrint bool
+	}
+
 	// CreateUserCommand is the command line data structure for the create action of user
 	CreateUserCommand struct {
 		Payload     string
@@ -327,22 +337,27 @@ Payload example:
 	command.AddCommand(sub)
 	app.AddCommand(command)
 	command = &cobra.Command{
-		Use:   "read",
-		Short: `read action`,
+		Use:   "login",
+		Short: ``,
 	}
-	tmp5 := new(ReadGithubTokenCommand)
+	tmp5 := new(LoginGhCommand)
 	sub = &cobra.Command{
-		Use:   `GithubToken ["/api/GHtoken"]`,
-		Short: `This is your GitHub API token`,
+		Use:   `gh ["/api/gh"]`,
+		Short: `For GH logins`,
 		RunE:  func(cmd *cobra.Command, args []string) error { return tmp5.Run(c, args) },
 	}
 	tmp5.RegisterFlags(sub, c)
 	sub.PersistentFlags().BoolVar(&tmp5.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
-	tmp6 := new(ReadUserCommand)
+	app.AddCommand(command)
+	command = &cobra.Command{
+		Use:   "login2",
+		Short: ``,
+	}
+	tmp6 := new(Login2GhCommand)
 	sub = &cobra.Command{
-		Use:   `user ["/api/user/USERID"]`,
-		Short: `Represents a user of the site`,
+		Use:   `gh ["/api/gh"]`,
+		Short: `For GH logins`,
 		RunE:  func(cmd *cobra.Command, args []string) error { return tmp6.Run(c, args) },
 	}
 	tmp6.RegisterFlags(sub, c)
@@ -350,24 +365,47 @@ Payload example:
 	command.AddCommand(sub)
 	app.AddCommand(command)
 	command = &cobra.Command{
-		Use:   "show",
-		Short: `Show a single bug profile`,
+		Use:   "read",
+		Short: `read action`,
 	}
-	tmp7 := new(ShowBugProfileCommand)
+	tmp7 := new(ReadGithubTokenCommand)
 	sub = &cobra.Command{
-		Use:   `bug_profile ["/api/bug-profile/PROFILEID"]`,
-		Short: `Bug profile represents the list of bugs the user wants us to check for`,
+		Use:   `GithubToken ["/api/GHtoken"]`,
+		Short: `This is your GitHub API token`,
 		RunE:  func(cmd *cobra.Command, args []string) error { return tmp7.Run(c, args) },
 	}
 	tmp7.RegisterFlags(sub, c)
 	sub.PersistentFlags().BoolVar(&tmp7.PrettyPrint, "pp", false, "Pretty print response body")
+	command.AddCommand(sub)
+	tmp8 := new(ReadUserCommand)
+	sub = &cobra.Command{
+		Use:   `user ["/api/user/USERID"]`,
+		Short: `Represents a user of the site`,
+		RunE:  func(cmd *cobra.Command, args []string) error { return tmp8.Run(c, args) },
+	}
+	tmp8.RegisterFlags(sub, c)
+	sub.PersistentFlags().BoolVar(&tmp8.PrettyPrint, "pp", false, "Pretty print response body")
+	command.AddCommand(sub)
+	app.AddCommand(command)
+	command = &cobra.Command{
+		Use:   "show",
+		Short: `Show a single bug profile`,
+	}
+	tmp9 := new(ShowBugProfileCommand)
+	sub = &cobra.Command{
+		Use:   `bug_profile ["/api/bug-profile/PROFILEID"]`,
+		Short: `Bug profile represents the list of bugs the user wants us to check for`,
+		RunE:  func(cmd *cobra.Command, args []string) error { return tmp9.Run(c, args) },
+	}
+	tmp9.RegisterFlags(sub, c)
+	sub.PersistentFlags().BoolVar(&tmp9.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
 	app.AddCommand(command)
 	command = &cobra.Command{
 		Use:   "update",
 		Short: `update action`,
 	}
-	tmp8 := new(UpdateBugProfileCommand)
+	tmp10 := new(UpdateBugProfileCommand)
 	sub = &cobra.Command{
 		Use:   `bug_profile ["/api/bug-profile/PROFILEID"]`,
 		Short: `Bug profile represents the list of bugs the user wants us to check for`,
@@ -536,12 +574,12 @@ Payload example:
    },
    "name": "Et aspernatur."
 }`,
-		RunE: func(cmd *cobra.Command, args []string) error { return tmp8.Run(c, args) },
+		RunE: func(cmd *cobra.Command, args []string) error { return tmp10.Run(c, args) },
 	}
-	tmp8.RegisterFlags(sub, c)
-	sub.PersistentFlags().BoolVar(&tmp8.PrettyPrint, "pp", false, "Pretty print response body")
+	tmp10.RegisterFlags(sub, c)
+	sub.PersistentFlags().BoolVar(&tmp10.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
-	tmp9 := new(UpdateUserCommand)
+	tmp11 := new(UpdateUserCommand)
 	sub = &cobra.Command{
 		Use:   `user ["/api/user/USERID"]`,
 		Short: `Represents a user of the site`,
@@ -555,10 +593,10 @@ Payload example:
    "password": "Ut enim ea voluptas magni.",
    "phone_number": "Et minus odio."
 }`,
-		RunE: func(cmd *cobra.Command, args []string) error { return tmp9.Run(c, args) },
+		RunE: func(cmd *cobra.Command, args []string) error { return tmp11.Run(c, args) },
 	}
-	tmp9.RegisterFlags(sub, c)
-	sub.PersistentFlags().BoolVar(&tmp9.PrettyPrint, "pp", false, "Pretty print response body")
+	tmp11.RegisterFlags(sub, c)
+	sub.PersistentFlags().BoolVar(&tmp11.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
 	app.AddCommand(command)
 
@@ -932,6 +970,54 @@ func (cmd *UpdateBugProfileCommand) RegisterFlags(cc *cobra.Command, c *client.C
 	cc.Flags().StringVar(&cmd.ContentType, "content", "", "Request content type override, e.g. 'application/x-www-form-urlencoded'")
 	var profileID int
 	cc.Flags().IntVar(&cmd.ProfileID, "profileID", profileID, `The profile's unique identifier`)
+}
+
+// Run makes the HTTP request corresponding to the LoginGhCommand command.
+func (cmd *LoginGhCommand) Run(c *client.Client, args []string) error {
+	var path string
+	if len(args) > 0 {
+		path = args[0]
+	} else {
+		path = "/api/gh"
+	}
+	logger := goa.NewLogger(log.New(os.Stderr, "", log.LstdFlags))
+	ctx := goa.WithLogger(context.Background(), logger)
+	resp, err := c.LoginGh(ctx, path)
+	if err != nil {
+		goa.LogError(ctx, "failed", "err", err)
+		return err
+	}
+
+	goaclient.HandleResponse(c.Client, resp, cmd.PrettyPrint)
+	return nil
+}
+
+// RegisterFlags registers the command flags with the command line.
+func (cmd *LoginGhCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
+}
+
+// Run makes the HTTP request corresponding to the Login2GhCommand command.
+func (cmd *Login2GhCommand) Run(c *client.Client, args []string) error {
+	var path string
+	if len(args) > 0 {
+		path = args[0]
+	} else {
+		path = "/api/gh"
+	}
+	logger := goa.NewLogger(log.New(os.Stderr, "", log.LstdFlags))
+	ctx := goa.WithLogger(context.Background(), logger)
+	resp, err := c.Login2Gh(ctx, path)
+	if err != nil {
+		goa.LogError(ctx, "failed", "err", err)
+		return err
+	}
+
+	goaclient.HandleResponse(c.Client, resp, cmd.PrettyPrint)
+	return nil
+}
+
+// RegisterFlags registers the command flags with the command line.
+func (cmd *Login2GhCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
 }
 
 // Run makes the HTTP request corresponding to the CreateUserCommand command.
