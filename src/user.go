@@ -17,11 +17,24 @@ import (
 // UserController implements the user resource.
 type UserController struct {
 	*goa.Controller
+	db *models.UserDB
 }
 
 // NewUserController creates a user controller.
 func NewUserController(service *goa.Service) *UserController {
-	return &UserController{Controller: service.NewController("UserController")}
+	log.Debug("Opening connection to DB")
+	// Open the connection to the DB
+	db, err := gorm.Open("mysql", "root:root@tcp(127.0.0.1:3306)/alligrader")
+	if err != nil {
+		log.Fatal(err)
+		return nil
+	}
+	log.Debug("Automigrating user model")
+	db.AutoMigrate(&models.User{})
+
+	userDB := models.NewUserDB(db)
+
+	return &UserController{Controller: service.NewController("UserController"), db: userDB}
 }
 
 func (c *UserController) Read(ctx *app.ReadUserContext) error {
@@ -35,17 +48,6 @@ func (c *UserController) Update(ctx *app.UpdateUserContext) error {
 // Create runs the create action.
 func (c *UserController) Create(ctx *app.CreateUserContext) error {
 	// UserController_Create: start_implement
-
-	// Open the connection to the DB
-	log.Info("Opening connection to DB")
-	db, err := gorm.Open("mysql", "root:root@tcp(127.0.0.1:3306)/alligrader")
-	if err != nil {
-		log.Println(err)
-		return ctx.InternalServerError()
-	}
-	log.Info("Automigrating")
-	db.AutoMigrate(&models.User{})
-	userDB := models.NewUserDB(db)
 
 	// Fetch the user out of the request context
 	log.Info("Converting payload")
@@ -75,7 +77,7 @@ func (c *UserController) Create(ctx *app.CreateUserContext) error {
 	u.Password = &t
 
 	// Add that user to the database
-	userDB.Add(ctx, u)
+	c.db.Add(ctx, u)
 	mediaUser := u.UserToUserMt()
 	log.Info("Success. Returning result.")
 

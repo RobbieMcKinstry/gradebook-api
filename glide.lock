@@ -1,10 +1,12 @@
-hash: f1a5cf47b301f9619d11721a5a458b125a28cc314eb4ef109e75419b6e39d091
-updated: 2017-02-23T23:23:26.435762072Z
+hash: f0124ee82b1851a7d1704a8d995d9d182fed611dbd21d6aeb84e55af53102952
+updated: 2017-02-24T06:01:15.177083804Z
 imports:
 - name: bitbucket.org/pkg/inflect
   version: 8961c3750a47b8c0b3e118d52513b97adf85a7e8
 - name: github.com/armon/go-metrics
   version: 93f237eba9b0602f3e73710416558854a81d9337
+- name: github.com/dgrijalva/jwt-go
+  version: d2709f9f1f31ebcda9651b03077758c1f3a0018c
 - name: github.com/dimfeld/httppath
   version: c8e499c3ef3c3e272ed8bdcc1ccf39f73c88debc
 - name: github.com/dimfeld/httptreemux
@@ -63,6 +65,10 @@ imports:
   subpackages:
   - context
   - websocket
+- name: golang.org/x/sys
+  version: e4594059fe4cde2daf423055a596c2cd1e6c9adf
+  subpackages:
+  - unix
 - name: golang.org/x/tools
   version: f8ed2e405fdcbb42c55233531ad98721e6d1cb3e
   subpackages:
