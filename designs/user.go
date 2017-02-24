@@ -5,19 +5,6 @@ import (
 	. "github.com/goadesign/goa/design/apidsl"
 )
 
-var _ = Resource("GithubToken", func() {
-
-	BasePath("/GHtoken")
-	Description("This is your GitHub API token")
-
-	Action("read", func() {
-		Description("Returns the GH token")
-		Routing(GET("/"))
-
-		Response(OK, GithubToken)
-	})
-})
-
 var _ = Resource("user", func() {
 	BasePath("/user")
 	Description("Represents a user of the site")
@@ -28,10 +15,11 @@ var _ = Resource("user", func() {
 		Routing(POST("/"))
 		Payload(UserCreate)
 		Response(OK, func() {
-			Status(200)
-			Media(UserMedia, "github")
+			Status(201)
+			Media(UserMedia)
 		})
 		Response(InternalServerError)
+		Response(Conflict)
 	})
 
 	Action("update", func() {
@@ -58,52 +46,37 @@ var _ = Resource("user", func() {
 	})
 })
 
-var GithubToken = MediaType("application/githubToken.mt", func() {
-	Attributes(func() {
-		Attribute("token")
-	})
-
-	View("default", func() {
-		Attribute("token")
-	})
-})
-
 var UserMedia = MediaType("application/user.mt", func() {
+	Reference(UserCreate)
 	Attributes(func() {
 		Attribute("id", Integer)
 		Attribute("name")
-		Attribute("email", String, "User email", func() {
-			Format("email")
-		})
-		Attribute("phone_number")
-		Attribute("callback")
+		Attribute("email")
+		Attribute("password")
 	})
 	View("default", func() {
 		Attribute("id", Integer)
 		Attribute("name")
-		Attribute("email", String, "User email", func() {
-			Format("email")
-		})
-		Attribute("phone_number")
+		Attribute("email")
 	})
 
-	View("github", func() {
-		Attribute("id", Integer)
+	View("Incoming", func() {
 		Attribute("name")
-		Attribute("email", String, "User email", func() {
-			Format("email")
-		})
-		Attribute("phone_number")
-		Attribute("callback")
+		Attribute("email")
+		Attribute("password")
 	})
 })
 
-var UserCreate = Type("user", func() {
+var UserCreate = Type("UserCreate", func() {
 	Description("payload used to sign up a user")
-	Attribute("name")
+	Attribute("name", func() {
+		MinLength(1)
+	})
 	Attribute("email", String, "User email", func() {
 		Format("email")
+		MinLength(1)
 	})
-	Attribute("phone_number")
-	Attribute("password")
+	Attribute("password", func() {
+		MinLength(2)
+	})
 })

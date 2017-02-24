@@ -220,56 +220,28 @@ func (ctx *UpdateBugProfileContext) NotFound() error {
 	return nil
 }
 
-// LoginGhContext provides the gh login action context.
-type LoginGhContext struct {
+// CreateGithubAuthContext provides the github_auth create action context.
+type CreateGithubAuthContext struct {
 	context.Context
 	*goa.ResponseData
 	*goa.RequestData
 }
 
-// NewLoginGhContext parses the incoming request URL and body, performs validations and creates the
-// context used by the gh controller login action.
-func NewLoginGhContext(ctx context.Context, service *goa.Service) (*LoginGhContext, error) {
+// NewCreateGithubAuthContext parses the incoming request URL and body, performs validations and creates the
+// context used by the github_auth controller create action.
+func NewCreateGithubAuthContext(ctx context.Context, service *goa.Service) (*CreateGithubAuthContext, error) {
 	var err error
 	resp := goa.ContextResponse(ctx)
 	resp.Service = service
 	req := goa.ContextRequest(ctx)
-	rctx := LoginGhContext{Context: ctx, ResponseData: resp, RequestData: req}
+	rctx := CreateGithubAuthContext{Context: ctx, ResponseData: resp, RequestData: req}
 	return &rctx, err
 }
 
-// OK sends a HTTP response with status code 200.
-func (ctx *LoginGhContext) OK(resp []byte) error {
-	ctx.ResponseData.Header().Set("Content-Type", "text/plain")
-	ctx.ResponseData.WriteHeader(200)
-	_, err := ctx.ResponseData.Write(resp)
-	return err
-}
-
-// Login2GhContext provides the gh login2 action context.
-type Login2GhContext struct {
-	context.Context
-	*goa.ResponseData
-	*goa.RequestData
-}
-
-// NewLogin2GhContext parses the incoming request URL and body, performs validations and creates the
-// context used by the gh controller login2 action.
-func NewLogin2GhContext(ctx context.Context, service *goa.Service) (*Login2GhContext, error) {
-	var err error
-	resp := goa.ContextResponse(ctx)
-	resp.Service = service
-	req := goa.ContextRequest(ctx)
-	rctx := Login2GhContext{Context: ctx, ResponseData: resp, RequestData: req}
-	return &rctx, err
-}
-
-// OK sends a HTTP response with status code 200.
-func (ctx *Login2GhContext) OK(resp []byte) error {
-	ctx.ResponseData.Header().Set("Content-Type", "text/plain")
-	ctx.ResponseData.WriteHeader(200)
-	_, err := ctx.ResponseData.Write(resp)
-	return err
+// Found sends a HTTP response with status code 302.
+func (ctx *CreateGithubAuthContext) Found() error {
+	ctx.ResponseData.WriteHeader(302)
+	return nil
 }
 
 // CreateUserContext provides the user create action context.
@@ -277,7 +249,7 @@ type CreateUserContext struct {
 	context.Context
 	*goa.ResponseData
 	*goa.RequestData
-	Payload *User
+	Payload *UserCreate
 }
 
 // NewCreateUserContext parses the incoming request URL and body, performs validations and creates the
@@ -291,10 +263,22 @@ func NewCreateUserContext(ctx context.Context, service *goa.Service) (*CreateUse
 	return &rctx, err
 }
 
-// OKGithub sends a HTTP response with status code 200.
-func (ctx *CreateUserContext) OKGithub(r *UserMtGithub) error {
+// OKIncoming sends a HTTP response with status code 201.
+func (ctx *CreateUserContext) OKIncoming(r *UserMtIncoming) error {
 	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
-	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
+	return ctx.ResponseData.Service.Send(ctx.Context, 201, r)
+}
+
+// OK sends a HTTP response with status code 201.
+func (ctx *CreateUserContext) OK(r *UserMt) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
+	return ctx.ResponseData.Service.Send(ctx.Context, 201, r)
+}
+
+// Conflict sends a HTTP response with status code 409.
+func (ctx *CreateUserContext) Conflict() error {
+	ctx.ResponseData.WriteHeader(409)
+	return nil
 }
 
 // InternalServerError sends a HTTP response with status code 500.
@@ -331,14 +315,14 @@ func NewReadUserContext(ctx context.Context, service *goa.Service) (*ReadUserCon
 	return &rctx, err
 }
 
-// OK sends a HTTP response with status code 200.
-func (ctx *ReadUserContext) OK(r *UserMt) error {
+// OKIncoming sends a HTTP response with status code 200.
+func (ctx *ReadUserContext) OKIncoming(r *UserMtIncoming) error {
 	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
 	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
 }
 
-// OKGithub sends a HTTP response with status code 200.
-func (ctx *ReadUserContext) OKGithub(r *UserMtGithub) error {
+// OK sends a HTTP response with status code 200.
+func (ctx *ReadUserContext) OK(r *UserMt) error {
 	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
 	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
 }
@@ -355,7 +339,7 @@ type UpdateUserContext struct {
 	*goa.ResponseData
 	*goa.RequestData
 	UserID  int
-	Payload *User
+	Payload *UserCreate
 }
 
 // NewUpdateUserContext parses the incoming request URL and body, performs validations and creates the
@@ -378,14 +362,14 @@ func NewUpdateUserContext(ctx context.Context, service *goa.Service) (*UpdateUse
 	return &rctx, err
 }
 
-// OK sends a HTTP response with status code 200.
-func (ctx *UpdateUserContext) OK(r *UserMt) error {
+// OKIncoming sends a HTTP response with status code 200.
+func (ctx *UpdateUserContext) OKIncoming(r *UserMtIncoming) error {
 	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
 	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
 }
 
-// OKGithub sends a HTTP response with status code 200.
-func (ctx *UpdateUserContext) OKGithub(r *UserMtGithub) error {
+// OK sends a HTTP response with status code 200.
+func (ctx *UpdateUserContext) OK(r *UserMt) error {
 	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
 	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
 }

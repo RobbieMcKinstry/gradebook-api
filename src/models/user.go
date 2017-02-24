@@ -20,14 +20,14 @@ import (
 
 // User Model Description
 type User struct {
-	ID          int `gorm:"primary_key"` // This is the User Model PK field
-	CreatedAt   time.Time
-	DeletedAt   *time.Time
-	Email       *string
-	Name        *string
-	Password    *string
-	PhoneNumber *string
-	UpdatedAt   time.Time
+	ID        int `gorm:"primary_key"` // This is the User Model PK field
+	CreatedAt time.Time
+	DeletedAt *time.Time
+	Email     *string
+	Name      *string
+	Password  *string
+	Salt      string // This stores the salt for the hash
+	UpdatedAt time.Time
 }
 
 // TableName overrides the table name settings in Gorm to force a specific table name
@@ -62,13 +62,13 @@ type UserStorage interface {
 	Update(ctx context.Context, user *User) error
 	Delete(ctx context.Context, id int) error
 
+	ListUserMtIncoming(ctx context.Context) []*app.UserMtIncoming
+	OneUserMtIncoming(ctx context.Context, id int) (*app.UserMtIncoming, error)
+
 	ListUserMt(ctx context.Context) []*app.UserMt
 	OneUserMt(ctx context.Context, id int) (*app.UserMt, error)
 
-	ListUserMtGithub(ctx context.Context) []*app.UserMtGithub
-	OneUserMtGithub(ctx context.Context, id int) (*app.UserMtGithub, error)
-
-	UpdateFromuser(ctx context.Context, payload *app.User, id int) error
+	UpdateFromUserCreate(ctx context.Context, payload *app.UserCreate, id int) error
 }
 
 // TableName overrides the table name settings in Gorm to force a specific table name
@@ -150,9 +150,9 @@ func (m *UserDB) Delete(ctx context.Context, id int) error {
 	return nil
 }
 
-// UserFromuser Converts source User to target User model
+// UserFromUserCreate Converts source UserCreate to target User model
 // only copying the non-nil fields from the source.
-func UserFromuser(payload *app.User) *User {
+func UserFromUserCreate(payload *app.UserCreate) *User {
 	user := &User{}
 	if payload.Email != nil {
 		user.Email = payload.Email
@@ -163,16 +163,13 @@ func UserFromuser(payload *app.User) *User {
 	if payload.Password != nil {
 		user.Password = payload.Password
 	}
-	if payload.PhoneNumber != nil {
-		user.PhoneNumber = payload.PhoneNumber
-	}
 
 	return user
 }
 
-// UpdateFromuser applies non-nil changes from User to the model and saves it
-func (m *UserDB) UpdateFromuser(ctx context.Context, payload *app.User, id int) error {
-	defer goa.MeasureSince([]string{"goa", "db", "user", "updatefromuser"}, time.Now())
+// UpdateFromUserCreate applies non-nil changes from UserCreate to the model and saves it
+func (m *UserDB) UpdateFromUserCreate(ctx context.Context, payload *app.UserCreate, id int) error {
+	defer goa.MeasureSince([]string{"goa", "db", "user", "updatefromuserCreate"}, time.Now())
 
 	var obj User
 	err := m.Db.Table(m.TableName()).Where("id = ?", id).Find(&obj).Error
@@ -188,9 +185,6 @@ func (m *UserDB) UpdateFromuser(ctx context.Context, payload *app.User, id int) 
 	}
 	if payload.Password != nil {
 		obj.Password = payload.Password
-	}
-	if payload.PhoneNumber != nil {
-		obj.PhoneNumber = payload.PhoneNumber
 	}
 
 	err = m.Db.Save(&obj).Error

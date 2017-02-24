@@ -8,3 +8,8 @@ import:
 - package: github.com/goadesign/gorma
 - package: github.com/jinzhu/gorm
   version: ~1.0.0
+- package: golang.org/x/crypto
+  subpackages:
+  - bcrypt
+- package: github.com/Sirupsen/logrus
+  version: ~0.11.2

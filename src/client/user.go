@@ -26,7 +26,7 @@ func CreateUserPath() string {
 }
 
 // Sign up for the first time
-func (c *Client) CreateUser(ctx context.Context, path string, payload *User) (*http.Response, error) {
+func (c *Client) CreateUser(ctx context.Context, path string, payload *UserCreate) (*http.Response, error) {
 	req, err := c.NewCreateUserRequest(ctx, path, payload)
 	if err != nil {
 		return nil, err
@@ -35,7 +35,7 @@ func (c *Client) CreateUser(ctx context.Context, path string, payload *User) (*h
 }
 
 // NewCreateUserRequest create the request corresponding to the create action endpoint of the user resource.
-func (c *Client) NewCreateUserRequest(ctx context.Context, path string, payload *User) (*http.Request, error) {
+func (c *Client) NewCreateUserRequest(ctx context.Context, path string, payload *UserCreate) (*http.Request, error) {
 	var body bytes.Buffer
 	err := c.Encoder.Encode(payload, &body, "*/*")
 	if err != nil {
@@ -91,7 +91,7 @@ func UpdateUserPath(userID int) string {
 }
 
 // Adjust your account settings
-func (c *Client) UpdateUser(ctx context.Context, path string, payload *User) (*http.Response, error) {
+func (c *Client) UpdateUser(ctx context.Context, path string, payload *UserCreate) (*http.Response, error) {
 	req, err := c.NewUpdateUserRequest(ctx, path, payload)
 	if err != nil {
 		return nil, err
@@ -100,7 +100,7 @@ func (c *Client) UpdateUser(ctx context.Context, path string, payload *User) (*h
 }
 
 // NewUpdateUserRequest create the request corresponding to the update action endpoint of the user resource.
-func (c *Client) NewUpdateUserRequest(ctx context.Context, path string, payload *User) (*http.Request, error) {
+func (c *Client) NewUpdateUserRequest(ctx context.Context, path string, payload *UserCreate) (*http.Request, error) {
 	var body bytes.Buffer
 	err := c.Encoder.Encode(payload, &body, "*/*")
 	if err != nil {

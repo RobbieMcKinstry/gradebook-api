@@ -10,7 +10,10 @@
 
 package app
 
-import "github.com/goadesign/goa"
+import (
+	"github.com/goadesign/goa"
+	"unicode/utf8"
+)
 
 // Description of which Checkstyle lints are checked.
 type checkstyle struct {
@@ -1116,6 +1119,87 @@ type Findbugs struct {
 	Name *string `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
 }
 
+// payload used to sign up a user
+type userCreate struct {
+	// User email
+	Email    *string `form:"email,omitempty" json:"email,omitempty" xml:"email,omitempty"`
+	Name     *string `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
+	Password *string `form:"password,omitempty" json:"password,omitempty" xml:"password,omitempty"`
+}
+
+// Validate validates the userCreate type instance.
+func (ut *userCreate) Validate() (err error) {
+	if ut.Email != nil {
+		if err2 := goa.ValidateFormat(goa.FormatEmail, *ut.Email); err2 != nil {
+			err = goa.MergeErrors(err, goa.InvalidFormatError(`response.email`, *ut.Email, goa.FormatEmail, err2))
+		}
+	}
+	if ut.Email != nil {
+		if utf8.RuneCountInString(*ut.Email) < 1 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.email`, *ut.Email, utf8.RuneCountInString(*ut.Email), 1, true))
+		}
+	}
+	if ut.Name != nil {
+		if utf8.RuneCountInString(*ut.Name) < 1 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.name`, *ut.Name, utf8.RuneCountInString(*ut.Name), 1, true))
+		}
+	}
+	if ut.Password != nil {
+		if utf8.RuneCountInString(*ut.Password) < 2 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.password`, *ut.Password, utf8.RuneCountInString(*ut.Password), 2, true))
+		}
+	}
+	return
+}
+
+// Publicize creates UserCreate from userCreate
+func (ut *userCreate) Publicize() *UserCreate {
+	var pub UserCreate
+	if ut.Email != nil {
+		pub.Email = ut.Email
+	}
+	if ut.Name != nil {
+		pub.Name = ut.Name
+	}
+	if ut.Password != nil {
+		pub.Password = ut.Password
+	}
+	return &pub
+}
+
+// payload used to sign up a user
+type UserCreate struct {
+	// User email
+	Email    *string `form:"email,omitempty" json:"email,omitempty" xml:"email,omitempty"`
+	Name     *string `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
+	Password *string `form:"password,omitempty" json:"password,omitempty" xml:"password,omitempty"`
+}
+
+// Validate validates the UserCreate type instance.
+func (ut *UserCreate) Validate() (err error) {
+	if ut.Email != nil {
+		if err2 := goa.ValidateFormat(goa.FormatEmail, *ut.Email); err2 != nil {
+			err = goa.MergeErrors(err, goa.InvalidFormatError(`response.email`, *ut.Email, goa.FormatEmail, err2))
+		}
+	}
+	if ut.Email != nil {
+		if utf8.RuneCountInString(*ut.Email) < 1 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.email`, *ut.Email, utf8.RuneCountInString(*ut.Email), 1, true))
+		}
+	}
+	if ut.Name != nil {
+		if utf8.RuneCountInString(*ut.Name) < 1 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.name`, *ut.Name, utf8.RuneCountInString(*ut.Name), 1, true))
+		}
+	}
+	if ut.Password != nil {
+		if utf8.RuneCountInString(*ut.Password) < 2 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.password`, *ut.Password, utf8.RuneCountInString(*ut.Password), 2, true))
+		}
+	}
+	return
+}
+
 // A bug profile
 type bugProfile struct {
 	Checkstyle *checkstyle `form:"checkstyle,omitempty" json:"checkstyle,omitempty" xml:"checkstyle,omitempty"`
@@ -1143,60 +1227,4 @@ type BugProfile struct {
 	Checkstyle *Checkstyle `form:"checkstyle,omitempty" json:"checkstyle,omitempty" xml:"checkstyle,omitempty"`
 	Findbugs   *Findbugs   `form:"findbugs,omitempty" json:"findbugs,omitempty" xml:"findbugs,omitempty"`
 	Name       *string     `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-}
-
-// payload used to sign up a user
-type user struct {
-	// User email
-	Email       *string `form:"email,omitempty" json:"email,omitempty" xml:"email,omitempty"`
-	Name        *string `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	Password    *string `form:"password,omitempty" json:"password,omitempty" xml:"password,omitempty"`
-	PhoneNumber *string `form:"phone_number,omitempty" json:"phone_number,omitempty" xml:"phone_number,omitempty"`
-}
-
-// Validate validates the user type instance.
-func (ut *user) Validate() (err error) {
-	if ut.Email != nil {
-		if err2 := goa.ValidateFormat(goa.FormatEmail, *ut.Email); err2 != nil {
-			err = goa.MergeErrors(err, goa.InvalidFormatError(`response.email`, *ut.Email, goa.FormatEmail, err2))
-		}
-	}
-	return
-}
-
-// Publicize creates User from user
-func (ut *user) Publicize() *User {
-	var pub User
-	if ut.Email != nil {
-		pub.Email = ut.Email
-	}
-	if ut.Name != nil {
-		pub.Name = ut.Name
-	}
-	if ut.Password != nil {
-		pub.Password = ut.Password
-	}
-	if ut.PhoneNumber != nil {
-		pub.PhoneNumber = ut.PhoneNumber
-	}
-	return &pub
-}
-
-// payload used to sign up a user
-type User struct {
-	// User email
-	Email       *string `form:"email,omitempty" json:"email,omitempty" xml:"email,omitempty"`
-	Name        *string `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	Password    *string `form:"password,omitempty" json:"password,omitempty" xml:"password,omitempty"`
-	PhoneNumber *string `form:"phone_number,omitempty" json:"phone_number,omitempty" xml:"phone_number,omitempty"`
-}
-
-// Validate validates the User type instance.
-func (ut *User) Validate() (err error) {
-	if ut.Email != nil {
-		if err2 := goa.ValidateFormat(goa.FormatEmail, *ut.Email); err2 != nil {
-			err = goa.MergeErrors(err, goa.InvalidFormatError(`response.email`, *ut.Email, goa.FormatEmail, err2))
-		}
-	}
-	return
 }

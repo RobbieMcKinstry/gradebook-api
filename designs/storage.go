@@ -19,6 +19,9 @@ var _ = StorageGroup("GlobalStorageGroup", func() {
 				PrimaryKey()
 				Description("This is the User Model PK field")
 			})
+			Field("salt", gorma.String, func() {
+				Description("This stores the salt for the hash")
+			})
 		})
 	})
 })

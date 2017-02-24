@@ -10,7 +10,10 @@
 
 package app
 
-import "github.com/goadesign/goa"
+import (
+	"github.com/goadesign/goa"
+	"unicode/utf8"
+)
 
 // GithubtokenMt media type (default view)
 //
@@ -19,15 +22,49 @@ type GithubtokenMt struct {
 	Token *string `form:"token,omitempty" json:"token,omitempty" xml:"token,omitempty"`
 }
 
+// UserMt media type (Incoming view)
+//
+// Identifier: application/user.mt; view=Incoming
+type UserMtIncoming struct {
+	// User email
+	Email    *string `form:"email,omitempty" json:"email,omitempty" xml:"email,omitempty"`
+	Name     *string `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
+	Password *string `form:"password,omitempty" json:"password,omitempty" xml:"password,omitempty"`
+}
+
+// Validate validates the UserMtIncoming media type instance.
+func (mt *UserMtIncoming) Validate() (err error) {
+	if mt.Email != nil {
+		if err2 := goa.ValidateFormat(goa.FormatEmail, *mt.Email); err2 != nil {
+			err = goa.MergeErrors(err, goa.InvalidFormatError(`response.email`, *mt.Email, goa.FormatEmail, err2))
+		}
+	}
+	if mt.Email != nil {
+		if utf8.RuneCountInString(*mt.Email) < 1 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.email`, *mt.Email, utf8.RuneCountInString(*mt.Email), 1, true))
+		}
+	}
+	if mt.Name != nil {
+		if utf8.RuneCountInString(*mt.Name) < 1 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.name`, *mt.Name, utf8.RuneCountInString(*mt.Name), 1, true))
+		}
+	}
+	if mt.Password != nil {
+		if utf8.RuneCountInString(*mt.Password) < 2 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.password`, *mt.Password, utf8.RuneCountInString(*mt.Password), 2, true))
+		}
+	}
+	return
+}
+
 // UserMt media type (default view)
 //
 // Identifier: application/user.mt; view=default
 type UserMt struct {
 	// User email
-	Email       *string `form:"email,omitempty" json:"email,omitempty" xml:"email,omitempty"`
-	ID          *int    `form:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
-	Name        *string `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	PhoneNumber *string `form:"phone_number,omitempty" json:"phone_number,omitempty" xml:"phone_number,omitempty"`
+	Email *string `form:"email,omitempty" json:"email,omitempty" xml:"email,omitempty"`
+	ID    *int    `form:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	Name  *string `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
 }
 
 // Validate validates the UserMt media type instance.
@@ -37,26 +74,14 @@ func (mt *UserMt) Validate() (err error) {
 			err = goa.MergeErrors(err, goa.InvalidFormatError(`response.email`, *mt.Email, goa.FormatEmail, err2))
 		}
 	}
-	return
-}
-
-// UserMt media type (github view)
-//
-// Identifier: application/user.mt; view=github
-type UserMtGithub struct {
-	Callback *string `form:"callback,omitempty" json:"callback,omitempty" xml:"callback,omitempty"`
-	// User email
-	Email       *string `form:"email,omitempty" json:"email,omitempty" xml:"email,omitempty"`
-	ID          *int    `form:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
-	Name        *string `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
-	PhoneNumber *string `form:"phone_number,omitempty" json:"phone_number,omitempty" xml:"phone_number,omitempty"`
-}
-
-// Validate validates the UserMtGithub media type instance.
-func (mt *UserMtGithub) Validate() (err error) {
 	if mt.Email != nil {
-		if err2 := goa.ValidateFormat(goa.FormatEmail, *mt.Email); err2 != nil {
-			err = goa.MergeErrors(err, goa.InvalidFormatError(`response.email`, *mt.Email, goa.FormatEmail, err2))
+		if utf8.RuneCountInString(*mt.Email) < 1 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.email`, *mt.Email, utf8.RuneCountInString(*mt.Email), 1, true))
+		}
+	}
+	if mt.Name != nil {
+		if utf8.RuneCountInString(*mt.Name) < 1 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.name`, *mt.Name, utf8.RuneCountInString(*mt.Name), 1, true))
 		}
 	}
 	return

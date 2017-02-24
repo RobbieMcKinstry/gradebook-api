@@ -1,13 +1,15 @@
 package main
 
 import (
-	"log"
-	"strconv"
+	"bytes"
+	log "github.com/Sirupsen/logrus"
+	"math/rand"
 
 	"github.com/alligrader/gradebook-api/src/app"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/goadesign/goa"
 	"github.com/jinzhu/gorm"
+	"golang.org/x/crypto/bcrypt"
 
 	"github.com/alligrader/gradebook-api/src/models"
 )
@@ -35,23 +37,62 @@ func (c *UserController) Create(ctx *app.CreateUserContext) error {
 	// UserController_Create: start_implement
 
 	// Open the connection to the DB
+	log.Info("Opening connection to DB")
 	db, err := gorm.Open("mysql", "root:root@tcp(127.0.0.1:3306)/alligrader")
-	db.AutoMigrate(&models.User{})
 	if err != nil {
 		log.Println(err)
 		return ctx.InternalServerError()
 	}
+	log.Info("Automigrating")
+	db.AutoMigrate(&models.User{})
 	userDB := models.NewUserDB(db)
 
 	// Fetch the user out of the request context
-	u := models.UserFromuser(ctx.Payload)
+	log.Info("Converting payload")
+	u := models.UserFromUserCreate(ctx.Payload)
+
+	// Generate the salt
+	log.Info("Getting the salt")
+	u.Salt = getSalt()
+
+	// Take the password out of the media type,
+	// Salt and hash it
+
+	log.Info("Generating the hash")
+	var saltedPass bytes.Buffer
+	if u.Password == nil {
+		return ctx.InternalServerError()
+	}
+	saltedPass.Write([]byte(*u.Password))
+	saltedPass.Write([]byte(u.Salt))
+	pass, err := bcrypt.GenerateFromPassword(saltedPass.Bytes(), bcrypt.DefaultCost)
+	if err != nil {
+		log.Warn(err)
+	}
+	log.Info("Hash generated. Writing the user to the DB")
+	// Store it back in.
+	t := string(pass)
+	u.Password = &t
 
 	// Add that user to the database
 	userDB.Add(ctx, u)
-	mediaUser := u.UserToUserMtGithub()
-	url := "/api/user" + strconv.Itoa(*mediaUser.ID)
-	mediaUser.Callback = &url
+	mediaUser := u.UserToUserMt()
+	log.Info("Success. Returning result.")
+
+	// Rip out the password before returning it.
+	u.Password = nil
 
 	// UserController_Create: end_implement
-	return ctx.OKGithub(mediaUser)
+	return ctx.OK(mediaUser)
+}
+
+func getSalt() string {
+	const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	const length = 64
+
+	randString := make([]byte, length)
+	for i := range randString {
+		randString[i] = letters[rand.Intn(len(letters))]
+	}
+	return string(randString)
 }

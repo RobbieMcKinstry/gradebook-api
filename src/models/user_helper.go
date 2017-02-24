@@ -20,6 +20,54 @@ import (
 
 // MediaType Retrieval Functions
 
+// ListUserMtIncoming returns an array of view: Incoming.
+func (m *UserDB) ListUserMtIncoming(ctx context.Context) []*app.UserMtIncoming {
+	defer goa.MeasureSince([]string{"goa", "db", "userMt", "listuserMtincoming"}, time.Now())
+
+	var native []*User
+	var objs []*app.UserMtIncoming
+	err := m.Db.Scopes().Table(m.TableName()).Find(&native).Error
+
+	if err != nil {
+		goa.LogError(ctx, "error listing User", "error", err.Error())
+		return objs
+	}
+
+	for _, t := range native {
+		objs = append(objs, t.UserToUserMtIncoming())
+	}
+
+	return objs
+}
+
+// UserToUserMtIncoming loads a User and builds the Incoming view of media type UserMt.
+func (m *User) UserToUserMtIncoming() *app.UserMtIncoming {
+	user := &app.UserMtIncoming{}
+	user.Email = m.Email
+	user.Name = m.Name
+	user.Password = m.Password
+
+	return user
+}
+
+// OneUserMtIncoming loads a User and builds the Incoming view of media type UserMt.
+func (m *UserDB) OneUserMtIncoming(ctx context.Context, id int) (*app.UserMtIncoming, error) {
+	defer goa.MeasureSince([]string{"goa", "db", "userMt", "oneuserMtincoming"}, time.Now())
+
+	var native User
+	err := m.Db.Scopes().Table(m.TableName()).Where("id = ?", id).Find(&native).Error
+
+	if err != nil && err != gorm.ErrRecordNotFound {
+		goa.LogError(ctx, "error getting User", "error", err.Error())
+		return nil, err
+	}
+
+	view := *native.UserToUserMtIncoming()
+	return &view, err
+}
+
+// MediaType Retrieval Functions
+
 // ListUserMt returns an array of view: default.
 func (m *UserDB) ListUserMt(ctx context.Context) []*app.UserMt {
 	defer goa.MeasureSince([]string{"goa", "db", "userMt", "listuserMt"}, time.Now())
@@ -46,7 +94,6 @@ func (m *User) UserToUserMt() *app.UserMt {
 	user.Email = m.Email
 	user.ID = &m.ID
 	user.Name = m.Name
-	user.PhoneNumber = m.PhoneNumber
 
 	return user
 }
@@ -64,54 +111,5 @@ func (m *UserDB) OneUserMt(ctx context.Context, id int) (*app.UserMt, error) {
 	}
 
 	view := *native.UserToUserMt()
-	return &view, err
-}
-
-// MediaType Retrieval Functions
-
-// ListUserMtGithub returns an array of view: github.
-func (m *UserDB) ListUserMtGithub(ctx context.Context) []*app.UserMtGithub {
-	defer goa.MeasureSince([]string{"goa", "db", "userMt", "listuserMtgithub"}, time.Now())
-
-	var native []*User
-	var objs []*app.UserMtGithub
-	err := m.Db.Scopes().Table(m.TableName()).Find(&native).Error
-
-	if err != nil {
-		goa.LogError(ctx, "error listing User", "error", err.Error())
-		return objs
-	}
-
-	for _, t := range native {
-		objs = append(objs, t.UserToUserMtGithub())
-	}
-
-	return objs
-}
-
-// UserToUserMtGithub loads a User and builds the github view of media type UserMt.
-func (m *User) UserToUserMtGithub() *app.UserMtGithub {
-	user := &app.UserMtGithub{}
-	user.Email = m.Email
-	user.ID = &m.ID
-	user.Name = m.Name
-	user.PhoneNumber = m.PhoneNumber
-
-	return user
-}
-
-// OneUserMtGithub loads a User and builds the github view of media type UserMt.
-func (m *UserDB) OneUserMtGithub(ctx context.Context, id int) (*app.UserMtGithub, error) {
-	defer goa.MeasureSince([]string{"goa", "db", "userMt", "oneuserMtgithub"}, time.Now())
-
-	var native User
-	err := m.Db.Scopes().Table(m.TableName()).Where("id = ?", id).Find(&native).Error
-
-	if err != nil && err != gorm.ErrRecordNotFound {
-		goa.LogError(ctx, "error getting User", "error", err.Error())
-		return nil, err
-	}
-
-	view := *native.UserToUserMtGithub()
 	return &view, err
 }

@@ -67,13 +67,8 @@ type (
 		PrettyPrint bool
 	}
 
-	// LoginGhCommand is the command line data structure for the login action of gh
-	LoginGhCommand struct {
-		PrettyPrint bool
-	}
-
-	// Login2GhCommand is the command line data structure for the login2 action of gh
-	Login2GhCommand struct {
+	// CreateGithubAuthCommand is the command line data structure for the create action of github_auth
+	CreateGithubAuthCommand struct {
 		PrettyPrint bool
 	}
 
@@ -124,171 +119,180 @@ Payload example:
 
 {
    "checkstyle": {
-      "AbbreviationAsWordInName": false,
-      "AbstractClassName": false,
-      "AnnotationLocation": true,
+      "AbbreviationAsWordInName": true,
+      "AbstractClassName": true,
+      "AnnotationLocation": false,
       "AnnotationUseStyle": true,
       "AnonInnerLength": false,
-      "ArrayTrailingComma": true,
-      "ArrayTypeStyle": true,
+      "ArrayTrailingComma": false,
+      "ArrayTypeStyle": false,
       "AtclauseOrder": true,
       "AvoidEscapedUnicodeCharacters": true,
       "AvoidInlineConditionals": true,
       "AvoidNestedBlocks": true,
-      "AvoidStarImport": false,
+      "AvoidStarImport": true,
       "AvoidStaticImport": true,
-      "BooleanExpressionComplexity": true,
-      "CatchParameterName": false,
+      "BooleanExpressionComplexity": false,
+      "CatchParameterName": true,
       "ClassDataAbstractionCoupling": false,
       "ClassFanOutComplexity": true,
-      "ClassTypeParameterName": false,
+      "ClassTypeParameterName": true,
       "CommentsIndentation": false,
-      "ConstantName": true,
-      "CovariantEquals": true,
-      "CustomImportOrder": false,
-      "CyclomaticComplexity": false,
-      "DeclarationOrder": true,
-      "DefaultComesLast": true,
+      "ConstantName": false,
+      "CovariantEquals": false,
+      "CustomImportOrder": true,
+      "CyclomaticComplexity": true,
+      "DeclarationOrder": false,
+      "DefaultComesLast": false,
       "DescendantToken": true,
       "DesignForExtension": false,
-      "EmptyBlock": false,
-      "EmptyCatchBlock": true,
-      "EmptyForInitializerPad": true,
-      "EmptyForIteratorPad": true,
+      "EmptyBlock": true,
+      "EmptyCatchBlock": false,
+      "EmptyForInitializerPad": false,
+      "EmptyForIteratorPad": false,
       "EmptyLineSeparator": false,
-      "EmptyStatement": false,
-      "EqualsAvoidNull": true,
-      "EqualsHashCode": false,
-      "ExecutableStatementCount": true,
+      "EmptyStatement": true,
+      "EqualsAvoidNull": false,
+      "EqualsHashCode": true,
+      "ExecutableStatementCount": false,
       "ExplicitInitialization": true,
-      "FallThrough": true,
+      "FallThrough": false,
       "FileLength": false,
       "FileTabCharacter": false,
-      "FinalClass": false,
+      "FinalClass": true,
       "FinalLocalVariable": false,
-      "FinalParameters": true,
+      "FinalParameters": false,
       "GenericWhitespace": false,
-      "Header": false,
+      "Header": true,
       "HiddenField": true,
       "HideUtilityClassConstructor": false,
       "IllegalCatch": true,
       "IllegalImport": true,
-      "IllegalInstantiation": false,
+      "IllegalInstantiation": true,
       "IllegalThrows": true,
       "IllegalToken": true,
       "IllegalTokenText": true,
-      "IllegalType": true,
-      "ImportControl": false,
+      "IllegalType": false,
+      "ImportControl": true,
       "ImportOrder": true,
-      "Indentation": true,
-      "InnerAssignment": true,
-      "InnerTypeLast": false,
+      "Indentation": false,
+      "InnerAssignment": false,
+      "InnerTypeLast": true,
       "InterfaceIsType": false,
-      "InterfaceTypeParameterName": true,
+      "InterfaceTypeParameterName": false,
       "JavaNCSS": true,
-      "JavadocMethod": false,
+      "JavadocMethod": true,
       "JavadocPackage": false,
       "JavadocParagraph": false,
       "JavadocStyle": true,
       "JavadocTagContinuationIndentation": true,
       "JavadocType": true,
-      "JavadocVariable": true,
-      "LeftCurly": true,
-      "LineLength": false,
-      "LocalFinalVariableName": false,
+      "JavadocVariable": false,
+      "LeftCurly": false,
+      "LineLength": true,
+      "LocalFinalVariableName": true,
       "LocalVariableName": true,
       "MagicNumber": false,
-      "MemberName": true,
+      "MemberName": false,
       "MethodCount": true,
       "MethodLength": false,
-      "MethodName": false,
+      "MethodName": true,
       "MethodParamPad": true,
-      "MethodTypeParameterName": false,
+      "MethodTypeParameterName": true,
       "MissingCtor": false,
       "MissingDeprecated": false,
       "MissingOverride": false,
-      "MissingSwitchDefault": true,
+      "MissingSwitchDefault": false,
       "ModifiedControlVariable": true,
       "ModifierOrder": false,
       "MultipleStringLiterals": false,
-      "MultipleVariableDeclarations": false,
+      "MultipleVariableDeclarations": true,
       "MutableException": false,
-      "NPathComplexity": false,
+      "NPathComplexity": true,
       "NeedBraces": true,
-      "NestedForDepth": true,
+      "NestedForDepth": false,
       "NestedIfDepth": true,
-      "NestedTryDepth": false,
+      "NestedTryDepth": true,
       "NewlineAtEndOfFile": true,
-      "NoClone": false,
-      "NoFinalizer": true,
-      "NoLineWrap": false,
+      "NoClone": true,
+      "NoFinalizer": false,
+      "NoLineWrap": true,
       "NoWhitespaceAfter": true,
       "NoWhitespaceBefore": true,
-      "NonEmptyAtclauseDescription": true,
-      "OneStatementPerLine": true,
+      "NonEmptyAtclauseDescription": false,
+      "OneStatementPerLine": false,
       "OneTopLevelClass": true,
-      "OperatorWrap": false,
+      "OperatorWrap": true,
       "OuterTypeFilename": false,
       "OuterTypeNumber": false,
       "OverloadMethodsDeclarationOrder": false,
-      "PackageAnnotation": false,
-      "PackageDeclaration": false,
+      "PackageAnnotation": true,
+      "PackageDeclaration": true,
       "PackageName": true,
       "ParameterAssignment": true,
       "ParameterName": true,
-      "ParameterNumber": true,
+      "ParameterNumber": false,
       "ParenPad": false,
       "RedundantImport": true,
       "RedundantModifier": false,
-      "Regexp": false,
+      "Regexp": true,
       "RegexpHeader": true,
       "RegexpMultiline": false,
-      "RegexpOnFilename": true,
-      "RegexpSingleline": false,
+      "RegexpOnFilename": false,
+      "RegexpSingleline": true,
       "RegexpSinglelineJava": false,
       "RequireThis": false,
-      "ReturnCount": true,
-      "RightCurly": true,
+      "ReturnCount": false,
+      "RightCurly": false,
       "SeparatorWrap": true,
       "SimplifyBooleanExpression": true,
       "SimplifyBooleanReturn": false,
       "SingleLineJavadoc": false,
-      "SingleSpaceSeparator": true,
-      "StaticVariableName": true,
-      "StringLiteralEquality": true,
+      "SingleSpaceSeparator": false,
+      "StaticVariableName": false,
+      "StringLiteralEquality": false,
       "SummaryJavadoc": true,
-      "SuperClone": false,
-      "SuperFinalize": false,
+      "SuperClone": true,
+      "SuperFinalize": true,
       "SuppressWarnings": false,
-      "SuppressWarningsHolder": false,
-      "ThrowsCount": true,
-      "TodoComment": false,
+      "SuppressWarningsHolder": true,
+      "ThrowsCount": false,
+      "TodoComment": true,
       "TrailingComment": false,
-      "Translation": false,
+      "Translation": true,
       "TypeName": true,
       "TypecastParenPad": true,
       "UncommentedMain": true,
-      "UniqueProperties": false,
+      "UniqueProperties": true,
       "UnnecessaryParentheses": false,
-      "UnusedImports": true,
-      "UpperEll": true,
-      "VariableDeclarationUsageDistance": true,
-      "VisibilityModifier": true,
-      "WhitespaceAfter": true,
-      "WhitespaceAround": false,
+      "UnusedImports": false,
+      "UpperEll": false,
+      "VariableDeclarationUsageDistance": false,
+      "VisibilityModifier": false,
+      "WhitespaceAfter": false,
+      "WhitespaceAround": true,
       "WriteTag": true
    },
    "findbugs": {
-      "name": "Nulla ipsa."
+      "name": "Porro aut quia."
    },
-   "name": "Et aspernatur."
+   "name": "Est iure perspiciatis optio."
 }`,
 		RunE: func(cmd *cobra.Command, args []string) error { return tmp1.Run(c, args) },
 	}
 	tmp1.RegisterFlags(sub, c)
 	sub.PersistentFlags().BoolVar(&tmp1.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
-	tmp2 := new(CreateUserCommand)
+	tmp2 := new(CreateGithubAuthCommand)
+	sub = &cobra.Command{
+		Use:   `github_auth ["/api/auth/gh"]`,
+		Short: `Auth with GitHub OAuth`,
+		RunE:  func(cmd *cobra.Command, args []string) error { return tmp2.Run(c, args) },
+	}
+	tmp2.RegisterFlags(sub, c)
+	sub.PersistentFlags().BoolVar(&tmp2.PrettyPrint, "pp", false, "Pretty print response body")
+	command.AddCommand(sub)
+	tmp3 := new(CreateUserCommand)
 	sub = &cobra.Command{
 		Use:   `user ["/api/user"]`,
 		Short: `Represents a user of the site`,
@@ -297,38 +301,23 @@ Payload example:
 Payload example:
 
 {
-   "email": "patsy_prohaska@breitenberg.org",
-   "name": "Et nostrum est.",
-   "password": "Ut enim ea voluptas magni.",
-   "phone_number": "Et minus odio."
+   "email": "rd",
+   "name": "ye",
+   "password": "njq"
 }`,
-		RunE: func(cmd *cobra.Command, args []string) error { return tmp2.Run(c, args) },
-	}
-	tmp2.RegisterFlags(sub, c)
-	sub.PersistentFlags().BoolVar(&tmp2.PrettyPrint, "pp", false, "Pretty print response body")
-	command.AddCommand(sub)
-	app.AddCommand(command)
-	command = &cobra.Command{
-		Use:   "delete",
-		Short: `I don't want this bug profile anymore`,
-	}
-	tmp3 := new(DeleteBugProfileCommand)
-	sub = &cobra.Command{
-		Use:   `bug_profile ["/api/bug-profile/PROFILEID"]`,
-		Short: `Bug profile represents the list of bugs the user wants us to check for`,
-		RunE:  func(cmd *cobra.Command, args []string) error { return tmp3.Run(c, args) },
+		RunE: func(cmd *cobra.Command, args []string) error { return tmp3.Run(c, args) },
 	}
 	tmp3.RegisterFlags(sub, c)
 	sub.PersistentFlags().BoolVar(&tmp3.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
 	app.AddCommand(command)
 	command = &cobra.Command{
-		Use:   "list",
-		Short: `Show all of my bug profiles`,
+		Use:   "delete",
+		Short: `I don't want this bug profile anymore`,
 	}
-	tmp4 := new(ListBugProfileCommand)
+	tmp4 := new(DeleteBugProfileCommand)
 	sub = &cobra.Command{
-		Use:   `bug_profile ["/api/bug-profile"]`,
+		Use:   `bug_profile ["/api/bug-profile/PROFILEID"]`,
 		Short: `Bug profile represents the list of bugs the user wants us to check for`,
 		RunE:  func(cmd *cobra.Command, args []string) error { return tmp4.Run(c, args) },
 	}
@@ -337,13 +326,13 @@ Payload example:
 	command.AddCommand(sub)
 	app.AddCommand(command)
 	command = &cobra.Command{
-		Use:   "login",
-		Short: ``,
+		Use:   "list",
+		Short: `Show all of my bug profiles`,
 	}
-	tmp5 := new(LoginGhCommand)
+	tmp5 := new(ListBugProfileCommand)
 	sub = &cobra.Command{
-		Use:   `gh ["/api/gh"]`,
-		Short: `For GH logins`,
+		Use:   `bug_profile ["/api/bug-profile"]`,
+		Short: `Bug profile represents the list of bugs the user wants us to check for`,
 		RunE:  func(cmd *cobra.Command, args []string) error { return tmp5.Run(c, args) },
 	}
 	tmp5.RegisterFlags(sub, c)
@@ -351,36 +340,36 @@ Payload example:
 	command.AddCommand(sub)
 	app.AddCommand(command)
 	command = &cobra.Command{
-		Use:   "login2",
-		Short: ``,
+		Use:   "read",
+		Short: `read action`,
 	}
-	tmp6 := new(Login2GhCommand)
+	tmp6 := new(ReadGithubTokenCommand)
 	sub = &cobra.Command{
-		Use:   `gh ["/api/gh"]`,
-		Short: `For GH logins`,
+		Use:   `GithubToken ["/api/GHtoken"]`,
+		Short: `This is your GitHub API token`,
 		RunE:  func(cmd *cobra.Command, args []string) error { return tmp6.Run(c, args) },
 	}
 	tmp6.RegisterFlags(sub, c)
 	sub.PersistentFlags().BoolVar(&tmp6.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
-	app.AddCommand(command)
-	command = &cobra.Command{
-		Use:   "read",
-		Short: `read action`,
-	}
-	tmp7 := new(ReadGithubTokenCommand)
+	tmp7 := new(ReadUserCommand)
 	sub = &cobra.Command{
-		Use:   `GithubToken ["/api/GHtoken"]`,
-		Short: `This is your GitHub API token`,
+		Use:   `user ["/api/user/USERID"]`,
+		Short: `Represents a user of the site`,
 		RunE:  func(cmd *cobra.Command, args []string) error { return tmp7.Run(c, args) },
 	}
 	tmp7.RegisterFlags(sub, c)
 	sub.PersistentFlags().BoolVar(&tmp7.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
-	tmp8 := new(ReadUserCommand)
+	app.AddCommand(command)
+	command = &cobra.Command{
+		Use:   "show",
+		Short: `Show a single bug profile`,
+	}
+	tmp8 := new(ShowBugProfileCommand)
 	sub = &cobra.Command{
-		Use:   `user ["/api/user/USERID"]`,
-		Short: `Represents a user of the site`,
+		Use:   `bug_profile ["/api/bug-profile/PROFILEID"]`,
+		Short: `Bug profile represents the list of bugs the user wants us to check for`,
 		RunE:  func(cmd *cobra.Command, args []string) error { return tmp8.Run(c, args) },
 	}
 	tmp8.RegisterFlags(sub, c)
@@ -388,24 +377,10 @@ Payload example:
 	command.AddCommand(sub)
 	app.AddCommand(command)
 	command = &cobra.Command{
-		Use:   "show",
-		Short: `Show a single bug profile`,
-	}
-	tmp9 := new(ShowBugProfileCommand)
-	sub = &cobra.Command{
-		Use:   `bug_profile ["/api/bug-profile/PROFILEID"]`,
-		Short: `Bug profile represents the list of bugs the user wants us to check for`,
-		RunE:  func(cmd *cobra.Command, args []string) error { return tmp9.Run(c, args) },
-	}
-	tmp9.RegisterFlags(sub, c)
-	sub.PersistentFlags().BoolVar(&tmp9.PrettyPrint, "pp", false, "Pretty print response body")
-	command.AddCommand(sub)
-	app.AddCommand(command)
-	command = &cobra.Command{
 		Use:   "update",
 		Short: `update action`,
 	}
-	tmp10 := new(UpdateBugProfileCommand)
+	tmp9 := new(UpdateBugProfileCommand)
 	sub = &cobra.Command{
 		Use:   `bug_profile ["/api/bug-profile/PROFILEID"]`,
 		Short: `Bug profile represents the list of bugs the user wants us to check for`,
@@ -415,171 +390,171 @@ Payload example:
 
 {
    "checkstyle": {
-      "AbbreviationAsWordInName": false,
-      "AbstractClassName": false,
-      "AnnotationLocation": true,
+      "AbbreviationAsWordInName": true,
+      "AbstractClassName": true,
+      "AnnotationLocation": false,
       "AnnotationUseStyle": true,
       "AnonInnerLength": false,
-      "ArrayTrailingComma": true,
-      "ArrayTypeStyle": true,
+      "ArrayTrailingComma": false,
+      "ArrayTypeStyle": false,
       "AtclauseOrder": true,
       "AvoidEscapedUnicodeCharacters": true,
       "AvoidInlineConditionals": true,
       "AvoidNestedBlocks": true,
-      "AvoidStarImport": false,
+      "AvoidStarImport": true,
       "AvoidStaticImport": true,
-      "BooleanExpressionComplexity": true,
-      "CatchParameterName": false,
+      "BooleanExpressionComplexity": false,
+      "CatchParameterName": true,
       "ClassDataAbstractionCoupling": false,
       "ClassFanOutComplexity": true,
-      "ClassTypeParameterName": false,
+      "ClassTypeParameterName": true,
       "CommentsIndentation": false,
-      "ConstantName": true,
-      "CovariantEquals": true,
-      "CustomImportOrder": false,
-      "CyclomaticComplexity": false,
-      "DeclarationOrder": true,
-      "DefaultComesLast": true,
+      "ConstantName": false,
+      "CovariantEquals": false,
+      "CustomImportOrder": true,
+      "CyclomaticComplexity": true,
+      "DeclarationOrder": false,
+      "DefaultComesLast": false,
       "DescendantToken": true,
       "DesignForExtension": false,
-      "EmptyBlock": false,
-      "EmptyCatchBlock": true,
-      "EmptyForInitializerPad": true,
-      "EmptyForIteratorPad": true,
+      "EmptyBlock": true,
+      "EmptyCatchBlock": false,
+      "EmptyForInitializerPad": false,
+      "EmptyForIteratorPad": false,
       "EmptyLineSeparator": false,
-      "EmptyStatement": false,
-      "EqualsAvoidNull": true,
-      "EqualsHashCode": false,
-      "ExecutableStatementCount": true,
+      "EmptyStatement": true,
+      "EqualsAvoidNull": false,
+      "EqualsHashCode": true,
+      "ExecutableStatementCount": false,
       "ExplicitInitialization": true,
-      "FallThrough": true,
+      "FallThrough": false,
       "FileLength": false,
       "FileTabCharacter": false,
-      "FinalClass": false,
+      "FinalClass": true,
       "FinalLocalVariable": false,
-      "FinalParameters": true,
+      "FinalParameters": false,
       "GenericWhitespace": false,
-      "Header": false,
+      "Header": true,
       "HiddenField": true,
       "HideUtilityClassConstructor": false,
       "IllegalCatch": true,
       "IllegalImport": true,
-      "IllegalInstantiation": false,
+      "IllegalInstantiation": true,
       "IllegalThrows": true,
       "IllegalToken": true,
       "IllegalTokenText": true,
-      "IllegalType": true,
-      "ImportControl": false,
+      "IllegalType": false,
+      "ImportControl": true,
       "ImportOrder": true,
-      "Indentation": true,
-      "InnerAssignment": true,
-      "InnerTypeLast": false,
+      "Indentation": false,
+      "InnerAssignment": false,
+      "InnerTypeLast": true,
       "InterfaceIsType": false,
-      "InterfaceTypeParameterName": true,
+      "InterfaceTypeParameterName": false,
       "JavaNCSS": true,
-      "JavadocMethod": false,
+      "JavadocMethod": true,
       "JavadocPackage": false,
       "JavadocParagraph": false,
       "JavadocStyle": true,
       "JavadocTagContinuationIndentation": true,
       "JavadocType": true,
-      "JavadocVariable": true,
-      "LeftCurly": true,
-      "LineLength": false,
-      "LocalFinalVariableName": false,
+      "JavadocVariable": false,
+      "LeftCurly": false,
+      "LineLength": true,
+      "LocalFinalVariableName": true,
       "LocalVariableName": true,
       "MagicNumber": false,
-      "MemberName": true,
+      "MemberName": false,
       "MethodCount": true,
       "MethodLength": false,
-      "MethodName": false,
+      "MethodName": true,
       "MethodParamPad": true,
-      "MethodTypeParameterName": false,
+      "MethodTypeParameterName": true,
       "MissingCtor": false,
       "MissingDeprecated": false,
       "MissingOverride": false,
-      "MissingSwitchDefault": true,
+      "MissingSwitchDefault": false,
       "ModifiedControlVariable": true,
       "ModifierOrder": false,
       "MultipleStringLiterals": false,
-      "MultipleVariableDeclarations": false,
+      "MultipleVariableDeclarations": true,
       "MutableException": false,
-      "NPathComplexity": false,
+      "NPathComplexity": true,
       "NeedBraces": true,
-      "NestedForDepth": true,
+      "NestedForDepth": false,
       "NestedIfDepth": true,
-      "NestedTryDepth": false,
+      "NestedTryDepth": true,
       "NewlineAtEndOfFile": true,
-      "NoClone": false,
-      "NoFinalizer": true,
-      "NoLineWrap": false,
+      "NoClone": true,
+      "NoFinalizer": false,
+      "NoLineWrap": true,
       "NoWhitespaceAfter": true,
       "NoWhitespaceBefore": true,
-      "NonEmptyAtclauseDescription": true,
-      "OneStatementPerLine": true,
+      "NonEmptyAtclauseDescription": false,
+      "OneStatementPerLine": false,
       "OneTopLevelClass": true,
-      "OperatorWrap": false,
+      "OperatorWrap": true,
       "OuterTypeFilename": false,
       "OuterTypeNumber": false,
       "OverloadMethodsDeclarationOrder": false,
-      "PackageAnnotation": false,
-      "PackageDeclaration": false,
+      "PackageAnnotation": true,
+      "PackageDeclaration": true,
       "PackageName": true,
       "ParameterAssignment": true,
       "ParameterName": true,
-      "ParameterNumber": true,
+      "ParameterNumber": false,
       "ParenPad": false,
       "RedundantImport": true,
       "RedundantModifier": false,
-      "Regexp": false,
+      "Regexp": true,
       "RegexpHeader": true,
       "RegexpMultiline": false,
-      "RegexpOnFilename": true,
-      "RegexpSingleline": false,
+      "RegexpOnFilename": false,
+      "RegexpSingleline": true,
       "RegexpSinglelineJava": false,
       "RequireThis": false,
-      "ReturnCount": true,
-      "RightCurly": true,
+      "ReturnCount": false,
+      "RightCurly": false,
       "SeparatorWrap": true,
       "SimplifyBooleanExpression": true,
       "SimplifyBooleanReturn": false,
       "SingleLineJavadoc": false,
-      "SingleSpaceSeparator": true,
-      "StaticVariableName": true,
-      "StringLiteralEquality": true,
+      "SingleSpaceSeparator": false,
+      "StaticVariableName": false,
+      "StringLiteralEquality": false,
       "SummaryJavadoc": true,
-      "SuperClone": false,
-      "SuperFinalize": false,
+      "SuperClone": true,
+      "SuperFinalize": true,
       "SuppressWarnings": false,
-      "SuppressWarningsHolder": false,
-      "ThrowsCount": true,
-      "TodoComment": false,
+      "SuppressWarningsHolder": true,
+      "ThrowsCount": false,
+      "TodoComment": true,
       "TrailingComment": false,
-      "Translation": false,
+      "Translation": true,
       "TypeName": true,
       "TypecastParenPad": true,
       "UncommentedMain": true,
-      "UniqueProperties": false,
+      "UniqueProperties": true,
       "UnnecessaryParentheses": false,
-      "UnusedImports": true,
-      "UpperEll": true,
-      "VariableDeclarationUsageDistance": true,
-      "VisibilityModifier": true,
-      "WhitespaceAfter": true,
-      "WhitespaceAround": false,
+      "UnusedImports": false,
+      "UpperEll": false,
+      "VariableDeclarationUsageDistance": false,
+      "VisibilityModifier": false,
+      "WhitespaceAfter": false,
+      "WhitespaceAround": true,
       "WriteTag": true
    },
    "findbugs": {
-      "name": "Nulla ipsa."
+      "name": "Porro aut quia."
    },
-   "name": "Et aspernatur."
+   "name": "Est iure perspiciatis optio."
 }`,
-		RunE: func(cmd *cobra.Command, args []string) error { return tmp10.Run(c, args) },
+		RunE: func(cmd *cobra.Command, args []string) error { return tmp9.Run(c, args) },
 	}
-	tmp10.RegisterFlags(sub, c)
-	sub.PersistentFlags().BoolVar(&tmp10.PrettyPrint, "pp", false, "Pretty print response body")
+	tmp9.RegisterFlags(sub, c)
+	sub.PersistentFlags().BoolVar(&tmp9.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
-	tmp11 := new(UpdateUserCommand)
+	tmp10 := new(UpdateUserCommand)
 	sub = &cobra.Command{
 		Use:   `user ["/api/user/USERID"]`,
 		Short: `Represents a user of the site`,
@@ -588,15 +563,14 @@ Payload example:
 Payload example:
 
 {
-   "email": "patsy_prohaska@breitenberg.org",
-   "name": "Et nostrum est.",
-   "password": "Ut enim ea voluptas magni.",
-   "phone_number": "Et minus odio."
+   "email": "rd",
+   "name": "ye",
+   "password": "njq"
 }`,
-		RunE: func(cmd *cobra.Command, args []string) error { return tmp11.Run(c, args) },
+		RunE: func(cmd *cobra.Command, args []string) error { return tmp10.Run(c, args) },
 	}
-	tmp11.RegisterFlags(sub, c)
-	sub.PersistentFlags().BoolVar(&tmp11.PrettyPrint, "pp", false, "Pretty print response body")
+	tmp10.RegisterFlags(sub, c)
+	sub.PersistentFlags().BoolVar(&tmp10.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
 	app.AddCommand(command)
 
@@ -972,17 +946,17 @@ func (cmd *UpdateBugProfileCommand) RegisterFlags(cc *cobra.Command, c *client.C
 	cc.Flags().IntVar(&cmd.ProfileID, "profileID", profileID, `The profile's unique identifier`)
 }
 
-// Run makes the HTTP request corresponding to the LoginGhCommand command.
-func (cmd *LoginGhCommand) Run(c *client.Client, args []string) error {
+// Run makes the HTTP request corresponding to the CreateGithubAuthCommand command.
+func (cmd *CreateGithubAuthCommand) Run(c *client.Client, args []string) error {
 	var path string
 	if len(args) > 0 {
 		path = args[0]
 	} else {
-		path = "/api/gh"
+		path = "/api/auth/gh"
 	}
 	logger := goa.NewLogger(log.New(os.Stderr, "", log.LstdFlags))
 	ctx := goa.WithLogger(context.Background(), logger)
-	resp, err := c.LoginGh(ctx, path)
+	resp, err := c.CreateGithubAuth(ctx, path)
 	if err != nil {
 		goa.LogError(ctx, "failed", "err", err)
 		return err
@@ -993,31 +967,7 @@ func (cmd *LoginGhCommand) Run(c *client.Client, args []string) error {
 }
 
 // RegisterFlags registers the command flags with the command line.
-func (cmd *LoginGhCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
-}
-
-// Run makes the HTTP request corresponding to the Login2GhCommand command.
-func (cmd *Login2GhCommand) Run(c *client.Client, args []string) error {
-	var path string
-	if len(args) > 0 {
-		path = args[0]
-	} else {
-		path = "/api/gh"
-	}
-	logger := goa.NewLogger(log.New(os.Stderr, "", log.LstdFlags))
-	ctx := goa.WithLogger(context.Background(), logger)
-	resp, err := c.Login2Gh(ctx, path)
-	if err != nil {
-		goa.LogError(ctx, "failed", "err", err)
-		return err
-	}
-
-	goaclient.HandleResponse(c.Client, resp, cmd.PrettyPrint)
-	return nil
-}
-
-// RegisterFlags registers the command flags with the command line.
-func (cmd *Login2GhCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
+func (cmd *CreateGithubAuthCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
 }
 
 // Run makes the HTTP request corresponding to the CreateUserCommand command.
@@ -1028,7 +978,7 @@ func (cmd *CreateUserCommand) Run(c *client.Client, args []string) error {
 	} else {
 		path = "/api/user"
 	}
-	var payload client.User
+	var payload client.UserCreate
 	if cmd.Payload != "" {
 		err := json.Unmarshal([]byte(cmd.Payload), &payload)
 		if err != nil {
@@ -1087,7 +1037,7 @@ func (cmd *UpdateUserCommand) Run(c *client.Client, args []string) error {
 	} else {
 		path = fmt.Sprintf("/api/user/%v", cmd.UserID)
 	}
-	var payload client.User
+	var payload client.UserCreate
 	if cmd.Payload != "" {
 		err := json.Unmarshal([]byte(cmd.Payload), &payload)
 		if err != nil {

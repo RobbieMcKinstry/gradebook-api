@@ -16,6 +16,21 @@ export const receiveCreateBug-ProfileError = (json, status) => ({
   message: json,
   status: status
 });
+export const requestCreateAuth/Gh = () => ({
+  type: types.REQ_CREATE_AUTH/GH
+});
+export const receiveCreateAuth/GhSuccess = (json, status) => ({
+  type: types.RECV_CREATE_AUTH/GH_SUCCESS,
+  data: json,
+  message: false,
+  status: status
+});
+export const receiveCreateAuth/GhError = (json, status) => ({
+  type: types.RECV_CREATE_AUTH/GH_ERROR,
+  data: false,
+  message: json,
+  status: status
+});
 export const requestCreateUser = () => ({
   type: types.REQ_CREATE_USER
 });
@@ -57,36 +72,6 @@ export const receiveListBug-ProfileSuccess = (json, status) => ({
 });
 export const receiveListBug-ProfileError = (json, status) => ({
   type: types.RECV_LIST_BUG-PROFILE_ERROR,
-  data: false,
-  message: json,
-  status: status
-});
-export const requestLoginGh = () => ({
-  type: types.REQ_LOGIN_GH
-});
-export const receiveLoginGhSuccess = (json, status) => ({
-  type: types.RECV_LOGIN_GH_SUCCESS,
-  data: json,
-  message: false,
-  status: status
-});
-export const receiveLoginGhError = (json, status) => ({
-  type: types.RECV_LOGIN_GH_ERROR,
-  data: false,
-  message: json,
-  status: status
-});
-export const requestLogin2Gh = () => ({
-  type: types.REQ_LOGIN2_GH
-});
-export const receiveLogin2GhSuccess = (json, status) => ({
-  type: types.RECV_LOGIN2_GH_SUCCESS,
-  data: json,
-  message: false,
-  status: status
-});
-export const receiveLogin2GhError = (json, status) => ({
-  type: types.RECV_LOGIN2_GH_ERROR,
   data: false,
   message: json,
   status: status

@@ -44,6 +44,28 @@ Returns the GH token
               "description": "GithubtokenMt media type (default view)"
             }
 
+## Group github_auth
+
+### /api/auth/gh
+
+#### create github_auth [POST]
+
+Create or login a user with GitHub OAuth
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 302 (application/json)
+
+    Found
+
+    + Body
+
 ## Group bug_profile
 
 ### /api/bug-profile
@@ -80,164 +102,164 @@ Make me a new bug profile
 
             {
               "checkstyle": {
-                "AbbreviationAsWordInName": false,
-                "AbstractClassName": false,
-                "AnnotationLocation": true,
+                "AbbreviationAsWordInName": true,
+                "AbstractClassName": true,
+                "AnnotationLocation": false,
                 "AnnotationUseStyle": true,
                 "AnonInnerLength": false,
-                "ArrayTrailingComma": true,
-                "ArrayTypeStyle": true,
+                "ArrayTrailingComma": false,
+                "ArrayTypeStyle": false,
                 "AtclauseOrder": true,
                 "AvoidEscapedUnicodeCharacters": true,
                 "AvoidInlineConditionals": true,
                 "AvoidNestedBlocks": true,
-                "AvoidStarImport": false,
+                "AvoidStarImport": true,
                 "AvoidStaticImport": true,
-                "BooleanExpressionComplexity": true,
-                "CatchParameterName": false,
+                "BooleanExpressionComplexity": false,
+                "CatchParameterName": true,
                 "ClassDataAbstractionCoupling": false,
                 "ClassFanOutComplexity": true,
-                "ClassTypeParameterName": false,
+                "ClassTypeParameterName": true,
                 "CommentsIndentation": false,
-                "ConstantName": true,
-                "CovariantEquals": true,
-                "CustomImportOrder": false,
-                "CyclomaticComplexity": false,
-                "DeclarationOrder": true,
-                "DefaultComesLast": true,
+                "ConstantName": false,
+                "CovariantEquals": false,
+                "CustomImportOrder": true,
+                "CyclomaticComplexity": true,
+                "DeclarationOrder": false,
+                "DefaultComesLast": false,
                 "DescendantToken": true,
                 "DesignForExtension": false,
-                "EmptyBlock": false,
-                "EmptyCatchBlock": true,
-                "EmptyForInitializerPad": true,
-                "EmptyForIteratorPad": true,
+                "EmptyBlock": true,
+                "EmptyCatchBlock": false,
+                "EmptyForInitializerPad": false,
+                "EmptyForIteratorPad": false,
                 "EmptyLineSeparator": false,
-                "EmptyStatement": false,
-                "EqualsAvoidNull": true,
-                "EqualsHashCode": false,
-                "ExecutableStatementCount": true,
+                "EmptyStatement": true,
+                "EqualsAvoidNull": false,
+                "EqualsHashCode": true,
+                "ExecutableStatementCount": false,
                 "ExplicitInitialization": true,
-                "FallThrough": true,
+                "FallThrough": false,
                 "FileLength": false,
                 "FileTabCharacter": false,
-                "FinalClass": false,
+                "FinalClass": true,
                 "FinalLocalVariable": false,
-                "FinalParameters": true,
+                "FinalParameters": false,
                 "GenericWhitespace": false,
-                "Header": false,
+                "Header": true,
                 "HiddenField": true,
                 "HideUtilityClassConstructor": false,
                 "IllegalCatch": true,
                 "IllegalImport": true,
-                "IllegalInstantiation": false,
+                "IllegalInstantiation": true,
                 "IllegalThrows": true,
                 "IllegalToken": true,
                 "IllegalTokenText": true,
-                "IllegalType": true,
-                "ImportControl": false,
+                "IllegalType": false,
+                "ImportControl": true,
                 "ImportOrder": true,
-                "Indentation": true,
-                "InnerAssignment": true,
-                "InnerTypeLast": false,
+                "Indentation": false,
+                "InnerAssignment": false,
+                "InnerTypeLast": true,
                 "InterfaceIsType": false,
-                "InterfaceTypeParameterName": true,
+                "InterfaceTypeParameterName": false,
                 "JavaNCSS": true,
-                "JavadocMethod": false,
+                "JavadocMethod": true,
                 "JavadocPackage": false,
                 "JavadocParagraph": false,
                 "JavadocStyle": true,
                 "JavadocTagContinuationIndentation": true,
                 "JavadocType": true,
-                "JavadocVariable": true,
-                "LeftCurly": true,
-                "LineLength": false,
-                "LocalFinalVariableName": false,
+                "JavadocVariable": false,
+                "LeftCurly": false,
+                "LineLength": true,
+                "LocalFinalVariableName": true,
                 "LocalVariableName": true,
                 "MagicNumber": false,
-                "MemberName": true,
+                "MemberName": false,
                 "MethodCount": true,
                 "MethodLength": false,
-                "MethodName": false,
+                "MethodName": true,
                 "MethodParamPad": true,
-                "MethodTypeParameterName": false,
+                "MethodTypeParameterName": true,
                 "MissingCtor": false,
                 "MissingDeprecated": false,
                 "MissingOverride": false,
-                "MissingSwitchDefault": true,
+                "MissingSwitchDefault": false,
                 "ModifiedControlVariable": true,
                 "ModifierOrder": false,
                 "MultipleStringLiterals": false,
-                "MultipleVariableDeclarations": false,
+                "MultipleVariableDeclarations": true,
                 "MutableException": false,
-                "NPathComplexity": false,
+                "NPathComplexity": true,
                 "NeedBraces": true,
-                "NestedForDepth": true,
+                "NestedForDepth": false,
                 "NestedIfDepth": true,
-                "NestedTryDepth": false,
+                "NestedTryDepth": true,
                 "NewlineAtEndOfFile": true,
-                "NoClone": false,
-                "NoFinalizer": true,
-                "NoLineWrap": false,
+                "NoClone": true,
+                "NoFinalizer": false,
+                "NoLineWrap": true,
                 "NoWhitespaceAfter": true,
                 "NoWhitespaceBefore": true,
-                "NonEmptyAtclauseDescription": true,
-                "OneStatementPerLine": true,
+                "NonEmptyAtclauseDescription": false,
+                "OneStatementPerLine": false,
                 "OneTopLevelClass": true,
-                "OperatorWrap": false,
+                "OperatorWrap": true,
                 "OuterTypeFilename": false,
                 "OuterTypeNumber": false,
                 "OverloadMethodsDeclarationOrder": false,
-                "PackageAnnotation": false,
-                "PackageDeclaration": false,
+                "PackageAnnotation": true,
+                "PackageDeclaration": true,
                 "PackageName": true,
                 "ParameterAssignment": true,
                 "ParameterName": true,
-                "ParameterNumber": true,
+                "ParameterNumber": false,
                 "ParenPad": false,
                 "RedundantImport": true,
                 "RedundantModifier": false,
-                "Regexp": false,
+                "Regexp": true,
                 "RegexpHeader": true,
                 "RegexpMultiline": false,
-                "RegexpOnFilename": true,
-                "RegexpSingleline": false,
+                "RegexpOnFilename": false,
+                "RegexpSingleline": true,
                 "RegexpSinglelineJava": false,
                 "RequireThis": false,
-                "ReturnCount": true,
-                "RightCurly": true,
+                "ReturnCount": false,
+                "RightCurly": false,
                 "SeparatorWrap": true,
                 "SimplifyBooleanExpression": true,
                 "SimplifyBooleanReturn": false,
                 "SingleLineJavadoc": false,
-                "SingleSpaceSeparator": true,
-                "StaticVariableName": true,
-                "StringLiteralEquality": true,
+                "SingleSpaceSeparator": false,
+                "StaticVariableName": false,
+                "StringLiteralEquality": false,
                 "SummaryJavadoc": true,
-                "SuperClone": false,
-                "SuperFinalize": false,
+                "SuperClone": true,
+                "SuperFinalize": true,
                 "SuppressWarnings": false,
-                "SuppressWarningsHolder": false,
-                "ThrowsCount": true,
-                "TodoComment": false,
+                "SuppressWarningsHolder": true,
+                "ThrowsCount": false,
+                "TodoComment": true,
                 "TrailingComment": false,
-                "Translation": false,
+                "Translation": true,
                 "TypeName": true,
                 "TypecastParenPad": true,
                 "UncommentedMain": true,
-                "UniqueProperties": false,
+                "UniqueProperties": true,
                 "UnnecessaryParentheses": false,
-                "UnusedImports": true,
-                "UpperEll": true,
-                "VariableDeclarationUsageDistance": true,
-                "VisibilityModifier": true,
-                "WhitespaceAfter": true,
-                "WhitespaceAround": false,
+                "UnusedImports": false,
+                "UpperEll": false,
+                "VariableDeclarationUsageDistance": false,
+                "VisibilityModifier": false,
+                "WhitespaceAfter": false,
+                "WhitespaceAround": true,
                 "WriteTag": true
               },
               "findbugs": {
-                "name": "Nulla ipsa."
+                "name": "Porro aut quia."
               },
-              "name": "Et aspernatur."
+              "name": "Est iure perspiciatis optio."
             }
 
     + Schema
@@ -253,17 +275,17 @@ Make me a new bug profile
                     "AbbreviationAsWordInName": {
                       "type": "boolean",
                       "description": "The Check validate abbreviations(consecutive capital letters) length in identifier name, it also allow in enforce camel case naming.",
-                      "example": false
+                      "example": true
                     },
                     "AbstractClassName": {
                       "type": "boolean",
                       "description": "Ensures that the names of abstract classes conforming to some regular expression.",
-                      "example": false
+                      "example": true
                     },
                     "AnnotationLocation": {
                       "type": "boolean",
                       "description": "Check location of annotation on language elements.",
-                      "example": true
+                      "example": false
                     },
                     "AnnotationUseStyle": {
                       "type": "boolean",
@@ -278,12 +300,12 @@ Make me a new bug profile
                     "ArrayTrailingComma": {
                       "type": "boolean",
                       "description": "Checks if array initialization contains optional trailing comma.",
-                      "example": true
+                      "example": false
                     },
                     "ArrayTypeStyle": {
                       "type": "boolean",
                       "description": "Checks the style of array type definitions.",
-                      "example": true
+                      "example": false
                     },
                     "AtclauseOrder": {
                       "type": "boolean",
@@ -308,7 +330,7 @@ Make me a new bug profile
                     "AvoidStarImport": {
                       "type": "boolean",
                       "description": "Check that finds import statements that use the * notation.",
-                      "example": false
+                      "example": true
                     },
                     "AvoidStaticImport": {
                       "type": "boolean",
@@ -318,12 +340,12 @@ Make me a new bug profile
                     "BooleanExpressionComplexity": {
                       "type": "boolean",
                       "description": "Restricts nested boolean operators (&&, ||, &, | and ^) to a specified depth (default = 3).",
-                      "example": true
+                      "example": false
                     },
                     "CatchParameterName": {
                       "type": "boolean",
                       "description": "Checks that catch parameter names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "ClassDataAbstractionCoupling": {
                       "type": "boolean",
@@ -338,7 +360,7 @@ Make me a new bug profile
                     "ClassTypeParameterName": {
                       "type": "boolean",
                       "description": "Checks that class type parameter names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "CommentsIndentation": {
                       "type": "boolean",
@@ -348,32 +370,32 @@ Make me a new bug profile
                     "ConstantName": {
                       "type": "boolean",
                       "description": "Checks that constant names conform to a format specified by the format property.",
-                      "example": true
+                      "example": false
                     },
                     "CovariantEquals": {
                       "type": "boolean",
                       "description": "Checks that if a class defines a covariant method equals, then it defines method equals(java.lang.Object).",
-                      "example": true
+                      "example": false
                     },
                     "CustomImportOrder": {
                       "type": "boolean",
                       "description": "Checks that the groups of import declarations appear in the order specified by the user.",
-                      "example": false
+                      "example": true
                     },
                     "CyclomaticComplexity": {
                       "type": "boolean",
                       "description": "Checks cyclomatic complexity against a specified limit.",
-                      "example": false
+                      "example": true
                     },
                     "DeclarationOrder": {
                       "type": "boolean",
                       "description": "Checks that the parts of a class or interface declaration appear in the order suggested by the Code Conventions for the Java Programming Language.",
-                      "example": true
+                      "example": false
                     },
                     "DefaultComesLast": {
                       "type": "boolean",
                       "description": "Check that the default is after all the cases in a switch statement.",
-                      "example": true
+                      "example": false
                     },
                     "DescendantToken": {
                       "type": "boolean",
@@ -388,22 +410,22 @@ Make me a new bug profile
                     "EmptyBlock": {
                       "type": "boolean",
                       "description": "Checks for empty blocks.",
-                      "example": false
+                      "example": true
                     },
                     "EmptyCatchBlock": {
                       "type": "boolean",
                       "description": "Checks for empty catch blocks with few options to skip violation.",
-                      "example": true
+                      "example": false
                     },
                     "EmptyForInitializerPad": {
                       "type": "boolean",
                       "description": "Checks the padding of an empty for initializer; that is whether a space is required at an empty for initializer, or such spaces are forbidden.",
-                      "example": true
+                      "example": false
                     },
                     "EmptyForIteratorPad": {
                       "type": "boolean",
                       "description": "Checks the padding of an empty for iterator; that is whether a space is required at an empty for iterator, or such spaces are forbidden.",
-                      "example": true
+                      "example": false
                     },
                     "EmptyLineSeparator": {
                       "type": "boolean",
@@ -413,22 +435,22 @@ Make me a new bug profile
                     "EmptyStatement": {
                       "type": "boolean",
                       "description": "Detects empty statements (standalone ';').",
-                      "example": false
+                      "example": true
                     },
                     "EqualsAvoidNull": {
                       "type": "boolean",
                       "description": "Checks that any combination of String literals is on the left side of an equals() comparison.",
-                      "example": true
+                      "example": false
                     },
                     "EqualsHashCode": {
                       "type": "boolean",
                       "description": "Checks that classes that override equals() also override hashCode().",
-                      "example": false
+                      "example": true
                     },
                     "ExecutableStatementCount": {
                       "type": "boolean",
                       "description": "Restricts the number of executable statements to a specified limit (default = 30).",
-                      "example": true
+                      "example": false
                     },
                     "ExplicitInitialization": {
                       "type": "boolean",
@@ -438,7 +460,7 @@ Make me a new bug profile
                     "FallThrough": {
                       "type": "boolean",
                       "description": "Checks for fall through in switch statements Finds locations where a case contains Java code - but lacks a break, return, throw or continue statement.",
-                      "example": true
+                      "example": false
                     },
                     "FileLength": {
                       "type": "boolean",
@@ -453,7 +475,7 @@ Make me a new bug profile
                     "FinalClass": {
                       "type": "boolean",
                       "description": "Checks that class which has only private constructors is declared as final.",
-                      "example": false
+                      "example": true
                     },
                     "FinalLocalVariable": {
                       "type": "boolean",
@@ -463,7 +485,7 @@ Make me a new bug profile
                     "FinalParameters": {
                       "type": "boolean",
                       "description": "Check that method/constructor/catch/foreach parameters are final.",
-                      "example": true
+                      "example": false
                     },
                     "GenericWhitespace": {
                       "type": "boolean",
@@ -473,7 +495,7 @@ Make me a new bug profile
                     "Header": {
                       "type": "boolean",
                       "description": "Checks the header of the source against a fixed header file.",
-                      "example": false
+                      "example": true
                     },
                     "HiddenField": {
                       "type": "boolean",
@@ -498,7 +520,7 @@ Make me a new bug profile
                     "IllegalInstantiation": {
                       "type": "boolean",
                       "description": "Checks for illegal instantiations where a factory method is preferred.",
-                      "example": false
+                      "example": true
                     },
                     "IllegalThrows": {
                       "type": "boolean",
@@ -518,12 +540,12 @@ Make me a new bug profile
                     "IllegalType": {
                       "type": "boolean",
                       "description": "Checks that particular class are never used as types in variable declarations, return values or parameters.",
-                      "example": true
+                      "example": false
                     },
                     "ImportControl": {
                       "type": "boolean",
                       "description": "Check that controls what packages can be imported in each package.",
-                      "example": false
+                      "example": true
                     },
                     "ImportOrder": {
                       "type": "boolean",
@@ -533,17 +555,17 @@ Make me a new bug profile
                     "Indentation": {
                       "type": "boolean",
                       "description": "Checks correct indentation of Java Code.",
-                      "example": true
+                      "example": false
                     },
                     "InnerAssignment": {
                       "type": "boolean",
                       "description": "Checks for assignments in subexpressions, such as in String s = Integer.toString(i = 2);.",
-                      "example": true
+                      "example": false
                     },
                     "InnerTypeLast": {
                       "type": "boolean",
                       "description": "Check nested (internal) classes/interfaces are declared at the bottom of the class after all method and field declarations.",
-                      "example": false
+                      "example": true
                     },
                     "InterfaceIsType": {
                       "type": "boolean",
@@ -553,7 +575,7 @@ Make me a new bug profile
                     "InterfaceTypeParameterName": {
                       "type": "boolean",
                       "description": "Checks that interface type parameter names conform to a format specified by the format property.",
-                      "example": true
+                      "example": false
                     },
                     "JavaNCSS": {
                       "type": "boolean",
@@ -563,7 +585,7 @@ Make me a new bug profile
                     "JavadocMethod": {
                       "type": "boolean",
                       "description": "Checks the Javadoc of a method or constructor.",
-                      "example": false
+                      "example": true
                     },
                     "JavadocPackage": {
                       "type": "boolean",
@@ -593,22 +615,22 @@ Make me a new bug profile
                     "JavadocVariable": {
                       "type": "boolean",
                       "description": "Checks that a variable has Javadoc comment.",
-                      "example": true
+                      "example": false
                     },
                     "LeftCurly": {
                       "type": "boolean",
                       "description": "Checks the placement of left curly braces on types, methods and other blocks:",
-                      "example": true
+                      "example": false
                     },
                     "LineLength": {
                       "type": "boolean",
                       "description": "Checks for long lines.",
-                      "example": false
+                      "example": true
                     },
                     "LocalFinalVariableName": {
                       "type": "boolean",
                       "description": "Checks that local final variable names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "LocalVariableName": {
                       "type": "boolean",
@@ -623,7 +645,7 @@ Make me a new bug profile
                     "MemberName": {
                       "type": "boolean",
                       "description": "Checks that instance variable names conform to a format specified by the format property.",
-                      "example": true
+                      "example": false
                     },
                     "MethodCount": {
                       "type": "boolean",
@@ -638,7 +660,7 @@ Make me a new bug profile
                     "MethodName": {
                       "type": "boolean",
                       "description": "Checks that method names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "MethodParamPad": {
                       "type": "boolean",
@@ -648,7 +670,7 @@ Make me a new bug profile
                     "MethodTypeParameterName": {
                       "type": "boolean",
                       "description": "Checks that class type parameter names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "MissingCtor": {
                       "type": "boolean",
@@ -668,7 +690,7 @@ Make me a new bug profile
                     "MissingSwitchDefault": {
                       "type": "boolean",
                       "description": "Checks that switch statement has 'default' clause.",
-                      "example": true
+                      "example": false
                     },
                     "ModifiedControlVariable": {
                       "type": "boolean",
@@ -688,7 +710,7 @@ Make me a new bug profile
                     "MultipleVariableDeclarations": {
                       "type": "boolean",
                       "description": "Checks that each variable declaration is in its own statement and on its own line.",
-                      "example": false
+                      "example": true
                     },
                     "MutableException": {
                       "type": "boolean",
@@ -698,7 +720,7 @@ Make me a new bug profile
                     "NPathComplexity": {
                       "type": "boolean",
                       "description": "Checks the npath complexity against a specified limit (default = 200).",
-                      "example": false
+                      "example": true
                     },
                     "NeedBraces": {
                       "type": "boolean",
@@ -708,7 +730,7 @@ Make me a new bug profile
                     "NestedForDepth": {
                       "type": "boolean",
                       "description": "Restricts nested for blocks to a specified depth (default = 1).",
-                      "example": true
+                      "example": false
                     },
                     "NestedIfDepth": {
                       "type": "boolean",
@@ -718,7 +740,7 @@ Make me a new bug profile
                     "NestedTryDepth": {
                       "type": "boolean",
                       "description": "Restricts nested try-catch-finally blocks to a specified depth (default = 1).",
-                      "example": false
+                      "example": true
                     },
                     "NewlineAtEndOfFile": {
                       "type": "boolean",
@@ -728,17 +750,17 @@ Make me a new bug profile
                     "NoClone": {
                       "type": "boolean",
                       "description": "Checks that the clone method is not overridden from the Object class.",
-                      "example": false
+                      "example": true
                     },
                     "NoFinalizer": {
                       "type": "boolean",
                       "description": "Checks that no method having zero parameters is defined using the name finalize.",
-                      "example": true
+                      "example": false
                     },
                     "NoLineWrap": {
                       "type": "boolean",
                       "description": "Checks that chosen statements are not line-wrapped.",
-                      "example": false
+                      "example": true
                     },
                     "NoWhitespaceAfter": {
                       "type": "boolean",
@@ -753,12 +775,12 @@ Make me a new bug profile
                     "NonEmptyAtclauseDescription": {
                       "type": "boolean",
                       "description": "Checks that the at-clause tag is followed by description .",
-                      "example": true
+                      "example": false
                     },
                     "OneStatementPerLine": {
                       "type": "boolean",
                       "description": "Checks that there is only one statement per line.",
-                      "example": true
+                      "example": false
                     },
                     "OneTopLevelClass": {
                       "type": "boolean",
@@ -768,7 +790,7 @@ Make me a new bug profile
                     "OperatorWrap": {
                       "type": "boolean",
                       "description": "Checks line wrapping for operators.",
-                      "example": false
+                      "example": true
                     },
                     "OuterTypeFilename": {
                       "type": "boolean",
@@ -788,12 +810,12 @@ Make me a new bug profile
                     "PackageAnnotation": {
                       "type": "boolean",
                       "description": "This check makes sure that all package annotations are in the package-info.java file.",
-                      "example": false
+                      "example": true
                     },
                     "PackageDeclaration": {
                       "type": "boolean",
                       "description": "Ensures there is a package declaration and (optionally) in the correct directory.",
-                      "example": false
+                      "example": true
                     },
                     "PackageName": {
                       "type": "boolean",
@@ -813,7 +835,7 @@ Make me a new bug profile
                     "ParameterNumber": {
                       "type": "boolean",
                       "description": "Checks the number of parameters that a method or constructor has.",
-                      "example": true
+                      "example": false
                     },
                     "ParenPad": {
                       "type": "boolean",
@@ -833,7 +855,7 @@ Make me a new bug profile
                     "Regexp": {
                       "type": "boolean",
                       "description": "A check that makes sure that a specified pattern exists (or not) in the file.",
-                      "example": false
+                      "example": true
                     },
                     "RegexpHeader": {
                       "type": "boolean",
@@ -848,12 +870,12 @@ Make me a new bug profile
                     "RegexpOnFilename": {
                       "type": "boolean",
                       "description": "Implementation of a check that matches based on file and/or folder path.",
-                      "example": true
+                      "example": false
                     },
                     "RegexpSingleline": {
                       "type": "boolean",
                       "description": "Implementation of a check that looks for a single line in any file type.",
-                      "example": false
+                      "example": true
                     },
                     "RegexpSinglelineJava": {
                       "type": "boolean",
@@ -868,12 +890,12 @@ Make me a new bug profile
                     "ReturnCount": {
                       "type": "boolean",
                       "description": "Restricts return statements to a specified count (default = 2).",
-                      "example": true
+                      "example": false
                     },
                     "RightCurly": {
                       "type": "boolean",
                       "description": "Checks the placement of right curly braces.",
-                      "example": true
+                      "example": false
                     },
                     "SeparatorWrap": {
                       "type": "boolean",
@@ -898,17 +920,17 @@ Make me a new bug profile
                     "SingleSpaceSeparator": {
                       "type": "boolean",
                       "description": "Checks that non-whitespace characters are separated by no more than one whitespace.",
-                      "example": true
+                      "example": false
                     },
                     "StaticVariableName": {
                       "type": "boolean",
                       "description": "Checks that static, non-final variable names conform to a format specified by the format property.",
-                      "example": true
+                      "example": false
                     },
                     "StringLiteralEquality": {
                       "type": "boolean",
                       "description": "Checks that string literals are not used with == or !=.",
-                      "example": true
+                      "example": false
                     },
                     "SummaryJavadoc": {
                       "type": "boolean",
@@ -918,12 +940,12 @@ Make me a new bug profile
                     "SuperClone": {
                       "type": "boolean",
                       "description": "Checks that an overriding clone() method invokes super.clone().",
-                      "example": false
+                      "example": true
                     },
                     "SuperFinalize": {
                       "type": "boolean",
                       "description": "Checks that an overriding finalize() method invokes super.finalize().",
-                      "example": false
+                      "example": true
                     },
                     "SuppressWarnings": {
                       "type": "boolean",
@@ -933,17 +955,17 @@ Make me a new bug profile
                     "SuppressWarningsHolder": {
                       "type": "boolean",
                       "description": "This check allows for finding code that should not be reported by Checkstyle",
-                      "example": false
+                      "example": true
                     },
                     "ThrowsCount": {
                       "type": "boolean",
                       "description": "Restricts throws statements to a specified count (default = 4).",
-                      "example": true
+                      "example": false
                     },
                     "TodoComment": {
                       "type": "boolean",
                       "description": "A check for TODO comments.",
-                      "example": false
+                      "example": true
                     },
                     "TrailingComment": {
                       "type": "boolean",
@@ -953,7 +975,7 @@ Make me a new bug profile
                     "Translation": {
                       "type": "boolean",
                       "description": "The TranslationCheck class helps to ensure the correct translation of code by checking property files for consistency regarding their keys.",
-                      "example": false
+                      "example": true
                     },
                     "TypeName": {
                       "type": "boolean",
@@ -973,7 +995,7 @@ Make me a new bug profile
                     "UniqueProperties": {
                       "type": "boolean",
                       "description": "Detects duplicated keys in properties files.",
-                      "example": false
+                      "example": true
                     },
                     "UnnecessaryParentheses": {
                       "type": "boolean",
@@ -983,32 +1005,32 @@ Make me a new bug profile
                     "UnusedImports": {
                       "type": "boolean",
                       "description": "Checks for unused import statements.",
-                      "example": true
+                      "example": false
                     },
                     "UpperEll": {
                       "type": "boolean",
                       "description": "Checks that long constants are defined with an upper ell.",
-                      "example": true
+                      "example": false
                     },
                     "VariableDeclarationUsageDistance": {
                       "type": "boolean",
                       "description": "Checks the distance between declaration of variable and its first usage.",
-                      "example": true
+                      "example": false
                     },
                     "VisibilityModifier": {
                       "type": "boolean",
                       "description": "Checks visibility of class members.",
-                      "example": true
+                      "example": false
                     },
                     "WhitespaceAfter": {
                       "type": "boolean",
                       "description": "Checks that a token is followed by whitespace, with the exception that it does not check for whitespace after the semicolon of an empty for iterator.",
-                      "example": true
+                      "example": false
                     },
                     "WhitespaceAround": {
                       "type": "boolean",
                       "description": "Checks that a token is surrounded by whitespace.",
-                      "example": false
+                      "example": true
                     },
                     "WriteTag": {
                       "type": "boolean",
@@ -1018,158 +1040,158 @@ Make me a new bug profile
                   },
                   "description": "Description of which Checkstyle lints are checked.",
                   "example": {
-                    "AbbreviationAsWordInName": false,
-                    "AbstractClassName": false,
-                    "AnnotationLocation": true,
+                    "AbbreviationAsWordInName": true,
+                    "AbstractClassName": true,
+                    "AnnotationLocation": false,
                     "AnnotationUseStyle": true,
                     "AnonInnerLength": false,
-                    "ArrayTrailingComma": true,
-                    "ArrayTypeStyle": true,
+                    "ArrayTrailingComma": false,
+                    "ArrayTypeStyle": false,
                     "AtclauseOrder": true,
                     "AvoidEscapedUnicodeCharacters": true,
                     "AvoidInlineConditionals": true,
                     "AvoidNestedBlocks": true,
-                    "AvoidStarImport": false,
+                    "AvoidStarImport": true,
                     "AvoidStaticImport": true,
-                    "BooleanExpressionComplexity": true,
-                    "CatchParameterName": false,
+                    "BooleanExpressionComplexity": false,
+                    "CatchParameterName": true,
                     "ClassDataAbstractionCoupling": false,
                     "ClassFanOutComplexity": true,
-                    "ClassTypeParameterName": false,
+                    "ClassTypeParameterName": true,
                     "CommentsIndentation": false,
-                    "ConstantName": true,
-                    "CovariantEquals": true,
-                    "CustomImportOrder": false,
-                    "CyclomaticComplexity": false,
-                    "DeclarationOrder": true,
-                    "DefaultComesLast": true,
+                    "ConstantName": false,
+                    "CovariantEquals": false,
+                    "CustomImportOrder": true,
+                    "CyclomaticComplexity": true,
+                    "DeclarationOrder": false,
+                    "DefaultComesLast": false,
                     "DescendantToken": true,
                     "DesignForExtension": false,
-                    "EmptyBlock": false,
-                    "EmptyCatchBlock": true,
-                    "EmptyForInitializerPad": true,
-                    "EmptyForIteratorPad": true,
+                    "EmptyBlock": true,
+                    "EmptyCatchBlock": false,
+                    "EmptyForInitializerPad": false,
+                    "EmptyForIteratorPad": false,
                     "EmptyLineSeparator": false,
-                    "EmptyStatement": false,
-                    "EqualsAvoidNull": true,
-                    "EqualsHashCode": false,
-                    "ExecutableStatementCount": true,
+                    "EmptyStatement": true,
+                    "EqualsAvoidNull": false,
+                    "EqualsHashCode": true,
+                    "ExecutableStatementCount": false,
                     "ExplicitInitialization": true,
-                    "FallThrough": true,
+                    "FallThrough": false,
                     "FileLength": false,
                     "FileTabCharacter": false,
-                    "FinalClass": false,
+                    "FinalClass": true,
                     "FinalLocalVariable": false,
-                    "FinalParameters": true,
+                    "FinalParameters": false,
                     "GenericWhitespace": false,
-                    "Header": false,
+                    "Header": true,
                     "HiddenField": true,
                     "HideUtilityClassConstructor": false,
                     "IllegalCatch": true,
                     "IllegalImport": true,
-                    "IllegalInstantiation": false,
+                    "IllegalInstantiation": true,
                     "IllegalThrows": true,
                     "IllegalToken": true,
                     "IllegalTokenText": true,
-                    "IllegalType": true,
-                    "ImportControl": false,
+                    "IllegalType": false,
+                    "ImportControl": true,
                     "ImportOrder": true,
-                    "Indentation": true,
-                    "InnerAssignment": true,
-                    "InnerTypeLast": false,
+                    "Indentation": false,
+                    "InnerAssignment": false,
+                    "InnerTypeLast": true,
                     "InterfaceIsType": false,
-                    "InterfaceTypeParameterName": true,
+                    "InterfaceTypeParameterName": false,
                     "JavaNCSS": true,
-                    "JavadocMethod": false,
+                    "JavadocMethod": true,
                     "JavadocPackage": false,
                     "JavadocParagraph": false,
                     "JavadocStyle": true,
                     "JavadocTagContinuationIndentation": true,
                     "JavadocType": true,
-                    "JavadocVariable": true,
-                    "LeftCurly": true,
-                    "LineLength": false,
-                    "LocalFinalVariableName": false,
+                    "JavadocVariable": false,
+                    "LeftCurly": false,
+                    "LineLength": true,
+                    "LocalFinalVariableName": true,
                     "LocalVariableName": true,
                     "MagicNumber": false,
-                    "MemberName": true,
+                    "MemberName": false,
                     "MethodCount": true,
                     "MethodLength": false,
-                    "MethodName": false,
+                    "MethodName": true,
                     "MethodParamPad": true,
-                    "MethodTypeParameterName": false,
+                    "MethodTypeParameterName": true,
                     "MissingCtor": false,
                     "MissingDeprecated": false,
                     "MissingOverride": false,
-                    "MissingSwitchDefault": true,
+                    "MissingSwitchDefault": false,
                     "ModifiedControlVariable": true,
                     "ModifierOrder": false,
                     "MultipleStringLiterals": false,
-                    "MultipleVariableDeclarations": false,
+                    "MultipleVariableDeclarations": true,
                     "MutableException": false,
-                    "NPathComplexity": false,
+                    "NPathComplexity": true,
                     "NeedBraces": true,
-                    "NestedForDepth": true,
+                    "NestedForDepth": false,
                     "NestedIfDepth": true,
-                    "NestedTryDepth": false,
+                    "NestedTryDepth": true,
                     "NewlineAtEndOfFile": true,
-                    "NoClone": false,
-                    "NoFinalizer": true,
-                    "NoLineWrap": false,
+                    "NoClone": true,
+                    "NoFinalizer": false,
+                    "NoLineWrap": true,
                     "NoWhitespaceAfter": true,
                     "NoWhitespaceBefore": true,
-                    "NonEmptyAtclauseDescription": true,
-                    "OneStatementPerLine": true,
+                    "NonEmptyAtclauseDescription": false,
+                    "OneStatementPerLine": false,
                     "OneTopLevelClass": true,
-                    "OperatorWrap": false,
+                    "OperatorWrap": true,
                     "OuterTypeFilename": false,
                     "OuterTypeNumber": false,
                     "OverloadMethodsDeclarationOrder": false,
-                    "PackageAnnotation": false,
-                    "PackageDeclaration": false,
+                    "PackageAnnotation": true,
+                    "PackageDeclaration": true,
                     "PackageName": true,
                     "ParameterAssignment": true,
                     "ParameterName": true,
-                    "ParameterNumber": true,
+                    "ParameterNumber": false,
                     "ParenPad": false,
                     "RedundantImport": true,
                     "RedundantModifier": false,
-                    "Regexp": false,
+                    "Regexp": true,
                     "RegexpHeader": true,
                     "RegexpMultiline": false,
-                    "RegexpOnFilename": true,
-                    "RegexpSingleline": false,
+                    "RegexpOnFilename": false,
+                    "RegexpSingleline": true,
                     "RegexpSinglelineJava": false,
                     "RequireThis": false,
-                    "ReturnCount": true,
-                    "RightCurly": true,
+                    "ReturnCount": false,
+                    "RightCurly": false,
                     "SeparatorWrap": true,
                     "SimplifyBooleanExpression": true,
                     "SimplifyBooleanReturn": false,
                     "SingleLineJavadoc": false,
-                    "SingleSpaceSeparator": true,
-                    "StaticVariableName": true,
-                    "StringLiteralEquality": true,
+                    "SingleSpaceSeparator": false,
+                    "StaticVariableName": false,
+                    "StringLiteralEquality": false,
                     "SummaryJavadoc": true,
-                    "SuperClone": false,
-                    "SuperFinalize": false,
+                    "SuperClone": true,
+                    "SuperFinalize": true,
                     "SuppressWarnings": false,
-                    "SuppressWarningsHolder": false,
-                    "ThrowsCount": true,
-                    "TodoComment": false,
+                    "SuppressWarningsHolder": true,
+                    "ThrowsCount": false,
+                    "TodoComment": true,
                     "TrailingComment": false,
-                    "Translation": false,
+                    "Translation": true,
                     "TypeName": true,
                     "TypecastParenPad": true,
                     "UncommentedMain": true,
-                    "UniqueProperties": false,
+                    "UniqueProperties": true,
                     "UnnecessaryParentheses": false,
-                    "UnusedImports": true,
-                    "UpperEll": true,
-                    "VariableDeclarationUsageDistance": true,
-                    "VisibilityModifier": true,
-                    "WhitespaceAfter": true,
-                    "WhitespaceAround": false,
+                    "UnusedImports": false,
+                    "UpperEll": false,
+                    "VariableDeclarationUsageDistance": false,
+                    "VisibilityModifier": false,
+                    "WhitespaceAfter": false,
+                    "WhitespaceAround": true,
                     "WriteTag": true
                   }
                 },
@@ -1179,17 +1201,17 @@ Make me a new bug profile
                   "properties": {
                     "name": {
                       "type": "string",
-                      "example": "Nulla ipsa."
+                      "example": "Porro aut quia."
                     }
                   },
                   "description": "Description of which Findbugs bugs are checked.",
                   "example": {
-                    "name": "Nulla ipsa."
+                    "name": "Porro aut quia."
                   }
                 },
                 "name": {
                   "type": "string",
-                  "example": "Et aspernatur."
+                  "example": "Est iure perspiciatis optio."
                 }
               },
               "description": "A bug profile"
@@ -1257,164 +1279,164 @@ Update my pre-existing bug profile
 
             {
               "checkstyle": {
-                "AbbreviationAsWordInName": false,
-                "AbstractClassName": false,
-                "AnnotationLocation": true,
+                "AbbreviationAsWordInName": true,
+                "AbstractClassName": true,
+                "AnnotationLocation": false,
                 "AnnotationUseStyle": true,
                 "AnonInnerLength": false,
-                "ArrayTrailingComma": true,
-                "ArrayTypeStyle": true,
+                "ArrayTrailingComma": false,
+                "ArrayTypeStyle": false,
                 "AtclauseOrder": true,
                 "AvoidEscapedUnicodeCharacters": true,
                 "AvoidInlineConditionals": true,
                 "AvoidNestedBlocks": true,
-                "AvoidStarImport": false,
+                "AvoidStarImport": true,
                 "AvoidStaticImport": true,
-                "BooleanExpressionComplexity": true,
-                "CatchParameterName": false,
+                "BooleanExpressionComplexity": false,
+                "CatchParameterName": true,
                 "ClassDataAbstractionCoupling": false,
                 "ClassFanOutComplexity": true,
-                "ClassTypeParameterName": false,
+                "ClassTypeParameterName": true,
                 "CommentsIndentation": false,
-                "ConstantName": true,
-                "CovariantEquals": true,
-                "CustomImportOrder": false,
-                "CyclomaticComplexity": false,
-                "DeclarationOrder": true,
-                "DefaultComesLast": true,
+                "ConstantName": false,
+                "CovariantEquals": false,
+                "CustomImportOrder": true,
+                "CyclomaticComplexity": true,
+                "DeclarationOrder": false,
+                "DefaultComesLast": false,
                 "DescendantToken": true,
                 "DesignForExtension": false,
-                "EmptyBlock": false,
-                "EmptyCatchBlock": true,
-                "EmptyForInitializerPad": true,
-                "EmptyForIteratorPad": true,
+                "EmptyBlock": true,
+                "EmptyCatchBlock": false,
+                "EmptyForInitializerPad": false,
+                "EmptyForIteratorPad": false,
                 "EmptyLineSeparator": false,
-                "EmptyStatement": false,
-                "EqualsAvoidNull": true,
-                "EqualsHashCode": false,
-                "ExecutableStatementCount": true,
+                "EmptyStatement": true,
+                "EqualsAvoidNull": false,
+                "EqualsHashCode": true,
+                "ExecutableStatementCount": false,
                 "ExplicitInitialization": true,
-                "FallThrough": true,
+                "FallThrough": false,
                 "FileLength": false,
                 "FileTabCharacter": false,
-                "FinalClass": false,
+                "FinalClass": true,
                 "FinalLocalVariable": false,
-                "FinalParameters": true,
+                "FinalParameters": false,
                 "GenericWhitespace": false,
-                "Header": false,
+                "Header": true,
                 "HiddenField": true,
                 "HideUtilityClassConstructor": false,
                 "IllegalCatch": true,
                 "IllegalImport": true,
-                "IllegalInstantiation": false,
+                "IllegalInstantiation": true,
                 "IllegalThrows": true,
                 "IllegalToken": true,
                 "IllegalTokenText": true,
-                "IllegalType": true,
-                "ImportControl": false,
+                "IllegalType": false,
+                "ImportControl": true,
                 "ImportOrder": true,
-                "Indentation": true,
-                "InnerAssignment": true,
-                "InnerTypeLast": false,
+                "Indentation": false,
+                "InnerAssignment": false,
+                "InnerTypeLast": true,
                 "InterfaceIsType": false,
-                "InterfaceTypeParameterName": true,
+                "InterfaceTypeParameterName": false,
                 "JavaNCSS": true,
-                "JavadocMethod": false,
+                "JavadocMethod": true,
                 "JavadocPackage": false,
                 "JavadocParagraph": false,
                 "JavadocStyle": true,
                 "JavadocTagContinuationIndentation": true,
                 "JavadocType": true,
-                "JavadocVariable": true,
-                "LeftCurly": true,
-                "LineLength": false,
-                "LocalFinalVariableName": false,
+                "JavadocVariable": false,
+                "LeftCurly": false,
+                "LineLength": true,
+                "LocalFinalVariableName": true,
                 "LocalVariableName": true,
                 "MagicNumber": false,
-                "MemberName": true,
+                "MemberName": false,
                 "MethodCount": true,
                 "MethodLength": false,
-                "MethodName": false,
+                "MethodName": true,
                 "MethodParamPad": true,
-                "MethodTypeParameterName": false,
+                "MethodTypeParameterName": true,
                 "MissingCtor": false,
                 "MissingDeprecated": false,
                 "MissingOverride": false,
-                "MissingSwitchDefault": true,
+                "MissingSwitchDefault": false,
                 "ModifiedControlVariable": true,
                 "ModifierOrder": false,
                 "MultipleStringLiterals": false,
-                "MultipleVariableDeclarations": false,
+                "MultipleVariableDeclarations": true,
                 "MutableException": false,
-                "NPathComplexity": false,
+                "NPathComplexity": true,
                 "NeedBraces": true,
-                "NestedForDepth": true,
+                "NestedForDepth": false,
                 "NestedIfDepth": true,
-                "NestedTryDepth": false,
+                "NestedTryDepth": true,
                 "NewlineAtEndOfFile": true,
-                "NoClone": false,
-                "NoFinalizer": true,
-                "NoLineWrap": false,
+                "NoClone": true,
+                "NoFinalizer": false,
+                "NoLineWrap": true,
                 "NoWhitespaceAfter": true,
                 "NoWhitespaceBefore": true,
-                "NonEmptyAtclauseDescription": true,
-                "OneStatementPerLine": true,
+                "NonEmptyAtclauseDescription": false,
+                "OneStatementPerLine": false,
                 "OneTopLevelClass": true,
-                "OperatorWrap": false,
+                "OperatorWrap": true,
                 "OuterTypeFilename": false,
                 "OuterTypeNumber": false,
                 "OverloadMethodsDeclarationOrder": false,
-                "PackageAnnotation": false,
-                "PackageDeclaration": false,
+                "PackageAnnotation": true,
+                "PackageDeclaration": true,
                 "PackageName": true,
                 "ParameterAssignment": true,
                 "ParameterName": true,
-                "ParameterNumber": true,
+                "ParameterNumber": false,
                 "ParenPad": false,
                 "RedundantImport": true,
                 "RedundantModifier": false,
-                "Regexp": false,
+                "Regexp": true,
                 "RegexpHeader": true,
                 "RegexpMultiline": false,
-                "RegexpOnFilename": true,
-                "RegexpSingleline": false,
+                "RegexpOnFilename": false,
+                "RegexpSingleline": true,
                 "RegexpSinglelineJava": false,
                 "RequireThis": false,
-                "ReturnCount": true,
-                "RightCurly": true,
+                "ReturnCount": false,
+                "RightCurly": false,
                 "SeparatorWrap": true,
                 "SimplifyBooleanExpression": true,
                 "SimplifyBooleanReturn": false,
                 "SingleLineJavadoc": false,
-                "SingleSpaceSeparator": true,
-                "StaticVariableName": true,
-                "StringLiteralEquality": true,
+                "SingleSpaceSeparator": false,
+                "StaticVariableName": false,
+                "StringLiteralEquality": false,
                 "SummaryJavadoc": true,
-                "SuperClone": false,
-                "SuperFinalize": false,
+                "SuperClone": true,
+                "SuperFinalize": true,
                 "SuppressWarnings": false,
-                "SuppressWarningsHolder": false,
-                "ThrowsCount": true,
-                "TodoComment": false,
+                "SuppressWarningsHolder": true,
+                "ThrowsCount": false,
+                "TodoComment": true,
                 "TrailingComment": false,
-                "Translation": false,
+                "Translation": true,
                 "TypeName": true,
                 "TypecastParenPad": true,
                 "UncommentedMain": true,
-                "UniqueProperties": false,
+                "UniqueProperties": true,
                 "UnnecessaryParentheses": false,
-                "UnusedImports": true,
-                "UpperEll": true,
-                "VariableDeclarationUsageDistance": true,
-                "VisibilityModifier": true,
-                "WhitespaceAfter": true,
-                "WhitespaceAround": false,
+                "UnusedImports": false,
+                "UpperEll": false,
+                "VariableDeclarationUsageDistance": false,
+                "VisibilityModifier": false,
+                "WhitespaceAfter": false,
+                "WhitespaceAround": true,
                 "WriteTag": true
               },
               "findbugs": {
-                "name": "Nulla ipsa."
+                "name": "Porro aut quia."
               },
-              "name": "Et aspernatur."
+              "name": "Est iure perspiciatis optio."
             }
 
     + Schema
@@ -1430,17 +1452,17 @@ Update my pre-existing bug profile
                     "AbbreviationAsWordInName": {
                       "type": "boolean",
                       "description": "The Check validate abbreviations(consecutive capital letters) length in identifier name, it also allow in enforce camel case naming.",
-                      "example": false
+                      "example": true
                     },
                     "AbstractClassName": {
                       "type": "boolean",
                       "description": "Ensures that the names of abstract classes conforming to some regular expression.",
-                      "example": false
+                      "example": true
                     },
                     "AnnotationLocation": {
                       "type": "boolean",
                       "description": "Check location of annotation on language elements.",
-                      "example": true
+                      "example": false
                     },
                     "AnnotationUseStyle": {
                       "type": "boolean",
@@ -1455,12 +1477,12 @@ Update my pre-existing bug profile
                     "ArrayTrailingComma": {
                       "type": "boolean",
                       "description": "Checks if array initialization contains optional trailing comma.",
-                      "example": true
+                      "example": false
                     },
                     "ArrayTypeStyle": {
                       "type": "boolean",
                       "description": "Checks the style of array type definitions.",
-                      "example": true
+                      "example": false
                     },
                     "AtclauseOrder": {
                       "type": "boolean",
@@ -1485,7 +1507,7 @@ Update my pre-existing bug profile
                     "AvoidStarImport": {
                       "type": "boolean",
                       "description": "Check that finds import statements that use the * notation.",
-                      "example": false
+                      "example": true
                     },
                     "AvoidStaticImport": {
                       "type": "boolean",
@@ -1495,12 +1517,12 @@ Update my pre-existing bug profile
                     "BooleanExpressionComplexity": {
                       "type": "boolean",
                       "description": "Restricts nested boolean operators (&&, ||, &, | and ^) to a specified depth (default = 3).",
-                      "example": true
+                      "example": false
                     },
                     "CatchParameterName": {
                       "type": "boolean",
                       "description": "Checks that catch parameter names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "ClassDataAbstractionCoupling": {
                       "type": "boolean",
@@ -1515,7 +1537,7 @@ Update my pre-existing bug profile
                     "ClassTypeParameterName": {
                       "type": "boolean",
                       "description": "Checks that class type parameter names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "CommentsIndentation": {
                       "type": "boolean",
@@ -1525,32 +1547,32 @@ Update my pre-existing bug profile
                     "ConstantName": {
                       "type": "boolean",
                       "description": "Checks that constant names conform to a format specified by the format property.",
-                      "example": true
+                      "example": false
                     },
                     "CovariantEquals": {
                       "type": "boolean",
                       "description": "Checks that if a class defines a covariant method equals, then it defines method equals(java.lang.Object).",
-                      "example": true
+                      "example": false
                     },
                     "CustomImportOrder": {
                       "type": "boolean",
                       "description": "Checks that the groups of import declarations appear in the order specified by the user.",
-                      "example": false
+                      "example": true
                     },
                     "CyclomaticComplexity": {
                       "type": "boolean",
                       "description": "Checks cyclomatic complexity against a specified limit.",
-                      "example": false
+                      "example": true
                     },
                     "DeclarationOrder": {
                       "type": "boolean",
                       "description": "Checks that the parts of a class or interface declaration appear in the order suggested by the Code Conventions for the Java Programming Language.",
-                      "example": true
+                      "example": false
                     },
                     "DefaultComesLast": {
                       "type": "boolean",
                       "description": "Check that the default is after all the cases in a switch statement.",
-                      "example": true
+                      "example": false
                     },
                     "DescendantToken": {
                       "type": "boolean",
@@ -1565,22 +1587,22 @@ Update my pre-existing bug profile
                     "EmptyBlock": {
                       "type": "boolean",
                       "description": "Checks for empty blocks.",
-                      "example": false
+                      "example": true
                     },
                     "EmptyCatchBlock": {
                       "type": "boolean",
                       "description": "Checks for empty catch blocks with few options to skip violation.",
-                      "example": true
+                      "example": false
                     },
                     "EmptyForInitializerPad": {
                       "type": "boolean",
                       "description": "Checks the padding of an empty for initializer; that is whether a space is required at an empty for initializer, or such spaces are forbidden.",
-                      "example": true
+                      "example": false
                     },
                     "EmptyForIteratorPad": {
                       "type": "boolean",
                       "description": "Checks the padding of an empty for iterator; that is whether a space is required at an empty for iterator, or such spaces are forbidden.",
-                      "example": true
+                      "example": false
                     },
                     "EmptyLineSeparator": {
                       "type": "boolean",
@@ -1590,22 +1612,22 @@ Update my pre-existing bug profile
                     "EmptyStatement": {
                       "type": "boolean",
                       "description": "Detects empty statements (standalone ';').",
-                      "example": false
+                      "example": true
                     },
                     "EqualsAvoidNull": {
                       "type": "boolean",
                       "description": "Checks that any combination of String literals is on the left side of an equals() comparison.",
-                      "example": true
+                      "example": false
                     },
                     "EqualsHashCode": {
                       "type": "boolean",
                       "description": "Checks that classes that override equals() also override hashCode().",
-                      "example": false
+                      "example": true
                     },
                     "ExecutableStatementCount": {
                       "type": "boolean",
                       "description": "Restricts the number of executable statements to a specified limit (default = 30).",
-                      "example": true
+                      "example": false
                     },
                     "ExplicitInitialization": {
                       "type": "boolean",
@@ -1615,7 +1637,7 @@ Update my pre-existing bug profile
                     "FallThrough": {
                       "type": "boolean",
                       "description": "Checks for fall through in switch statements Finds locations where a case contains Java code - but lacks a break, return, throw or continue statement.",
-                      "example": true
+                      "example": false
                     },
                     "FileLength": {
                       "type": "boolean",
@@ -1630,7 +1652,7 @@ Update my pre-existing bug profile
                     "FinalClass": {
                       "type": "boolean",
                       "description": "Checks that class which has only private constructors is declared as final.",
-                      "example": false
+                      "example": true
                     },
                     "FinalLocalVariable": {
                       "type": "boolean",
@@ -1640,7 +1662,7 @@ Update my pre-existing bug profile
                     "FinalParameters": {
                       "type": "boolean",
                       "description": "Check that method/constructor/catch/foreach parameters are final.",
-                      "example": true
+                      "example": false
                     },
                     "GenericWhitespace": {
                       "type": "boolean",
@@ -1650,7 +1672,7 @@ Update my pre-existing bug profile
                     "Header": {
                       "type": "boolean",
                       "description": "Checks the header of the source against a fixed header file.",
-                      "example": false
+                      "example": true
                     },
                     "HiddenField": {
                       "type": "boolean",
@@ -1675,7 +1697,7 @@ Update my pre-existing bug profile
                     "IllegalInstantiation": {
                       "type": "boolean",
                       "description": "Checks for illegal instantiations where a factory method is preferred.",
-                      "example": false
+                      "example": true
                     },
                     "IllegalThrows": {
                       "type": "boolean",
@@ -1695,12 +1717,12 @@ Update my pre-existing bug profile
                     "IllegalType": {
                       "type": "boolean",
                       "description": "Checks that particular class are never used as types in variable declarations, return values or parameters.",
-                      "example": true
+                      "example": false
                     },
                     "ImportControl": {
                       "type": "boolean",
                       "description": "Check that controls what packages can be imported in each package.",
-                      "example": false
+                      "example": true
                     },
                     "ImportOrder": {
                       "type": "boolean",
@@ -1710,17 +1732,17 @@ Update my pre-existing bug profile
                     "Indentation": {
                       "type": "boolean",
                       "description": "Checks correct indentation of Java Code.",
-                      "example": true
+                      "example": false
                     },
                     "InnerAssignment": {
                       "type": "boolean",
                       "description": "Checks for assignments in subexpressions, such as in String s = Integer.toString(i = 2);.",
-                      "example": true
+                      "example": false
                     },
                     "InnerTypeLast": {
                       "type": "boolean",
                       "description": "Check nested (internal) classes/interfaces are declared at the bottom of the class after all method and field declarations.",
-                      "example": false
+                      "example": true
                     },
                     "InterfaceIsType": {
                       "type": "boolean",
@@ -1730,7 +1752,7 @@ Update my pre-existing bug profile
                     "InterfaceTypeParameterName": {
                       "type": "boolean",
                       "description": "Checks that interface type parameter names conform to a format specified by the format property.",
-                      "example": true
+                      "example": false
                     },
                     "JavaNCSS": {
                       "type": "boolean",
@@ -1740,7 +1762,7 @@ Update my pre-existing bug profile
                     "JavadocMethod": {
                       "type": "boolean",
                       "description": "Checks the Javadoc of a method or constructor.",
-                      "example": false
+                      "example": true
                     },
                     "JavadocPackage": {
                       "type": "boolean",
@@ -1770,22 +1792,22 @@ Update my pre-existing bug profile
                     "JavadocVariable": {
                       "type": "boolean",
                       "description": "Checks that a variable has Javadoc comment.",
-                      "example": true
+                      "example": false
                     },
                     "LeftCurly": {
                       "type": "boolean",
                       "description": "Checks the placement of left curly braces on types, methods and other blocks:",
-                      "example": true
+                      "example": false
                     },
                     "LineLength": {
                       "type": "boolean",
                       "description": "Checks for long lines.",
-                      "example": false
+                      "example": true
                     },
                     "LocalFinalVariableName": {
                       "type": "boolean",
                       "description": "Checks that local final variable names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "LocalVariableName": {
                       "type": "boolean",
@@ -1800,7 +1822,7 @@ Update my pre-existing bug profile
                     "MemberName": {
                       "type": "boolean",
                       "description": "Checks that instance variable names conform to a format specified by the format property.",
-                      "example": true
+                      "example": false
                     },
                     "MethodCount": {
                       "type": "boolean",
@@ -1815,7 +1837,7 @@ Update my pre-existing bug profile
                     "MethodName": {
                       "type": "boolean",
                       "description": "Checks that method names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "MethodParamPad": {
                       "type": "boolean",
@@ -1825,7 +1847,7 @@ Update my pre-existing bug profile
                     "MethodTypeParameterName": {
                       "type": "boolean",
                       "description": "Checks that class type parameter names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "MissingCtor": {
                       "type": "boolean",
@@ -1845,7 +1867,7 @@ Update my pre-existing bug profile
                     "MissingSwitchDefault": {
                       "type": "boolean",
                       "description": "Checks that switch statement has 'default' clause.",
-                      "example": true
+                      "example": false
                     },
                     "ModifiedControlVariable": {
                       "type": "boolean",
@@ -1865,7 +1887,7 @@ Update my pre-existing bug profile
                     "MultipleVariableDeclarations": {
                       "type": "boolean",
                       "description": "Checks that each variable declaration is in its own statement and on its own line.",
-                      "example": false
+                      "example": true
                     },
                     "MutableException": {
                       "type": "boolean",
@@ -1875,7 +1897,7 @@ Update my pre-existing bug profile
                     "NPathComplexity": {
                       "type": "boolean",
                       "description": "Checks the npath complexity against a specified limit (default = 200).",
-                      "example": false
+                      "example": true
                     },
                     "NeedBraces": {
                       "type": "boolean",
@@ -1885,7 +1907,7 @@ Update my pre-existing bug profile
                     "NestedForDepth": {
                       "type": "boolean",
                       "description": "Restricts nested for blocks to a specified depth (default = 1).",
-                      "example": true
+                      "example": false
                     },
                     "NestedIfDepth": {
                       "type": "boolean",
@@ -1895,7 +1917,7 @@ Update my pre-existing bug profile
                     "NestedTryDepth": {
                       "type": "boolean",
                       "description": "Restricts nested try-catch-finally blocks to a specified depth (default = 1).",
-                      "example": false
+                      "example": true
                     },
                     "NewlineAtEndOfFile": {
                       "type": "boolean",
@@ -1905,17 +1927,17 @@ Update my pre-existing bug profile
                     "NoClone": {
                       "type": "boolean",
                       "description": "Checks that the clone method is not overridden from the Object class.",
-                      "example": false
+                      "example": true
                     },
                     "NoFinalizer": {
                       "type": "boolean",
                       "description": "Checks that no method having zero parameters is defined using the name finalize.",
-                      "example": true
+                      "example": false
                     },
                     "NoLineWrap": {
                       "type": "boolean",
                       "description": "Checks that chosen statements are not line-wrapped.",
-                      "example": false
+                      "example": true
                     },
                     "NoWhitespaceAfter": {
                       "type": "boolean",
@@ -1930,12 +1952,12 @@ Update my pre-existing bug profile
                     "NonEmptyAtclauseDescription": {
                       "type": "boolean",
                       "description": "Checks that the at-clause tag is followed by description .",
-                      "example": true
+                      "example": false
                     },
                     "OneStatementPerLine": {
                       "type": "boolean",
                       "description": "Checks that there is only one statement per line.",
-                      "example": true
+                      "example": false
                     },
                     "OneTopLevelClass": {
                       "type": "boolean",
@@ -1945,7 +1967,7 @@ Update my pre-existing bug profile
                     "OperatorWrap": {
                       "type": "boolean",
                       "description": "Checks line wrapping for operators.",
-                      "example": false
+                      "example": true
                     },
                     "OuterTypeFilename": {
                       "type": "boolean",
@@ -1965,12 +1987,12 @@ Update my pre-existing bug profile
                     "PackageAnnotation": {
                       "type": "boolean",
                       "description": "This check makes sure that all package annotations are in the package-info.java file.",
-                      "example": false
+                      "example": true
                     },
                     "PackageDeclaration": {
                       "type": "boolean",
                       "description": "Ensures there is a package declaration and (optionally) in the correct directory.",
-                      "example": false
+                      "example": true
                     },
                     "PackageName": {
                       "type": "boolean",
@@ -1990,7 +2012,7 @@ Update my pre-existing bug profile
                     "ParameterNumber": {
                       "type": "boolean",
                       "description": "Checks the number of parameters that a method or constructor has.",
-                      "example": true
+                      "example": false
                     },
                     "ParenPad": {
                       "type": "boolean",
@@ -2010,7 +2032,7 @@ Update my pre-existing bug profile
                     "Regexp": {
                       "type": "boolean",
                       "description": "A check that makes sure that a specified pattern exists (or not) in the file.",
-                      "example": false
+                      "example": true
                     },
                     "RegexpHeader": {
                       "type": "boolean",
@@ -2025,12 +2047,12 @@ Update my pre-existing bug profile
                     "RegexpOnFilename": {
                       "type": "boolean",
                       "description": "Implementation of a check that matches based on file and/or folder path.",
-                      "example": true
+                      "example": false
                     },
                     "RegexpSingleline": {
                       "type": "boolean",
                       "description": "Implementation of a check that looks for a single line in any file type.",
-                      "example": false
+                      "example": true
                     },
                     "RegexpSinglelineJava": {
                       "type": "boolean",
@@ -2045,12 +2067,12 @@ Update my pre-existing bug profile
                     "ReturnCount": {
                       "type": "boolean",
                       "description": "Restricts return statements to a specified count (default = 2).",
-                      "example": true
+                      "example": false
                     },
                     "RightCurly": {
                       "type": "boolean",
                       "description": "Checks the placement of right curly braces.",
-                      "example": true
+                      "example": false
                     },
                     "SeparatorWrap": {
                       "type": "boolean",
@@ -2075,17 +2097,17 @@ Update my pre-existing bug profile
                     "SingleSpaceSeparator": {
                       "type": "boolean",
                       "description": "Checks that non-whitespace characters are separated by no more than one whitespace.",
-                      "example": true
+                      "example": false
                     },
                     "StaticVariableName": {
                       "type": "boolean",
                       "description": "Checks that static, non-final variable names conform to a format specified by the format property.",
-                      "example": true
+                      "example": false
                     },
                     "StringLiteralEquality": {
                       "type": "boolean",
                       "description": "Checks that string literals are not used with == or !=.",
-                      "example": true
+                      "example": false
                     },
                     "SummaryJavadoc": {
                       "type": "boolean",
@@ -2095,12 +2117,12 @@ Update my pre-existing bug profile
                     "SuperClone": {
                       "type": "boolean",
                       "description": "Checks that an overriding clone() method invokes super.clone().",
-                      "example": false
+                      "example": true
                     },
                     "SuperFinalize": {
                       "type": "boolean",
                       "description": "Checks that an overriding finalize() method invokes super.finalize().",
-                      "example": false
+                      "example": true
                     },
                     "SuppressWarnings": {
                       "type": "boolean",
@@ -2110,17 +2132,17 @@ Update my pre-existing bug profile
                     "SuppressWarningsHolder": {
                       "type": "boolean",
                       "description": "This check allows for finding code that should not be reported by Checkstyle",
-                      "example": false
+                      "example": true
                     },
                     "ThrowsCount": {
                       "type": "boolean",
                       "description": "Restricts throws statements to a specified count (default = 4).",
-                      "example": true
+                      "example": false
                     },
                     "TodoComment": {
                       "type": "boolean",
                       "description": "A check for TODO comments.",
-                      "example": false
+                      "example": true
                     },
                     "TrailingComment": {
                       "type": "boolean",
@@ -2130,7 +2152,7 @@ Update my pre-existing bug profile
                     "Translation": {
                       "type": "boolean",
                       "description": "The TranslationCheck class helps to ensure the correct translation of code by checking property files for consistency regarding their keys.",
-                      "example": false
+                      "example": true
                     },
                     "TypeName": {
                       "type": "boolean",
@@ -2150,7 +2172,7 @@ Update my pre-existing bug profile
                     "UniqueProperties": {
                       "type": "boolean",
                       "description": "Detects duplicated keys in properties files.",
-                      "example": false
+                      "example": true
                     },
                     "UnnecessaryParentheses": {
                       "type": "boolean",
@@ -2160,32 +2182,32 @@ Update my pre-existing bug profile
                     "UnusedImports": {
                       "type": "boolean",
                       "description": "Checks for unused import statements.",
-                      "example": true
+                      "example": false
                     },
                     "UpperEll": {
                       "type": "boolean",
                       "description": "Checks that long constants are defined with an upper ell.",
-                      "example": true
+                      "example": false
                     },
                     "VariableDeclarationUsageDistance": {
                       "type": "boolean",
                       "description": "Checks the distance between declaration of variable and its first usage.",
-                      "example": true
+                      "example": false
                     },
                     "VisibilityModifier": {
                       "type": "boolean",
                       "description": "Checks visibility of class members.",
-                      "example": true
+                      "example": false
                     },
                     "WhitespaceAfter": {
                       "type": "boolean",
                       "description": "Checks that a token is followed by whitespace, with the exception that it does not check for whitespace after the semicolon of an empty for iterator.",
-                      "example": true
+                      "example": false
                     },
                     "WhitespaceAround": {
                       "type": "boolean",
                       "description": "Checks that a token is surrounded by whitespace.",
-                      "example": false
+                      "example": true
                     },
                     "WriteTag": {
                       "type": "boolean",
@@ -2195,158 +2217,158 @@ Update my pre-existing bug profile
                   },
                   "description": "Description of which Checkstyle lints are checked.",
                   "example": {
-                    "AbbreviationAsWordInName": false,
-                    "AbstractClassName": false,
-                    "AnnotationLocation": true,
+                    "AbbreviationAsWordInName": true,
+                    "AbstractClassName": true,
+                    "AnnotationLocation": false,
                     "AnnotationUseStyle": true,
                     "AnonInnerLength": false,
-                    "ArrayTrailingComma": true,
-                    "ArrayTypeStyle": true,
+                    "ArrayTrailingComma": false,
+                    "ArrayTypeStyle": false,
                     "AtclauseOrder": true,
                     "AvoidEscapedUnicodeCharacters": true,
                     "AvoidInlineConditionals": true,
                     "AvoidNestedBlocks": true,
-                    "AvoidStarImport": false,
+                    "AvoidStarImport": true,
                     "AvoidStaticImport": true,
-                    "BooleanExpressionComplexity": true,
-                    "CatchParameterName": false,
+                    "BooleanExpressionComplexity": false,
+                    "CatchParameterName": true,
                     "ClassDataAbstractionCoupling": false,
                     "ClassFanOutComplexity": true,
-                    "ClassTypeParameterName": false,
+                    "ClassTypeParameterName": true,
                     "CommentsIndentation": false,
-                    "ConstantName": true,
-                    "CovariantEquals": true,
-                    "CustomImportOrder": false,
-                    "CyclomaticComplexity": false,
-                    "DeclarationOrder": true,
-                    "DefaultComesLast": true,
+                    "ConstantName": false,
+                    "CovariantEquals": false,
+                    "CustomImportOrder": true,
+                    "CyclomaticComplexity": true,
+                    "DeclarationOrder": false,
+                    "DefaultComesLast": false,
                     "DescendantToken": true,
                     "DesignForExtension": false,
-                    "EmptyBlock": false,
-                    "EmptyCatchBlock": true,
-                    "EmptyForInitializerPad": true,
-                    "EmptyForIteratorPad": true,
+                    "EmptyBlock": true,
+                    "EmptyCatchBlock": false,
+                    "EmptyForInitializerPad": false,
+                    "EmptyForIteratorPad": false,
                     "EmptyLineSeparator": false,
-                    "EmptyStatement": false,
-                    "EqualsAvoidNull": true,
-                    "EqualsHashCode": false,
-                    "ExecutableStatementCount": true,
+                    "EmptyStatement": true,
+                    "EqualsAvoidNull": false,
+                    "EqualsHashCode": true,
+                    "ExecutableStatementCount": false,
                     "ExplicitInitialization": true,
-                    "FallThrough": true,
+                    "FallThrough": false,
                     "FileLength": false,
                     "FileTabCharacter": false,
-                    "FinalClass": false,
+                    "FinalClass": true,
                     "FinalLocalVariable": false,
-                    "FinalParameters": true,
+                    "FinalParameters": false,
                     "GenericWhitespace": false,
-                    "Header": false,
+                    "Header": true,
                     "HiddenField": true,
                     "HideUtilityClassConstructor": false,
                     "IllegalCatch": true,
                     "IllegalImport": true,
-                    "IllegalInstantiation": false,
+                    "IllegalInstantiation": true,
                     "IllegalThrows": true,
                     "IllegalToken": true,
                     "IllegalTokenText": true,
-                    "IllegalType": true,
-                    "ImportControl": false,
+                    "IllegalType": false,
+                    "ImportControl": true,
                     "ImportOrder": true,
-                    "Indentation": true,
-                    "InnerAssignment": true,
-                    "InnerTypeLast": false,
+                    "Indentation": false,
+                    "InnerAssignment": false,
+                    "InnerTypeLast": true,
                     "InterfaceIsType": false,
-                    "InterfaceTypeParameterName": true,
+                    "InterfaceTypeParameterName": false,
                     "JavaNCSS": true,
-                    "JavadocMethod": false,
+                    "JavadocMethod": true,
                     "JavadocPackage": false,
                     "JavadocParagraph": false,
                     "JavadocStyle": true,
                     "JavadocTagContinuationIndentation": true,
                     "JavadocType": true,
-                    "JavadocVariable": true,
-                    "LeftCurly": true,
-                    "LineLength": false,
-                    "LocalFinalVariableName": false,
+                    "JavadocVariable": false,
+                    "LeftCurly": false,
+                    "LineLength": true,
+                    "LocalFinalVariableName": true,
                     "LocalVariableName": true,
                     "MagicNumber": false,
-                    "MemberName": true,
+                    "MemberName": false,
                     "MethodCount": true,
                     "MethodLength": false,
-                    "MethodName": false,
+                    "MethodName": true,
                     "MethodParamPad": true,
-                    "MethodTypeParameterName": false,
+                    "MethodTypeParameterName": true,
                     "MissingCtor": false,
                     "MissingDeprecated": false,
                     "MissingOverride": false,
-                    "MissingSwitchDefault": true,
+                    "MissingSwitchDefault": false,
                     "ModifiedControlVariable": true,
                     "ModifierOrder": false,
                     "MultipleStringLiterals": false,
-                    "MultipleVariableDeclarations": false,
+                    "MultipleVariableDeclarations": true,
                     "MutableException": false,
-                    "NPathComplexity": false,
+                    "NPathComplexity": true,
                     "NeedBraces": true,
-                    "NestedForDepth": true,
+                    "NestedForDepth": false,
                     "NestedIfDepth": true,
-                    "NestedTryDepth": false,
+                    "NestedTryDepth": true,
                     "NewlineAtEndOfFile": true,
-                    "NoClone": false,
-                    "NoFinalizer": true,
-                    "NoLineWrap": false,
+                    "NoClone": true,
+                    "NoFinalizer": false,
+                    "NoLineWrap": true,
                     "NoWhitespaceAfter": true,
                     "NoWhitespaceBefore": true,
-                    "NonEmptyAtclauseDescription": true,
-                    "OneStatementPerLine": true,
+                    "NonEmptyAtclauseDescription": false,
+                    "OneStatementPerLine": false,
                     "OneTopLevelClass": true,
-                    "OperatorWrap": false,
+                    "OperatorWrap": true,
                     "OuterTypeFilename": false,
                     "OuterTypeNumber": false,
                     "OverloadMethodsDeclarationOrder": false,
-                    "PackageAnnotation": false,
-                    "PackageDeclaration": false,
+                    "PackageAnnotation": true,
+                    "PackageDeclaration": true,
                     "PackageName": true,
                     "ParameterAssignment": true,
                     "ParameterName": true,
-                    "ParameterNumber": true,
+                    "ParameterNumber": false,
                     "ParenPad": false,
                     "RedundantImport": true,
                     "RedundantModifier": false,
-                    "Regexp": false,
+                    "Regexp": true,
                     "RegexpHeader": true,
                     "RegexpMultiline": false,
-                    "RegexpOnFilename": true,
-                    "RegexpSingleline": false,
+                    "RegexpOnFilename": false,
+                    "RegexpSingleline": true,
                     "RegexpSinglelineJava": false,
                     "RequireThis": false,
-                    "ReturnCount": true,
-                    "RightCurly": true,
+                    "ReturnCount": false,
+                    "RightCurly": false,
                     "SeparatorWrap": true,
                     "SimplifyBooleanExpression": true,
                     "SimplifyBooleanReturn": false,
                     "SingleLineJavadoc": false,
-                    "SingleSpaceSeparator": true,
-                    "StaticVariableName": true,
-                    "StringLiteralEquality": true,
+                    "SingleSpaceSeparator": false,
+                    "StaticVariableName": false,
+                    "StringLiteralEquality": false,
                     "SummaryJavadoc": true,
-                    "SuperClone": false,
-                    "SuperFinalize": false,
+                    "SuperClone": true,
+                    "SuperFinalize": true,
                     "SuppressWarnings": false,
-                    "SuppressWarningsHolder": false,
-                    "ThrowsCount": true,
-                    "TodoComment": false,
+                    "SuppressWarningsHolder": true,
+                    "ThrowsCount": false,
+                    "TodoComment": true,
                     "TrailingComment": false,
-                    "Translation": false,
+                    "Translation": true,
                     "TypeName": true,
                     "TypecastParenPad": true,
                     "UncommentedMain": true,
-                    "UniqueProperties": false,
+                    "UniqueProperties": true,
                     "UnnecessaryParentheses": false,
-                    "UnusedImports": true,
-                    "UpperEll": true,
-                    "VariableDeclarationUsageDistance": true,
-                    "VisibilityModifier": true,
-                    "WhitespaceAfter": true,
-                    "WhitespaceAround": false,
+                    "UnusedImports": false,
+                    "UpperEll": false,
+                    "VariableDeclarationUsageDistance": false,
+                    "VisibilityModifier": false,
+                    "WhitespaceAfter": false,
+                    "WhitespaceAround": true,
                     "WriteTag": true
                   }
                 },
@@ -2356,17 +2378,17 @@ Update my pre-existing bug profile
                   "properties": {
                     "name": {
                       "type": "string",
-                      "example": "Nulla ipsa."
+                      "example": "Porro aut quia."
                     }
                   },
                   "description": "Description of which Findbugs bugs are checked.",
                   "example": {
-                    "name": "Nulla ipsa."
+                    "name": "Porro aut quia."
                   }
                 },
                 "name": {
                   "type": "string",
-                  "example": "Et aspernatur."
+                  "example": "Est iure perspiciatis optio."
                 }
               },
               "description": "A bug profile"
@@ -2388,164 +2410,164 @@ Update my pre-existing bug profile
 
             {
               "checkstyle": {
-                "AbbreviationAsWordInName": false,
-                "AbstractClassName": false,
-                "AnnotationLocation": true,
+                "AbbreviationAsWordInName": true,
+                "AbstractClassName": true,
+                "AnnotationLocation": false,
                 "AnnotationUseStyle": true,
                 "AnonInnerLength": false,
-                "ArrayTrailingComma": true,
-                "ArrayTypeStyle": true,
+                "ArrayTrailingComma": false,
+                "ArrayTypeStyle": false,
                 "AtclauseOrder": true,
                 "AvoidEscapedUnicodeCharacters": true,
                 "AvoidInlineConditionals": true,
                 "AvoidNestedBlocks": true,
-                "AvoidStarImport": false,
+                "AvoidStarImport": true,
                 "AvoidStaticImport": true,
-                "BooleanExpressionComplexity": true,
-                "CatchParameterName": false,
+                "BooleanExpressionComplexity": false,
+                "CatchParameterName": true,
                 "ClassDataAbstractionCoupling": false,
                 "ClassFanOutComplexity": true,
-                "ClassTypeParameterName": false,
+                "ClassTypeParameterName": true,
                 "CommentsIndentation": false,
-                "ConstantName": true,
-                "CovariantEquals": true,
-                "CustomImportOrder": false,
-                "CyclomaticComplexity": false,
-                "DeclarationOrder": true,
-                "DefaultComesLast": true,
+                "ConstantName": false,
+                "CovariantEquals": false,
+                "CustomImportOrder": true,
+                "CyclomaticComplexity": true,
+                "DeclarationOrder": false,
+                "DefaultComesLast": false,
                 "DescendantToken": true,
                 "DesignForExtension": false,
-                "EmptyBlock": false,
-                "EmptyCatchBlock": true,
-                "EmptyForInitializerPad": true,
-                "EmptyForIteratorPad": true,
+                "EmptyBlock": true,
+                "EmptyCatchBlock": false,
+                "EmptyForInitializerPad": false,
+                "EmptyForIteratorPad": false,
                 "EmptyLineSeparator": false,
-                "EmptyStatement": false,
-                "EqualsAvoidNull": true,
-                "EqualsHashCode": false,
-                "ExecutableStatementCount": true,
+                "EmptyStatement": true,
+                "EqualsAvoidNull": false,
+                "EqualsHashCode": true,
+                "ExecutableStatementCount": false,
                 "ExplicitInitialization": true,
-                "FallThrough": true,
+                "FallThrough": false,
                 "FileLength": false,
                 "FileTabCharacter": false,
-                "FinalClass": false,
+                "FinalClass": true,
                 "FinalLocalVariable": false,
-                "FinalParameters": true,
+                "FinalParameters": false,
                 "GenericWhitespace": false,
-                "Header": false,
+                "Header": true,
                 "HiddenField": true,
                 "HideUtilityClassConstructor": false,
                 "IllegalCatch": true,
                 "IllegalImport": true,
-                "IllegalInstantiation": false,
+                "IllegalInstantiation": true,
                 "IllegalThrows": true,
                 "IllegalToken": true,
                 "IllegalTokenText": true,
-                "IllegalType": true,
-                "ImportControl": false,
+                "IllegalType": false,
+                "ImportControl": true,
                 "ImportOrder": true,
-                "Indentation": true,
-                "InnerAssignment": true,
-                "InnerTypeLast": false,
+                "Indentation": false,
+                "InnerAssignment": false,
+                "InnerTypeLast": true,
                 "InterfaceIsType": false,
-                "InterfaceTypeParameterName": true,
+                "InterfaceTypeParameterName": false,
                 "JavaNCSS": true,
-                "JavadocMethod": false,
+                "JavadocMethod": true,
                 "JavadocPackage": false,
                 "JavadocParagraph": false,
                 "JavadocStyle": true,
                 "JavadocTagContinuationIndentation": true,
                 "JavadocType": true,
-                "JavadocVariable": true,
-                "LeftCurly": true,
-                "LineLength": false,
-                "LocalFinalVariableName": false,
+                "JavadocVariable": false,
+                "LeftCurly": false,
+                "LineLength": true,
+                "LocalFinalVariableName": true,
                 "LocalVariableName": true,
                 "MagicNumber": false,
-                "MemberName": true,
+                "MemberName": false,
                 "MethodCount": true,
                 "MethodLength": false,
-                "MethodName": false,
+                "MethodName": true,
                 "MethodParamPad": true,
-                "MethodTypeParameterName": false,
+                "MethodTypeParameterName": true,
                 "MissingCtor": false,
                 "MissingDeprecated": false,
                 "MissingOverride": false,
-                "MissingSwitchDefault": true,
+                "MissingSwitchDefault": false,
                 "ModifiedControlVariable": true,
                 "ModifierOrder": false,
                 "MultipleStringLiterals": false,
-                "MultipleVariableDeclarations": false,
+                "MultipleVariableDeclarations": true,
                 "MutableException": false,
-                "NPathComplexity": false,
+                "NPathComplexity": true,
                 "NeedBraces": true,
-                "NestedForDepth": true,
+                "NestedForDepth": false,
                 "NestedIfDepth": true,
-                "NestedTryDepth": false,
+                "NestedTryDepth": true,
                 "NewlineAtEndOfFile": true,
-                "NoClone": false,
-                "NoFinalizer": true,
-                "NoLineWrap": false,
+                "NoClone": true,
+                "NoFinalizer": false,
+                "NoLineWrap": true,
                 "NoWhitespaceAfter": true,
                 "NoWhitespaceBefore": true,
-                "NonEmptyAtclauseDescription": true,
-                "OneStatementPerLine": true,
+                "NonEmptyAtclauseDescription": false,
+                "OneStatementPerLine": false,
                 "OneTopLevelClass": true,
-                "OperatorWrap": false,
+                "OperatorWrap": true,
                 "OuterTypeFilename": false,
                 "OuterTypeNumber": false,
                 "OverloadMethodsDeclarationOrder": false,
-                "PackageAnnotation": false,
-                "PackageDeclaration": false,
+                "PackageAnnotation": true,
+                "PackageDeclaration": true,
                 "PackageName": true,
                 "ParameterAssignment": true,
                 "ParameterName": true,
-                "ParameterNumber": true,
+                "ParameterNumber": false,
                 "ParenPad": false,
                 "RedundantImport": true,
                 "RedundantModifier": false,
-                "Regexp": false,
+                "Regexp": true,
                 "RegexpHeader": true,
                 "RegexpMultiline": false,
-                "RegexpOnFilename": true,
-                "RegexpSingleline": false,
+                "RegexpOnFilename": false,
+                "RegexpSingleline": true,
                 "RegexpSinglelineJava": false,
                 "RequireThis": false,
-                "ReturnCount": true,
-                "RightCurly": true,
+                "ReturnCount": false,
+                "RightCurly": false,
                 "SeparatorWrap": true,
                 "SimplifyBooleanExpression": true,
                 "SimplifyBooleanReturn": false,
                 "SingleLineJavadoc": false,
-                "SingleSpaceSeparator": true,
-                "StaticVariableName": true,
-                "StringLiteralEquality": true,
+                "SingleSpaceSeparator": false,
+                "StaticVariableName": false,
+                "StringLiteralEquality": false,
                 "SummaryJavadoc": true,
-                "SuperClone": false,
-                "SuperFinalize": false,
+                "SuperClone": true,
+                "SuperFinalize": true,
                 "SuppressWarnings": false,
-                "SuppressWarningsHolder": false,
-                "ThrowsCount": true,
-                "TodoComment": false,
+                "SuppressWarningsHolder": true,
+                "ThrowsCount": false,
+                "TodoComment": true,
                 "TrailingComment": false,
-                "Translation": false,
+                "Translation": true,
                 "TypeName": true,
                 "TypecastParenPad": true,
                 "UncommentedMain": true,
-                "UniqueProperties": false,
+                "UniqueProperties": true,
                 "UnnecessaryParentheses": false,
-                "UnusedImports": true,
-                "UpperEll": true,
-                "VariableDeclarationUsageDistance": true,
-                "VisibilityModifier": true,
-                "WhitespaceAfter": true,
-                "WhitespaceAround": false,
+                "UnusedImports": false,
+                "UpperEll": false,
+                "VariableDeclarationUsageDistance": false,
+                "VisibilityModifier": false,
+                "WhitespaceAfter": false,
+                "WhitespaceAround": true,
                 "WriteTag": true
               },
               "findbugs": {
-                "name": "Nulla ipsa."
+                "name": "Porro aut quia."
               },
-              "name": "Et aspernatur."
+              "name": "Est iure perspiciatis optio."
             }
 
     + Schema
@@ -2561,17 +2583,17 @@ Update my pre-existing bug profile
                     "AbbreviationAsWordInName": {
                       "type": "boolean",
                       "description": "The Check validate abbreviations(consecutive capital letters) length in identifier name, it also allow in enforce camel case naming.",
-                      "example": false
+                      "example": true
                     },
                     "AbstractClassName": {
                       "type": "boolean",
                       "description": "Ensures that the names of abstract classes conforming to some regular expression.",
-                      "example": false
+                      "example": true
                     },
                     "AnnotationLocation": {
                       "type": "boolean",
                       "description": "Check location of annotation on language elements.",
-                      "example": true
+                      "example": false
                     },
                     "AnnotationUseStyle": {
                       "type": "boolean",
@@ -2586,12 +2608,12 @@ Update my pre-existing bug profile
                     "ArrayTrailingComma": {
                       "type": "boolean",
                       "description": "Checks if array initialization contains optional trailing comma.",
-                      "example": true
+                      "example": false
                     },
                     "ArrayTypeStyle": {
                       "type": "boolean",
                       "description": "Checks the style of array type definitions.",
-                      "example": true
+                      "example": false
                     },
                     "AtclauseOrder": {
                       "type": "boolean",
@@ -2616,7 +2638,7 @@ Update my pre-existing bug profile
                     "AvoidStarImport": {
                       "type": "boolean",
                       "description": "Check that finds import statements that use the * notation.",
-                      "example": false
+                      "example": true
                     },
                     "AvoidStaticImport": {
                       "type": "boolean",
@@ -2626,12 +2648,12 @@ Update my pre-existing bug profile
                     "BooleanExpressionComplexity": {
                       "type": "boolean",
                       "description": "Restricts nested boolean operators (&&, ||, &, | and ^) to a specified depth (default = 3).",
-                      "example": true
+                      "example": false
                     },
                     "CatchParameterName": {
                       "type": "boolean",
                       "description": "Checks that catch parameter names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "ClassDataAbstractionCoupling": {
                       "type": "boolean",
@@ -2646,7 +2668,7 @@ Update my pre-existing bug profile
                     "ClassTypeParameterName": {
                       "type": "boolean",
                       "description": "Checks that class type parameter names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "CommentsIndentation": {
                       "type": "boolean",
@@ -2656,32 +2678,32 @@ Update my pre-existing bug profile
                     "ConstantName": {
                       "type": "boolean",
                       "description": "Checks that constant names conform to a format specified by the format property.",
-                      "example": true
+                      "example": false
                     },
                     "CovariantEquals": {
                       "type": "boolean",
                       "description": "Checks that if a class defines a covariant method equals, then it defines method equals(java.lang.Object).",
-                      "example": true
+                      "example": false
                     },
                     "CustomImportOrder": {
                       "type": "boolean",
                       "description": "Checks that the groups of import declarations appear in the order specified by the user.",
-                      "example": false
+                      "example": true
                     },
                     "CyclomaticComplexity": {
                       "type": "boolean",
                       "description": "Checks cyclomatic complexity against a specified limit.",
-                      "example": false
+                      "example": true
                     },
                     "DeclarationOrder": {
                       "type": "boolean",
                       "description": "Checks that the parts of a class or interface declaration appear in the order suggested by the Code Conventions for the Java Programming Language.",
-                      "example": true
+                      "example": false
                     },
                     "DefaultComesLast": {
                       "type": "boolean",
                       "description": "Check that the default is after all the cases in a switch statement.",
-                      "example": true
+                      "example": false
                     },
                     "DescendantToken": {
                       "type": "boolean",
@@ -2696,22 +2718,22 @@ Update my pre-existing bug profile
                     "EmptyBlock": {
                       "type": "boolean",
                       "description": "Checks for empty blocks.",
-                      "example": false
+                      "example": true
                     },
                     "EmptyCatchBlock": {
                       "type": "boolean",
                       "description": "Checks for empty catch blocks with few options to skip violation.",
-                      "example": true
+                      "example": false
                     },
                     "EmptyForInitializerPad": {
                       "type": "boolean",
                       "description": "Checks the padding of an empty for initializer; that is whether a space is required at an empty for initializer, or such spaces are forbidden.",
-                      "example": true
+                      "example": false
                     },
                     "EmptyForIteratorPad": {
                       "type": "boolean",
                       "description": "Checks the padding of an empty for iterator; that is whether a space is required at an empty for iterator, or such spaces are forbidden.",
-                      "example": true
+                      "example": false
                     },
                     "EmptyLineSeparator": {
                       "type": "boolean",
@@ -2721,22 +2743,22 @@ Update my pre-existing bug profile
                     "EmptyStatement": {
                       "type": "boolean",
                       "description": "Detects empty statements (standalone ';').",
-                      "example": false
+                      "example": true
                     },
                     "EqualsAvoidNull": {
                       "type": "boolean",
                       "description": "Checks that any combination of String literals is on the left side of an equals() comparison.",
-                      "example": true
+                      "example": false
                     },
                     "EqualsHashCode": {
                       "type": "boolean",
                       "description": "Checks that classes that override equals() also override hashCode().",
-                      "example": false
+                      "example": true
                     },
                     "ExecutableStatementCount": {
                       "type": "boolean",
                       "description": "Restricts the number of executable statements to a specified limit (default = 30).",
-                      "example": true
+                      "example": false
                     },
                     "ExplicitInitialization": {
                       "type": "boolean",
@@ -2746,7 +2768,7 @@ Update my pre-existing bug profile
                     "FallThrough": {
                       "type": "boolean",
                       "description": "Checks for fall through in switch statements Finds locations where a case contains Java code - but lacks a break, return, throw or continue statement.",
-                      "example": true
+                      "example": false
                     },
                     "FileLength": {
                       "type": "boolean",
@@ -2761,7 +2783,7 @@ Update my pre-existing bug profile
                     "FinalClass": {
                       "type": "boolean",
                       "description": "Checks that class which has only private constructors is declared as final.",
-                      "example": false
+                      "example": true
                     },
                     "FinalLocalVariable": {
                       "type": "boolean",
@@ -2771,7 +2793,7 @@ Update my pre-existing bug profile
                     "FinalParameters": {
                       "type": "boolean",
                       "description": "Check that method/constructor/catch/foreach parameters are final.",
-                      "example": true
+                      "example": false
                     },
                     "GenericWhitespace": {
                       "type": "boolean",
@@ -2781,7 +2803,7 @@ Update my pre-existing bug profile
                     "Header": {
                       "type": "boolean",
                       "description": "Checks the header of the source against a fixed header file.",
-                      "example": false
+                      "example": true
                     },
                     "HiddenField": {
                       "type": "boolean",
@@ -2806,7 +2828,7 @@ Update my pre-existing bug profile
                     "IllegalInstantiation": {
                       "type": "boolean",
                       "description": "Checks for illegal instantiations where a factory method is preferred.",
-                      "example": false
+                      "example": true
                     },
                     "IllegalThrows": {
                       "type": "boolean",
@@ -2826,12 +2848,12 @@ Update my pre-existing bug profile
                     "IllegalType": {
                       "type": "boolean",
                       "description": "Checks that particular class are never used as types in variable declarations, return values or parameters.",
-                      "example": true
+                      "example": false
                     },
                     "ImportControl": {
                       "type": "boolean",
                       "description": "Check that controls what packages can be imported in each package.",
-                      "example": false
+                      "example": true
                     },
                     "ImportOrder": {
                       "type": "boolean",
@@ -2841,17 +2863,17 @@ Update my pre-existing bug profile
                     "Indentation": {
                       "type": "boolean",
                       "description": "Checks correct indentation of Java Code.",
-                      "example": true
+                      "example": false
                     },
                     "InnerAssignment": {
                       "type": "boolean",
                       "description": "Checks for assignments in subexpressions, such as in String s = Integer.toString(i = 2);.",
-                      "example": true
+                      "example": false
                     },
                     "InnerTypeLast": {
                       "type": "boolean",
                       "description": "Check nested (internal) classes/interfaces are declared at the bottom of the class after all method and field declarations.",
-                      "example": false
+                      "example": true
                     },
                     "InterfaceIsType": {
                       "type": "boolean",
@@ -2861,7 +2883,7 @@ Update my pre-existing bug profile
                     "InterfaceTypeParameterName": {
                       "type": "boolean",
                       "description": "Checks that interface type parameter names conform to a format specified by the format property.",
-                      "example": true
+                      "example": false
                     },
                     "JavaNCSS": {
                       "type": "boolean",
@@ -2871,7 +2893,7 @@ Update my pre-existing bug profile
                     "JavadocMethod": {
                       "type": "boolean",
                       "description": "Checks the Javadoc of a method or constructor.",
-                      "example": false
+                      "example": true
                     },
                     "JavadocPackage": {
                       "type": "boolean",
@@ -2901,22 +2923,22 @@ Update my pre-existing bug profile
                     "JavadocVariable": {
                       "type": "boolean",
                       "description": "Checks that a variable has Javadoc comment.",
-                      "example": true
+                      "example": false
                     },
                     "LeftCurly": {
                       "type": "boolean",
                       "description": "Checks the placement of left curly braces on types, methods and other blocks:",
-                      "example": true
+                      "example": false
                     },
                     "LineLength": {
                       "type": "boolean",
                       "description": "Checks for long lines.",
-                      "example": false
+                      "example": true
                     },
                     "LocalFinalVariableName": {
                       "type": "boolean",
                       "description": "Checks that local final variable names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "LocalVariableName": {
                       "type": "boolean",
@@ -2931,7 +2953,7 @@ Update my pre-existing bug profile
                     "MemberName": {
                       "type": "boolean",
                       "description": "Checks that instance variable names conform to a format specified by the format property.",
-                      "example": true
+                      "example": false
                     },
                     "MethodCount": {
                       "type": "boolean",
@@ -2946,7 +2968,7 @@ Update my pre-existing bug profile
                     "MethodName": {
                       "type": "boolean",
                       "description": "Checks that method names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "MethodParamPad": {
                       "type": "boolean",
@@ -2956,7 +2978,7 @@ Update my pre-existing bug profile
                     "MethodTypeParameterName": {
                       "type": "boolean",
                       "description": "Checks that class type parameter names conform to a format specified by the format property.",
-                      "example": false
+                      "example": true
                     },
                     "MissingCtor": {
                       "type": "boolean",
@@ -2976,7 +2998,7 @@ Update my pre-existing bug profile
                     "MissingSwitchDefault": {
                       "type": "boolean",
                       "description": "Checks that switch statement has 'default' clause.",
-                      "example": true
+                      "example": false
                     },
                     "ModifiedControlVariable": {
                       "type": "boolean",
@@ -2996,7 +3018,7 @@ Update my pre-existing bug profile
                     "MultipleVariableDeclarations": {
                       "type": "boolean",
                       "description": "Checks that each variable declaration is in its own statement and on its own line.",
-                      "example": false
+                      "example": true
                     },
                     "MutableException": {
                       "type": "boolean",
@@ -3006,7 +3028,7 @@ Update my pre-existing bug profile
                     "NPathComplexity": {
                       "type": "boolean",
                       "description": "Checks the npath complexity against a specified limit (default = 200).",
-                      "example": false
+                      "example": true
                     },
                     "NeedBraces": {
                       "type": "boolean",
@@ -3016,7 +3038,7 @@ Update my pre-existing bug profile
                     "NestedForDepth": {
                       "type": "boolean",
                       "description": "Restricts nested for blocks to a specified depth (default = 1).",
-                      "example": true
+                      "example": false
                     },
                     "NestedIfDepth": {
                       "type": "boolean",
@@ -3026,7 +3048,7 @@ Update my pre-existing bug profile
                     "NestedTryDepth": {
                       "type": "boolean",
                       "description": "Restricts nested try-catch-finally blocks to a specified depth (default = 1).",
-                      "example": false
+                      "example": true
                     },
                     "NewlineAtEndOfFile": {
                       "type": "boolean",
@@ -3036,17 +3058,17 @@ Update my pre-existing bug profile
                     "NoClone": {
                       "type": "boolean",
                       "description": "Checks that the clone method is not overridden from the Object class.",
-                      "example": false
+                      "example": true
                     },
                     "NoFinalizer": {
                       "type": "boolean",
                       "description": "Checks that no method having zero parameters is defined using the name finalize.",
-                      "example": true
+                      "example": false
                     },
                     "NoLineWrap": {
                       "type": "boolean",
                       "description": "Checks that chosen statements are not line-wrapped.",
-                      "example": false
+                      "example": true
                     },
                     "NoWhitespaceAfter": {
                       "type": "boolean",
@@ -3061,12 +3083,12 @@ Update my pre-existing bug profile
                     "NonEmptyAtclauseDescription": {
                       "type": "boolean",
                       "description": "Checks that the at-clause tag is followed by description .",
-                      "example": true
+                      "example": false
                     },
                     "OneStatementPerLine": {
                       "type": "boolean",
                       "description": "Checks that there is only one statement per line.",
-                      "example": true
+                      "example": false
                     },
                     "OneTopLevelClass": {
                       "type": "boolean",
@@ -3076,7 +3098,7 @@ Update my pre-existing bug profile
                     "OperatorWrap": {
                       "type": "boolean",
                       "description": "Checks line wrapping for operators.",
-                      "example": false
+                      "example": true
                     },
                     "OuterTypeFilename": {
                       "type": "boolean",
@@ -3096,12 +3118,12 @@ Update my pre-existing bug profile
                     "PackageAnnotation": {
                       "type": "boolean",
                       "description": "This check makes sure that all package annotations are in the package-info.java file.",
-                      "example": false
+                      "example": true
                     },
                     "PackageDeclaration": {
                       "type": "boolean",
                       "description": "Ensures there is a package declaration and (optionally) in the correct directory.",
-                      "example": false
+                      "example": true
                     },
                     "PackageName": {
                       "type": "boolean",
@@ -3121,7 +3143,7 @@ Update my pre-existing bug profile
                     "ParameterNumber": {
                       "type": "boolean",
                       "description": "Checks the number of parameters that a method or constructor has.",
-                      "example": true
+                      "example": false
                     },
                     "ParenPad": {
                       "type": "boolean",
@@ -3141,7 +3163,7 @@ Update my pre-existing bug profile
                     "Regexp": {
                       "type": "boolean",
                       "description": "A check that makes sure that a specified pattern exists (or not) in the file.",
-                      "example": false
+                      "example": true
                     },
                     "RegexpHeader": {
                       "type": "boolean",
@@ -3156,12 +3178,12 @@ Update my pre-existing bug profile
                     "RegexpOnFilename": {
                       "type": "boolean",
                       "description": "Implementation of a check that matches based on file and/or folder path.",
-                      "example": true
+                      "example": false
                     },
                     "RegexpSingleline": {
                       "type": "boolean",
                       "description": "Implementation of a check that looks for a single line in any file type.",
-                      "example": false
+                      "example": true
                     },
                     "RegexpSinglelineJava": {
                       "type": "boolean",
@@ -3176,12 +3198,12 @@ Update my pre-existing bug profile
                     "ReturnCount": {
                       "type": "boolean",
                       "description": "Restricts return statements to a specified count (default = 2).",
-                      "example": true
+                      "example": false
                     },
                     "RightCurly": {
                       "type": "boolean",
                       "description": "Checks the placement of right curly braces.",
-                      "example": true
+                      "example": false
                     },
                     "SeparatorWrap": {
                       "type": "boolean",
@@ -3206,17 +3228,17 @@ Update my pre-existing bug profile
                     "SingleSpaceSeparator": {
                       "type": "boolean",
                       "description": "Checks that non-whitespace characters are separated by no more than one whitespace.",
-                      "example": true
+                      "example": false
                     },
                     "StaticVariableName": {
                       "type": "boolean",
                       "description": "Checks that static, non-final variable names conform to a format specified by the format property.",
-                      "example": true
+                      "example": false
                     },
                     "StringLiteralEquality": {
                       "type": "boolean",
                       "description": "Checks that string literals are not used with == or !=.",
-                      "example": true
+                      "example": false
                     },
                     "SummaryJavadoc": {
                       "type": "boolean",
@@ -3226,12 +3248,12 @@ Update my pre-existing bug profile
                     "SuperClone": {
                       "type": "boolean",
                       "description": "Checks that an overriding clone() method invokes super.clone().",
-                      "example": false
+                      "example": true
                     },
                     "SuperFinalize": {
                       "type": "boolean",
                       "description": "Checks that an overriding finalize() method invokes super.finalize().",
-                      "example": false
+                      "example": true
                     },
                     "SuppressWarnings": {
                       "type": "boolean",
@@ -3241,17 +3263,17 @@ Update my pre-existing bug profile
                     "SuppressWarningsHolder": {
                       "type": "boolean",
                       "description": "This check allows for finding code that should not be reported by Checkstyle",
-                      "example": false
+                      "example": true
                     },
                     "ThrowsCount": {
                       "type": "boolean",
                       "description": "Restricts throws statements to a specified count (default = 4).",
-                      "example": true
+                      "example": false
                     },
                     "TodoComment": {
                       "type": "boolean",
                       "description": "A check for TODO comments.",
-                      "example": false
+                      "example": true
                     },
                     "TrailingComment": {
                       "type": "boolean",
@@ -3261,7 +3283,7 @@ Update my pre-existing bug profile
                     "Translation": {
                       "type": "boolean",
                       "description": "The TranslationCheck class helps to ensure the correct translation of code by checking property files for consistency regarding their keys.",
-                      "example": false
+                      "example": true
                     },
                     "TypeName": {
                       "type": "boolean",
@@ -3281,7 +3303,7 @@ Update my pre-existing bug profile
                     "UniqueProperties": {
                       "type": "boolean",
                       "description": "Detects duplicated keys in properties files.",
-                      "example": false
+                      "example": true
                     },
                     "UnnecessaryParentheses": {
                       "type": "boolean",
@@ -3291,32 +3313,32 @@ Update my pre-existing bug profile
                     "UnusedImports": {
                       "type": "boolean",
                       "description": "Checks for unused import statements.",
-                      "example": true
+                      "example": false
                     },
                     "UpperEll": {
                       "type": "boolean",
                       "description": "Checks that long constants are defined with an upper ell.",
-                      "example": true
+                      "example": false
                     },
                     "VariableDeclarationUsageDistance": {
                       "type": "boolean",
                       "description": "Checks the distance between declaration of variable and its first usage.",
-                      "example": true
+                      "example": false
                     },
                     "VisibilityModifier": {
                       "type": "boolean",
                       "description": "Checks visibility of class members.",
-                      "example": true
+                      "example": false
                     },
                     "WhitespaceAfter": {
                       "type": "boolean",
                       "description": "Checks that a token is followed by whitespace, with the exception that it does not check for whitespace after the semicolon of an empty for iterator.",
-                      "example": true
+                      "example": false
                     },
                     "WhitespaceAround": {
                       "type": "boolean",
                       "description": "Checks that a token is surrounded by whitespace.",
-                      "example": false
+                      "example": true
                     },
                     "WriteTag": {
                       "type": "boolean",
@@ -3326,158 +3348,158 @@ Update my pre-existing bug profile
                   },
                   "description": "Description of which Checkstyle lints are checked.",
                   "example": {
-                    "AbbreviationAsWordInName": false,
-                    "AbstractClassName": false,
-                    "AnnotationLocation": true,
+                    "AbbreviationAsWordInName": true,
+                    "AbstractClassName": true,
+                    "AnnotationLocation": false,
                     "AnnotationUseStyle": true,
                     "AnonInnerLength": false,
-                    "ArrayTrailingComma": true,
-                    "ArrayTypeStyle": true,
+                    "ArrayTrailingComma": false,
+                    "ArrayTypeStyle": false,
                     "AtclauseOrder": true,
                     "AvoidEscapedUnicodeCharacters": true,
                     "AvoidInlineConditionals": true,
                     "AvoidNestedBlocks": true,
-                    "AvoidStarImport": false,
+                    "AvoidStarImport": true,
                     "AvoidStaticImport": true,
-                    "BooleanExpressionComplexity": true,
-                    "CatchParameterName": false,
+                    "BooleanExpressionComplexity": false,
+                    "CatchParameterName": true,
                     "ClassDataAbstractionCoupling": false,
                     "ClassFanOutComplexity": true,
-                    "ClassTypeParameterName": false,
+                    "ClassTypeParameterName": true,
                     "CommentsIndentation": false,
-                    "ConstantName": true,
-                    "CovariantEquals": true,
-                    "CustomImportOrder": false,
-                    "CyclomaticComplexity": false,
-                    "DeclarationOrder": true,
-                    "DefaultComesLast": true,
+                    "ConstantName": false,
+                    "CovariantEquals": false,
+                    "CustomImportOrder": true,
+                    "CyclomaticComplexity": true,
+                    "DeclarationOrder": false,
+                    "DefaultComesLast": false,
                     "DescendantToken": true,
                     "DesignForExtension": false,
-                    "EmptyBlock": false,
-                    "EmptyCatchBlock": true,
-                    "EmptyForInitializerPad": true,
-                    "EmptyForIteratorPad": true,
+                    "EmptyBlock": true,
+                    "EmptyCatchBlock": false,
+                    "EmptyForInitializerPad": false,
+                    "EmptyForIteratorPad": false,
                     "EmptyLineSeparator": false,
-                    "EmptyStatement": false,
-                    "EqualsAvoidNull": true,
-                    "EqualsHashCode": false,
-                    "ExecutableStatementCount": true,
+                    "EmptyStatement": true,
+                    "EqualsAvoidNull": false,
+                    "EqualsHashCode": true,
+                    "ExecutableStatementCount": false,
                     "ExplicitInitialization": true,
-                    "FallThrough": true,
+                    "FallThrough": false,
                     "FileLength": false,
                     "FileTabCharacter": false,
-                    "FinalClass": false,
+                    "FinalClass": true,
                     "FinalLocalVariable": false,
-                    "FinalParameters": true,
+                    "FinalParameters": false,
                     "GenericWhitespace": false,
-                    "Header": false,
+                    "Header": true,
                     "HiddenField": true,
                     "HideUtilityClassConstructor": false,
                     "IllegalCatch": true,
                     "IllegalImport": true,
-                    "IllegalInstantiation": false,
+                    "IllegalInstantiation": true,
                     "IllegalThrows": true,
                     "IllegalToken": true,
                     "IllegalTokenText": true,
-                    "IllegalType": true,
-                    "ImportControl": false,
+                    "IllegalType": false,
+                    "ImportControl": true,
                     "ImportOrder": true,
-                    "Indentation": true,
-                    "InnerAssignment": true,
-                    "InnerTypeLast": false,
+                    "Indentation": false,
+                    "InnerAssignment": false,
+                    "InnerTypeLast": true,
                     "InterfaceIsType": false,
-                    "InterfaceTypeParameterName": true,
+                    "InterfaceTypeParameterName": false,
                     "JavaNCSS": true,
-                    "JavadocMethod": false,
+                    "JavadocMethod": true,
                     "JavadocPackage": false,
                     "JavadocParagraph": false,
                     "JavadocStyle": true,
                     "JavadocTagContinuationIndentation": true,
                     "JavadocType": true,
-                    "JavadocVariable": true,
-                    "LeftCurly": true,
-                    "LineLength": false,
-                    "LocalFinalVariableName": false,
+                    "JavadocVariable": false,
+                    "LeftCurly": false,
+                    "LineLength": true,
+                    "LocalFinalVariableName": true,
                     "LocalVariableName": true,
                     "MagicNumber": false,
-                    "MemberName": true,
+                    "MemberName": false,
                     "MethodCount": true,
                     "MethodLength": false,
-                    "MethodName": false,
+                    "MethodName": true,
                     "MethodParamPad": true,
-                    "MethodTypeParameterName": false,
+                    "MethodTypeParameterName": true,
                     "MissingCtor": false,
                     "MissingDeprecated": false,
                     "MissingOverride": false,
-                    "MissingSwitchDefault": true,
+                    "MissingSwitchDefault": false,
                     "ModifiedControlVariable": true,
                     "ModifierOrder": false,
                     "MultipleStringLiterals": false,
-                    "MultipleVariableDeclarations": false,
+                    "MultipleVariableDeclarations": true,
                     "MutableException": false,
-                    "NPathComplexity": false,
+                    "NPathComplexity": true,
                     "NeedBraces": true,
-                    "NestedForDepth": true,
+                    "NestedForDepth": false,
                     "NestedIfDepth": true,
-                    "NestedTryDepth": false,
+                    "NestedTryDepth": true,
                     "NewlineAtEndOfFile": true,
-                    "NoClone": false,
-                    "NoFinalizer": true,
-                    "NoLineWrap": false,
+                    "NoClone": true,
+                    "NoFinalizer": false,
+                    "NoLineWrap": true,
                     "NoWhitespaceAfter": true,
                     "NoWhitespaceBefore": true,
-                    "NonEmptyAtclauseDescription": true,
-                    "OneStatementPerLine": true,
+                    "NonEmptyAtclauseDescription": false,
+                    "OneStatementPerLine": false,
                     "OneTopLevelClass": true,
-                    "OperatorWrap": false,
+                    "OperatorWrap": true,
                     "OuterTypeFilename": false,
                     "OuterTypeNumber": false,
                     "OverloadMethodsDeclarationOrder": false,
-                    "PackageAnnotation": false,
-                    "PackageDeclaration": false,
+                    "PackageAnnotation": true,
+                    "PackageDeclaration": true,
                     "PackageName": true,
                     "ParameterAssignment": true,
                     "ParameterName": true,
-                    "ParameterNumber": true,
+                    "ParameterNumber": false,
                     "ParenPad": false,
                     "RedundantImport": true,
                     "RedundantModifier": false,
-                    "Regexp": false,
+                    "Regexp": true,
                     "RegexpHeader": true,
                     "RegexpMultiline": false,
-                    "RegexpOnFilename": true,
-                    "RegexpSingleline": false,
+                    "RegexpOnFilename": false,
+                    "RegexpSingleline": true,
                     "RegexpSinglelineJava": false,
                     "RequireThis": false,
-                    "ReturnCount": true,
-                    "RightCurly": true,
+                    "ReturnCount": false,
+                    "RightCurly": false,
                     "SeparatorWrap": true,
                     "SimplifyBooleanExpression": true,
                     "SimplifyBooleanReturn": false,
                     "SingleLineJavadoc": false,
-                    "SingleSpaceSeparator": true,
-                    "StaticVariableName": true,
-                    "StringLiteralEquality": true,
+                    "SingleSpaceSeparator": false,
+                    "StaticVariableName": false,
+                    "StringLiteralEquality": false,
                     "SummaryJavadoc": true,
-                    "SuperClone": false,
-                    "SuperFinalize": false,
+                    "SuperClone": true,
+                    "SuperFinalize": true,
                     "SuppressWarnings": false,
-                    "SuppressWarningsHolder": false,
-                    "ThrowsCount": true,
-                    "TodoComment": false,
+                    "SuppressWarningsHolder": true,
+                    "ThrowsCount": false,
+                    "TodoComment": true,
                     "TrailingComment": false,
-                    "Translation": false,
+                    "Translation": true,
                     "TypeName": true,
                     "TypecastParenPad": true,
                     "UncommentedMain": true,
-                    "UniqueProperties": false,
+                    "UniqueProperties": true,
                     "UnnecessaryParentheses": false,
-                    "UnusedImports": true,
-                    "UpperEll": true,
-                    "VariableDeclarationUsageDistance": true,
-                    "VisibilityModifier": true,
-                    "WhitespaceAfter": true,
-                    "WhitespaceAround": false,
+                    "UnusedImports": false,
+                    "UpperEll": false,
+                    "VariableDeclarationUsageDistance": false,
+                    "VisibilityModifier": false,
+                    "WhitespaceAfter": false,
+                    "WhitespaceAround": true,
                     "WriteTag": true
                   }
                 },
@@ -3487,17 +3509,17 @@ Update my pre-existing bug profile
                   "properties": {
                     "name": {
                       "type": "string",
-                      "example": "Nulla ipsa."
+                      "example": "Porro aut quia."
                     }
                   },
                   "description": "Description of which Findbugs bugs are checked.",
                   "example": {
-                    "name": "Nulla ipsa."
+                    "name": "Porro aut quia."
                   }
                 },
                 "name": {
                   "type": "string",
-                  "example": "Et aspernatur."
+                  "example": "Est iure perspiciatis optio."
                 }
               },
               "description": "A bug profile"
@@ -3545,42 +3567,6 @@ I don't want this bug profile anymore
 
     + Body
 
-## Group gh
-
-### /api/gh
-
-#### login2 gh [GET]
-
-+ Request (application/json)
-
-    + Headers
-
-            Accept: application/json
-
-    + Body
-
-+ Response 200 (application/json)
-
-    OK
-
-    + Body
-
-#### login gh [POST]
-
-+ Request (application/json)
-
-    + Headers
-
-            Accept: application/json
-
-    + Body
-
-+ Response 200 (application/json)
-
-    OK
-
-    + Body
-
 ### /api/swagger.json
 
 #### Download src/swagger/swagger.json [GET]
@@ -3622,85 +3608,75 @@ Sign up for the first time
     + Body
 
             {
-              "email": "patsy_prohaska@breitenberg.org",
-              "name": "Et nostrum est.",
-              "password": "Ut enim ea voluptas magni.",
-              "phone_number": "Et minus odio."
+              "email": "rd",
+              "name": "ye",
+              "password": "njq"
             }
 
     + Schema
 
             {
-              "title": "user",
+              "title": "UserCreate",
               "type": "object",
               "properties": {
                 "email": {
                   "type": "string",
                   "description": "User email",
-                  "example": "patsy_prohaska@breitenberg.org",
-                  "format": "email"
+                  "example": "rd",
+                  "format": "email",
+                  "minLength": 1
                 },
                 "name": {
                   "type": "string",
-                  "example": "Et nostrum est."
+                  "example": "ye",
+                  "minLength": 1
                 },
                 "password": {
                   "type": "string",
-                  "example": "Ut enim ea voluptas magni."
-                },
-                "phone_number": {
-                  "type": "string",
-                  "example": "Et minus odio."
+                  "example": "njq",
+                  "minLength": 2
                 }
               },
               "description": "payload used to sign up a user"
             }
 
-+ Response 200 (application/json)
++ Response 201 (application/json)
 
     OK
 
     + Body
 
             {
-              "callback": "Dignissimos aliquid saepe.",
-              "email": "stewart_denesik@maggiowiza.net",
-              "id": 2736450560861405700,
-              "name": "Modi ut.",
-              "phone_number": "Dignissimos in."
+              "email": "d",
+              "id": 5097102801595708000,
+              "name": "b"
             }
 
     + Schema
 
             {
-              "title": "Mediatype identifier: application/user.mt; view=github",
+              "title": "Mediatype identifier: application/user.mt; view=default",
               "type": "object",
               "properties": {
-                "callback": {
-                  "type": "string",
-                  "example": "Dignissimos aliquid saepe."
-                },
                 "email": {
                   "type": "string",
                   "description": "User email",
-                  "example": "stewart_denesik@maggiowiza.net",
-                  "format": "email"
+                  "example": "d",
+                  "format": "email",
+                  "minLength": 1
                 },
                 "id": {
                   "type": "integer",
-                  "example": 2736450560861405700,
+                  "example": 5097102801595708000,
                   "format": "int64"
                 },
                 "name": {
                   "type": "string",
-                  "example": "Modi ut."
-                },
-                "phone_number": {
-                  "type": "string",
-                  "example": "Dignissimos in."
+                  "example": "b",
+                  "minLength": 1
                 }
               },
-              "description": "UserMt media type (github view)"
+              "description": "UserMt media type (default view)"
             }
 
 + Request (application/json)
@@ -3712,35 +3688,80 @@ Sign up for the first time
     + Body
 
             {
-              "email": "patsy_prohaska@breitenberg.org",
-              "name": "Et nostrum est.",
-              "password": "Ut enim ea voluptas magni.",
-              "phone_number": "Et minus odio."
+              "email": "rd",
+              "name": "ye",
+              "password": "njq"
             }
 
     + Schema
 
             {
-              "title": "user",
+              "title": "UserCreate",
               "type": "object",
               "properties": {
                 "email": {
                   "type": "string",
                   "description": "User email",
-                  "example": "patsy_prohaska@breitenberg.org",
-                  "format": "email"
+                  "example": "rd",
+                  "format": "email",
+                  "minLength": 1
                 },
                 "name": {
                   "type": "string",
-                  "example": "Et nostrum est."
+                  "example": "ye",
+                  "minLength": 1
                 },
                 "password": {
                   "type": "string",
-                  "example": "Ut enim ea voluptas magni."
-                },
-                "phone_number": {
+                  "example": "njq",
+                  "minLength": 2
+                }
+              },
+              "description": "payload used to sign up a user"
+            }
+
++ Response 409 (application/json)
+
+    Conflict
+
+    + Body
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
+            {
+              "email": "rd",
+              "name": "ye",
+              "password": "njq"
+            }
+
+    + Schema
+
+            {
+              "title": "UserCreate",
+              "type": "object",
+              "properties": {
+                "email": {
                   "type": "string",
-                  "example": "Et minus odio."
+                  "description": "User email",
+                  "example": "rd",
+                  "format": "email",
+                  "minLength": 1
+                },
+                "name": {
+                  "type": "string",
+                  "example": "ye",
+                  "minLength": 1
+                },
+                "password": {
+                  "type": "string",
+                  "example": "njq",
+                  "minLength": 2
                 }
               },
               "description": "payload used to sign up a user"
@@ -3777,10 +3798,9 @@ Get the detials about this particular account
     + Body
 
             {
-              "email": "stewart_denesik@maggiowiza.net",
-              "id": 2736450560861405700,
-              "name": "Modi ut.",
-              "phone_number": "Dignissimos in."
+              "email": "d",
+              "id": 5097102801595708000,
+              "name": "b"
             }
 
     + Schema
@@ -3792,21 +3812,19 @@ Get the detials about this particular account
                 "email": {
                   "type": "string",
                   "description": "User email",
-                  "example": "stewart_denesik@maggiowiza.net",
-                  "format": "email"
+                  "example": "d",
+                  "format": "email",
+                  "minLength": 1
                 },
                 "id": {
                   "type": "integer",
-                  "example": 2736450560861405700,
+                  "example": 5097102801595708000,
                   "format": "int64"
                 },
                 "name": {
                   "type": "string",
-                  "example": "Modi ut."
-                },
-                "phone_number": {
-                  "type": "string",
-                  "example": "Dignissimos in."
+                  "example": "b",
+                  "minLength": 1
                 }
               },
               "description": "UserMt media type (default view)"
@@ -3843,35 +3861,33 @@ Adjust your account settings
     + Body
 
             {
-              "email": "patsy_prohaska@breitenberg.org",
-              "name": "Et nostrum est.",
-              "password": "Ut enim ea voluptas magni.",
-              "phone_number": "Et minus odio."
+              "email": "rd",
+              "name": "ye",
+              "password": "njq"
             }
 
     + Schema
 
             {
-              "title": "user",
+              "title": "UserCreate",
               "type": "object",
               "properties": {
                 "email": {
                   "type": "string",
                   "description": "User email",
-                  "example": "patsy_prohaska@breitenberg.org",
-                  "format": "email"
+                  "example": "rd",
+                  "format": "email",
+                  "minLength": 1
                 },
                 "name": {
                   "type": "string",
-                  "example": "Et nostrum est."
+                  "example": "ye",
+                  "minLength": 1
                 },
                 "password": {
                   "type": "string",
-                  "example": "Ut enim ea voluptas magni."
-                },
-                "phone_number": {
-                  "type": "string",
-                  "example": "Et minus odio."
+                  "example": "njq",
+                  "minLength": 2
                 }
               },
               "description": "payload used to sign up a user"
@@ -3884,10 +3900,9 @@ Adjust your account settings
     + Body
 
             {
-              "email": "stewart_denesik@maggiowiza.net",
-              "id": 2736450560861405700,
-              "name": "Modi ut.",
-              "phone_number": "Dignissimos in."
+              "email": "d",
+              "id": 5097102801595708000,
+              "name": "b"
             }
 
     + Schema
@@ -3899,21 +3914,19 @@ Adjust your account settings
                 "email": {
                   "type": "string",
                   "description": "User email",
-                  "example": "stewart_denesik@maggiowiza.net",
-                  "format": "email"
+                  "example": "d",
+                  "format": "email",
+                  "minLength": 1
                 },
                 "id": {
                   "type": "integer",
-                  "example": 2736450560861405700,
+                  "example": 5097102801595708000,
                   "format": "int64"
                 },
                 "name": {
                   "type": "string",
-                  "example": "Modi ut."
-                },
-                "phone_number": {
-                  "type": "string",
-                  "example": "Dignissimos in."
+                  "example": "b",
+                  "minLength": 1
                 }
               },
               "description": "UserMt media type (default view)"
@@ -3928,35 +3941,33 @@ Adjust your account settings
     + Body
 
             {
-              "email": "patsy_prohaska@breitenberg.org",
-              "name": "Et nostrum est.",
-              "password": "Ut enim ea voluptas magni.",
-              "phone_number": "Et minus odio."
+              "email": "rd",
+              "name": "ye",
+              "password": "njq"
             }
 
     + Schema
 
             {
-              "title": "user",
+              "title": "UserCreate",
               "type": "object",
               "properties": {
                 "email": {
                   "type": "string",
                   "description": "User email",
-                  "example": "patsy_prohaska@breitenberg.org",
-                  "format": "email"
+                  "example": "rd",
+                  "format": "email",
+                  "minLength": 1
                 },
                 "name": {
                   "type": "string",
-                  "example": "Et nostrum est."
+                  "example": "ye",
+                  "minLength": 1
                 },
                 "password": {
                   "type": "string",
-                  "example": "Ut enim ea voluptas magni."
-                },
-                "phone_number": {
-                  "type": "string",
-                  "example": "Et minus odio."
+                  "example": "njq",
+                  "minLength": 2
                 }
               },
               "description": "payload used to sign up a user"

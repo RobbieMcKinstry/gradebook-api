@@ -27,6 +27,27 @@ export const createBug-Profile = (path, data) => {
   };
 };
 
+// Create or login a user with GitHub OAuth
+// path is the request path, the format is "/api/auth/gh"
+// This function returns a promise which dispatches an error if the HTTP response is a 4xx or 5xx.
+export const createAuth/Gh = (path) => {
+  return (dispatch) => {
+    dispatch(actions.requestCreateAuth/Gh());
+    return axios({
+      timeout: 20000,
+      url: 'http://localhost:8081' + path,
+      method: 'post',
+      responseType: 'json'
+    })
+      .then((response) => {
+        dispatch(actions.receiveCreateAuth/GhSuccess(response.data, response.status));
+      })
+      .catch((response) => {
+        dispatch(actions.receiveCreateAuth/GhError(response.data, response.status));
+      });
+  };
+};
+
 // Sign up for the first time
 // path is the request path, the format is "/api/user"
 // data contains the action payload (request body)
@@ -88,48 +109,6 @@ export const listBug-Profile = (path) => {
       })
       .catch((response) => {
         dispatch(actions.receiveListBug-ProfileError(response.data, response.status));
-      });
-  };
-};
-
-// loginGh calls the login action of the gh resource.
-// path is the request path, the format is "/api/gh"
-// This function returns a promise which dispatches an error if the HTTP response is a 4xx or 5xx.
-export const loginGh = (path) => {
-  return (dispatch) => {
-    dispatch(actions.requestLoginGh());
-    return axios({
-      timeout: 20000,
-      url: 'http://localhost:8081' + path,
-      method: 'post',
-      responseType: 'json'
-    })
-      .then((response) => {
-        dispatch(actions.receiveLoginGhSuccess(response.data, response.status));
-      })
-      .catch((response) => {
-        dispatch(actions.receiveLoginGhError(response.data, response.status));
-      });
-  };
-};
-
-// login2Gh calls the login2 action of the gh resource.
-// path is the request path, the format is "/api/gh"
-// This function returns a promise which dispatches an error if the HTTP response is a 4xx or 5xx.
-export const login2Gh = (path) => {
-  return (dispatch) => {
-    dispatch(actions.requestLogin2Gh());
-    return axios({
-      timeout: 20000,
-      url: 'http://localhost:8081' + path,
-      method: 'get',
-      responseType: 'json'
-    })
-      .then((response) => {
-        dispatch(actions.receiveLogin2GhSuccess(response.data, response.status));
-      })
-      .catch((response) => {
-        dispatch(actions.receiveLogin2GhError(response.data, response.status));
       });
   };
 };

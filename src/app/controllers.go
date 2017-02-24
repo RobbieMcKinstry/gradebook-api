@@ -178,15 +178,14 @@ func unmarshalUpdateBugProfilePayload(ctx context.Context, service *goa.Service,
 	return nil
 }
 
-// GhController is the controller interface for the Gh actions.
-type GhController interface {
+// GithubAuthController is the controller interface for the GithubAuth actions.
+type GithubAuthController interface {
 	goa.Muxer
-	Login(*LoginGhContext) error
-	Login2(*Login2GhContext) error
+	Create(*CreateGithubAuthContext) error
 }
 
-// MountGhController "mounts" a Gh resource controller on the given service.
-func MountGhController(service *goa.Service, ctrl GhController) {
+// MountGithubAuthController "mounts" a GithubAuth resource controller on the given service.
+func MountGithubAuthController(service *goa.Service, ctrl GithubAuthController) {
 	initService(service)
 	var h goa.Handler
 
@@ -196,29 +195,14 @@ func MountGhController(service *goa.Service, ctrl GhController) {
 			return err
 		}
 		// Build the context
-		rctx, err := NewLoginGhContext(ctx, service)
+		rctx, err := NewCreateGithubAuthContext(ctx, service)
 		if err != nil {
 			return err
 		}
-		return ctrl.Login(rctx)
+		return ctrl.Create(rctx)
 	}
-	service.Mux.Handle("POST", "/api/gh", ctrl.MuxHandler("Login", h, nil))
-	service.LogInfo("mount", "ctrl", "Gh", "action", "Login", "route", "POST /api/gh")
-
-	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
-		// Check if there was an error loading the request
-		if err := goa.ContextError(ctx); err != nil {
-			return err
-		}
-		// Build the context
-		rctx, err := NewLogin2GhContext(ctx, service)
-		if err != nil {
-			return err
-		}
-		return ctrl.Login2(rctx)
-	}
-	service.Mux.Handle("GET", "/api/gh", ctrl.MuxHandler("Login2", h, nil))
-	service.LogInfo("mount", "ctrl", "Gh", "action", "Login2", "route", "GET /api/gh")
+	service.Mux.Handle("POST", "/api/auth/gh", ctrl.MuxHandler("Create", h, nil))
+	service.LogInfo("mount", "ctrl", "GithubAuth", "action", "Create", "route", "POST /api/auth/gh")
 }
 
 // SwaggerController is the controller interface for the Swagger actions.
@@ -288,7 +272,7 @@ func MountUserController(service *goa.Service, ctrl UserController) {
 		}
 		// Build the payload
 		if rawPayload := goa.ContextRequest(ctx).Payload; rawPayload != nil {
-			rctx.Payload = rawPayload.(*User)
+			rctx.Payload = rawPayload.(*UserCreate)
 		} else {
 			return goa.MissingPayloadError()
 		}
@@ -324,7 +308,7 @@ func MountUserController(service *goa.Service, ctrl UserController) {
 		}
 		// Build the payload
 		if rawPayload := goa.ContextRequest(ctx).Payload; rawPayload != nil {
-			rctx.Payload = rawPayload.(*User)
+			rctx.Payload = rawPayload.(*UserCreate)
 		} else {
 			return goa.MissingPayloadError()
 		}
@@ -336,7 +320,7 @@ func MountUserController(service *goa.Service, ctrl UserController) {
 
 // unmarshalCreateUserPayload unmarshals the request body into the context request data Payload field.
 func unmarshalCreateUserPayload(ctx context.Context, service *goa.Service, req *http.Request) error {
-	payload := &user{}
+	payload := &userCreate{}
 	if err := service.DecodeRequest(req, payload); err != nil {
 		return err
 	}
@@ -351,7 +335,7 @@ func unmarshalCreateUserPayload(ctx context.Context, service *goa.Service, req *
 
 // unmarshalUpdateUserPayload unmarshals the request body into the context request data Payload field.
 func unmarshalUpdateUserPayload(ctx context.Context, service *goa.Service, req *http.Request) error {
-	payload := &user{}
+	payload := &userCreate{}
 	if err := service.DecodeRequest(req, payload); err != nil {
 		return err
 	}
