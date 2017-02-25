@@ -57,6 +57,38 @@ func (mt *UserMtIncoming) Validate() (err error) {
 	return
 }
 
+// UserMt media type (OnLogin view)
+//
+// Identifier: application/user.mt; view=OnLogin
+type UserMtOnLogin struct {
+	// User email
+	Email  *string `form:"email,omitempty" json:"email,omitempty" xml:"email,omitempty"`
+	Expiry *string `form:"expiry,omitempty" json:"expiry,omitempty" xml:"expiry,omitempty"`
+	ID     *int    `form:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
+	Name   *string `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
+	Token  *string `form:"token,omitempty" json:"token,omitempty" xml:"token,omitempty"`
+}
+
+// Validate validates the UserMtOnLogin media type instance.
+func (mt *UserMtOnLogin) Validate() (err error) {
+	if mt.Email != nil {
+		if err2 := goa.ValidateFormat(goa.FormatEmail, *mt.Email); err2 != nil {
+			err = goa.MergeErrors(err, goa.InvalidFormatError(`response.email`, *mt.Email, goa.FormatEmail, err2))
+		}
+	}
+	if mt.Email != nil {
+		if utf8.RuneCountInString(*mt.Email) < 1 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.email`, *mt.Email, utf8.RuneCountInString(*mt.Email), 1, true))
+		}
+	}
+	if mt.Name != nil {
+		if utf8.RuneCountInString(*mt.Name) < 1 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.name`, *mt.Name, utf8.RuneCountInString(*mt.Name), 1, true))
+		}
+	}
+	return
+}
+
 // UserMt media type (default view)
 //
 // Identifier: application/user.mt; view=default

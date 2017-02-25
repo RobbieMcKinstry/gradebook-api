@@ -113,6 +113,29 @@ export const listBug-Profile = (path) => {
   };
 };
 
+// Log in to a user account
+// path is the request path, the format is "/api/user/login"
+// data contains the action payload (request body)
+// This function returns a promise which dispatches an error if the HTTP response is a 4xx or 5xx.
+export const loginUser = (path, data) => {
+  return (dispatch) => {
+    dispatch(actions.requestLoginUser());
+    return axios({
+      timeout: 20000,
+      url: 'http://localhost:8081' + path,
+      method: 'post',
+      data: data,
+      responseType: 'json'
+    })
+      .then((response) => {
+        dispatch(actions.receiveLoginUserSuccess(response.data, response.status));
+      })
+      .catch((response) => {
+        dispatch(actions.receiveLoginUserError(response.data, response.status));
+      });
+  };
+};
+
 // Returns the GH token
 // path is the request path, the format is "/api/GHtoken"
 // This function returns a promise which dispatches an error if the HTTP response is a 4xx or 5xx.

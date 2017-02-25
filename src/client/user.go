@@ -53,6 +53,40 @@ func (c *Client) NewCreateUserRequest(ctx context.Context, path string, payload 
 	return req, nil
 }
 
+// LoginUserPath computes a request path to the login action of user.
+func LoginUserPath() string {
+
+	return fmt.Sprintf("/api/user/login")
+}
+
+// Log in to a user account
+func (c *Client) LoginUser(ctx context.Context, path string, payload *Login) (*http.Response, error) {
+	req, err := c.NewLoginUserRequest(ctx, path, payload)
+	if err != nil {
+		return nil, err
+	}
+	return c.Client.Do(ctx, req)
+}
+
+// NewLoginUserRequest create the request corresponding to the login action endpoint of the user resource.
+func (c *Client) NewLoginUserRequest(ctx context.Context, path string, payload *Login) (*http.Request, error) {
+	var body bytes.Buffer
+	err := c.Encoder.Encode(payload, &body, "*/*")
+	if err != nil {
+		return nil, fmt.Errorf("failed to encode body: %s", err)
+	}
+	scheme := c.Scheme
+	if scheme == "" {
+		scheme = "http"
+	}
+	u := url.URL{Host: c.Host, Scheme: scheme, Path: path}
+	req, err := http.NewRequest("POST", u.String(), &body)
+	if err != nil {
+		return nil, err
+	}
+	return req, nil
+}
+
 // ReadUserPath computes a request path to the read action of user.
 func ReadUserPath(userID int) string {
 	param0 := strconv.Itoa(userID)

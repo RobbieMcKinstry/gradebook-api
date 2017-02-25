@@ -269,6 +269,12 @@ func (ctx *CreateUserContext) OKIncoming(r *UserMtIncoming) error {
 	return ctx.ResponseData.Service.Send(ctx.Context, 201, r)
 }
 
+// OKOnLogin sends a HTTP response with status code 201.
+func (ctx *CreateUserContext) OKOnLogin(r *UserMtOnLogin) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
+	return ctx.ResponseData.Service.Send(ctx.Context, 201, r)
+}
+
 // OK sends a HTTP response with status code 201.
 func (ctx *CreateUserContext) OK(r *UserMt) error {
 	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
@@ -284,6 +290,49 @@ func (ctx *CreateUserContext) Conflict() error {
 // InternalServerError sends a HTTP response with status code 500.
 func (ctx *CreateUserContext) InternalServerError() error {
 	ctx.ResponseData.WriteHeader(500)
+	return nil
+}
+
+// LoginUserContext provides the user login action context.
+type LoginUserContext struct {
+	context.Context
+	*goa.ResponseData
+	*goa.RequestData
+	Payload *Login
+}
+
+// NewLoginUserContext parses the incoming request URL and body, performs validations and creates the
+// context used by the user controller login action.
+func NewLoginUserContext(ctx context.Context, service *goa.Service) (*LoginUserContext, error) {
+	var err error
+	resp := goa.ContextResponse(ctx)
+	resp.Service = service
+	req := goa.ContextRequest(ctx)
+	rctx := LoginUserContext{Context: ctx, ResponseData: resp, RequestData: req}
+	return &rctx, err
+}
+
+// OKIncoming sends a HTTP response with status code 200.
+func (ctx *LoginUserContext) OKIncoming(r *UserMtIncoming) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
+	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
+}
+
+// OKOnLogin sends a HTTP response with status code 200.
+func (ctx *LoginUserContext) OKOnLogin(r *UserMtOnLogin) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
+	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
+}
+
+// OK sends a HTTP response with status code 200.
+func (ctx *LoginUserContext) OK(r *UserMt) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
+	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
+}
+
+// Unauthorized sends a HTTP response with status code 401.
+func (ctx *LoginUserContext) Unauthorized() error {
+	ctx.ResponseData.WriteHeader(401)
 	return nil
 }
 
@@ -317,6 +366,12 @@ func NewReadUserContext(ctx context.Context, service *goa.Service) (*ReadUserCon
 
 // OKIncoming sends a HTTP response with status code 200.
 func (ctx *ReadUserContext) OKIncoming(r *UserMtIncoming) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
+	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
+}
+
+// OKOnLogin sends a HTTP response with status code 200.
+func (ctx *ReadUserContext) OKOnLogin(r *UserMtOnLogin) error {
 	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
 	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
 }
@@ -364,6 +419,12 @@ func NewUpdateUserContext(ctx context.Context, service *goa.Service) (*UpdateUse
 
 // OKIncoming sends a HTTP response with status code 200.
 func (ctx *UpdateUserContext) OKIncoming(r *UserMtIncoming) error {
+	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
+	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
+}
+
+// OKOnLogin sends a HTTP response with status code 200.
+func (ctx *UpdateUserContext) OKOnLogin(r *UserMtOnLogin) error {
 	ctx.ResponseData.Header().Set("Content-Type", "application/user.mt")
 	return ctx.ResponseData.Service.Send(ctx.Context, 200, r)
 }

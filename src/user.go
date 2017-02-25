@@ -45,6 +45,15 @@ func (c *UserController) Update(ctx *app.UpdateUserContext) error {
 	return ctx.OK(&app.UserMt{})
 }
 
+func (c *UserController) Login(ctx *app.LoginUserContext) error {
+	// Get the salt out of the DB for the approperate username
+	// Salt the password and hash it.
+	// Compare it to the password stored in the DB
+	// Generate and sign a JWT
+	// Return the user's info
+	return ctx.OK(&app.UserMt{})
+}
+
 // Create runs the create action.
 func (c *UserController) Create(ctx *app.CreateUserContext) error {
 	// UserController_Create: start_implement

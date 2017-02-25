@@ -76,6 +76,21 @@ export const receiveListBug-ProfileError = (json, status) => ({
   message: json,
   status: status
 });
+export const requestLoginUser = () => ({
+  type: types.REQ_LOGIN_USER
+});
+export const receiveLoginUserSuccess = (json, status) => ({
+  type: types.RECV_LOGIN_USER_SUCCESS,
+  data: json,
+  message: false,
+  status: status
+});
+export const receiveLoginUserError = (json, status) => ({
+  type: types.RECV_LOGIN_USER_ERROR,
+  data: false,
+  message: json,
+  status: status
+});
 export const requestReadGHtoken = () => ({
   type: types.REQ_READ_GHTOKEN
 });

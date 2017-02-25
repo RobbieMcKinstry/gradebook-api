@@ -5,158 +5,158 @@ definitions:
     description: Description of which Checkstyle lints are checked.
     example:
       AbbreviationAsWordInName: true
-      AbstractClassName: true
+      AbstractClassName: false
       AnnotationLocation: false
-      AnnotationUseStyle: true
-      AnonInnerLength: false
-      ArrayTrailingComma: false
+      AnnotationUseStyle: false
+      AnonInnerLength: true
+      ArrayTrailingComma: true
       ArrayTypeStyle: false
-      AtclauseOrder: true
+      AtclauseOrder: false
       AvoidEscapedUnicodeCharacters: true
-      AvoidInlineConditionals: true
+      AvoidInlineConditionals: false
       AvoidNestedBlocks: true
-      AvoidStarImport: true
-      AvoidStaticImport: true
+      AvoidStarImport: false
+      AvoidStaticImport: false
       BooleanExpressionComplexity: false
-      CatchParameterName: true
-      ClassDataAbstractionCoupling: false
-      ClassFanOutComplexity: true
+      CatchParameterName: false
+      ClassDataAbstractionCoupling: true
+      ClassFanOutComplexity: false
       ClassTypeParameterName: true
       CommentsIndentation: false
-      ConstantName: false
+      ConstantName: true
       CovariantEquals: false
-      CustomImportOrder: true
-      CyclomaticComplexity: true
-      DeclarationOrder: false
+      CustomImportOrder: false
+      CyclomaticComplexity: false
+      DeclarationOrder: true
       DefaultComesLast: false
-      DescendantToken: true
+      DescendantToken: false
       DesignForExtension: false
       EmptyBlock: true
-      EmptyCatchBlock: false
+      EmptyCatchBlock: true
       EmptyForInitializerPad: false
-      EmptyForIteratorPad: false
-      EmptyLineSeparator: false
+      EmptyForIteratorPad: true
+      EmptyLineSeparator: true
       EmptyStatement: true
-      EqualsAvoidNull: false
+      EqualsAvoidNull: true
       EqualsHashCode: true
-      ExecutableStatementCount: false
-      ExplicitInitialization: true
-      FallThrough: false
-      FileLength: false
+      ExecutableStatementCount: true
+      ExplicitInitialization: false
+      FallThrough: true
+      FileLength: true
       FileTabCharacter: false
-      FinalClass: true
-      FinalLocalVariable: false
+      FinalClass: false
+      FinalLocalVariable: true
       FinalParameters: false
       GenericWhitespace: false
       Header: true
       HiddenField: true
       HideUtilityClassConstructor: false
-      IllegalCatch: true
+      IllegalCatch: false
       IllegalImport: true
       IllegalInstantiation: true
       IllegalThrows: true
-      IllegalToken: true
-      IllegalTokenText: true
-      IllegalType: false
+      IllegalToken: false
+      IllegalTokenText: false
+      IllegalType: true
       ImportControl: true
       ImportOrder: true
       Indentation: false
       InnerAssignment: false
       InnerTypeLast: true
       InterfaceIsType: false
-      InterfaceTypeParameterName: false
+      InterfaceTypeParameterName: true
       JavaNCSS: true
       JavadocMethod: true
       JavadocPackage: false
       JavadocParagraph: false
-      JavadocStyle: true
-      JavadocTagContinuationIndentation: true
+      JavadocStyle: false
+      JavadocTagContinuationIndentation: false
       JavadocType: true
       JavadocVariable: false
       LeftCurly: false
       LineLength: true
-      LocalFinalVariableName: true
+      LocalFinalVariableName: false
       LocalVariableName: true
-      MagicNumber: false
+      MagicNumber: true
       MemberName: false
       MethodCount: true
-      MethodLength: false
+      MethodLength: true
       MethodName: true
       MethodParamPad: true
-      MethodTypeParameterName: true
-      MissingCtor: false
-      MissingDeprecated: false
-      MissingOverride: false
+      MethodTypeParameterName: false
+      MissingCtor: true
+      MissingDeprecated: true
+      MissingOverride: true
       MissingSwitchDefault: false
-      ModifiedControlVariable: true
-      ModifierOrder: false
-      MultipleStringLiterals: false
-      MultipleVariableDeclarations: true
+      ModifiedControlVariable: false
+      ModifierOrder: true
+      MultipleStringLiterals: true
+      MultipleVariableDeclarations: false
       MutableException: false
-      NPathComplexity: true
+      NPathComplexity: false
       NeedBraces: true
-      NestedForDepth: false
+      NestedForDepth: true
       NestedIfDepth: true
       NestedTryDepth: true
       NewlineAtEndOfFile: true
-      NoClone: true
+      NoClone: false
       NoFinalizer: false
       NoLineWrap: true
-      NoWhitespaceAfter: true
+      NoWhitespaceAfter: false
       NoWhitespaceBefore: true
-      NonEmptyAtclauseDescription: false
+      NonEmptyAtclauseDescription: true
       OneStatementPerLine: false
-      OneTopLevelClass: true
+      OneTopLevelClass: false
       OperatorWrap: true
       OuterTypeFilename: false
       OuterTypeNumber: false
       OverloadMethodsDeclarationOrder: false
-      PackageAnnotation: true
+      PackageAnnotation: false
       PackageDeclaration: true
       PackageName: true
-      ParameterAssignment: true
-      ParameterName: true
+      ParameterAssignment: false
+      ParameterName: false
       ParameterNumber: false
       ParenPad: false
-      RedundantImport: true
-      RedundantModifier: false
+      RedundantImport: false
+      RedundantModifier: true
       Regexp: true
       RegexpHeader: true
       RegexpMultiline: false
-      RegexpOnFilename: false
-      RegexpSingleline: true
-      RegexpSinglelineJava: false
+      RegexpOnFilename: true
+      RegexpSingleline: false
+      RegexpSinglelineJava: true
       RequireThis: false
-      ReturnCount: false
-      RightCurly: false
+      ReturnCount: true
+      RightCurly: true
       SeparatorWrap: true
       SimplifyBooleanExpression: true
-      SimplifyBooleanReturn: false
+      SimplifyBooleanReturn: true
       SingleLineJavadoc: false
       SingleSpaceSeparator: false
       StaticVariableName: false
       StringLiteralEquality: false
-      SummaryJavadoc: true
-      SuperClone: true
+      SummaryJavadoc: false
+      SuperClone: false
       SuperFinalize: true
-      SuppressWarnings: false
+      SuppressWarnings: true
       SuppressWarningsHolder: true
-      ThrowsCount: false
-      TodoComment: true
-      TrailingComment: false
-      Translation: true
-      TypeName: true
+      ThrowsCount: true
+      TodoComment: false
+      TrailingComment: true
+      Translation: false
+      TypeName: false
       TypecastParenPad: true
-      UncommentedMain: true
+      UncommentedMain: false
       UniqueProperties: true
       UnnecessaryParentheses: false
       UnusedImports: false
       UpperEll: false
-      VariableDeclarationUsageDistance: false
-      VisibilityModifier: false
-      WhitespaceAfter: false
+      VariableDeclarationUsageDistance: true
+      VisibilityModifier: true
+      WhitespaceAfter: true
       WhitespaceAround: true
-      WriteTag: true
+      WriteTag: false
     properties:
       AbbreviationAsWordInName:
         description: The Check validate abbreviations(consecutive capital letters)
@@ -166,7 +166,7 @@ definitions:
       AbstractClassName:
         description: Ensures that the names of abstract classes conforming to some
           regular expression.
-        example: true
+        example: false
         type: boolean
       AnnotationLocation:
         description: Check location of annotation on language elements.
@@ -174,15 +174,15 @@ definitions:
         type: boolean
       AnnotationUseStyle:
         description: This check controls the style with the usage of annotations.
-        example: true
+        example: false
         type: boolean
       AnonInnerLength:
         description: Checks for long anonymous inner classes.
-        example: false
+        example: true
         type: boolean
       ArrayTrailingComma:
         description: Checks if array initialization contains optional trailing comma.
-        example: false
+        example: true
         type: boolean
       ArrayTypeStyle:
         description: Checks the style of array type definitions.
@@ -190,7 +190,7 @@ definitions:
         type: boolean
       AtclauseOrder:
         description: Checks the order of at-clauses.
-        example: true
+        example: false
         type: boolean
       AvoidEscapedUnicodeCharacters:
         description: Restrict using Unicode escapes.
@@ -198,7 +198,7 @@ definitions:
         type: boolean
       AvoidInlineConditionals:
         description: Detects inline conditionals.
-        example: true
+        example: false
         type: boolean
       AvoidNestedBlocks:
         description: Finds nested blocks.
@@ -206,11 +206,11 @@ definitions:
         type: boolean
       AvoidStarImport:
         description: Check that finds import statements that use the * notation.
-        example: true
+        example: false
         type: boolean
       AvoidStaticImport:
         description: Check that finds static imports.
-        example: true
+        example: false
         type: boolean
       BooleanExpressionComplexity:
         description: Restricts nested boolean operators (&&, ||, &, | and ^) to a
@@ -220,16 +220,16 @@ definitions:
       CatchParameterName:
         description: Checks that catch parameter names conform to a format specified
           by the format property.
-        example: true
+        example: false
         type: boolean
       ClassDataAbstractionCoupling:
         description: This metric measures the number of instantiations of other classes
           within the given class.
-        example: false
+        example: true
         type: boolean
       ClassFanOutComplexity:
         description: The number of other classes a given class relies on.
-        example: true
+        example: false
         type: boolean
       ClassTypeParameterName:
         description: Checks that class type parameter names conform to a format specified
@@ -243,7 +243,7 @@ definitions:
       ConstantName:
         description: Checks that constant names conform to a format specified by the
           format property.
-        example: false
+        example: true
         type: boolean
       CovariantEquals:
         description: Checks that if a class defines a covariant method equals, then
@@ -253,17 +253,17 @@ definitions:
       CustomImportOrder:
         description: Checks that the groups of import declarations appear in the order
           specified by the user.
-        example: true
+        example: false
         type: boolean
       CyclomaticComplexity:
         description: Checks cyclomatic complexity against a specified limit.
-        example: true
+        example: false
         type: boolean
       DeclarationOrder:
         description: Checks that the parts of a class or interface declaration appear
           in the order suggested by the Code Conventions for the Java Programming
           Language.
-        example: false
+        example: true
         type: boolean
       DefaultComesLast:
         description: Check that the default is after all the cases in a switch statement.
@@ -271,7 +271,7 @@ definitions:
         type: boolean
       DescendantToken:
         description: Checks for restricted tokens beneath other tokens.
-        example: true
+        example: false
         type: boolean
       DesignForExtension:
         description: Checks that classes are designed for inheritance.
@@ -283,7 +283,7 @@ definitions:
         type: boolean
       EmptyCatchBlock:
         description: Checks for empty catch blocks with few options to skip violation.
-        example: false
+        example: true
         type: boolean
       EmptyForInitializerPad:
         description: Checks the padding of an empty for initializer; that is whether
@@ -293,11 +293,11 @@ definitions:
       EmptyForIteratorPad:
         description: Checks the padding of an empty for iterator; that is whether
           a space is required at an empty for iterator, or such spaces are forbidden.
-        example: false
+        example: true
         type: boolean
       EmptyLineSeparator:
         description: Checks for blank line separators.
-        example: false
+        example: true
         type: boolean
       EmptyStatement:
         description: Detects empty statements (standalone ';').
@@ -306,7 +306,7 @@ definitions:
       EqualsAvoidNull:
         description: Checks that any combination of String literals is on the left
           side of an equals() comparison.
-        example: false
+        example: true
         type: boolean
       EqualsHashCode:
         description: Checks that classes that override equals() also override hashCode().
@@ -315,23 +315,23 @@ definitions:
       ExecutableStatementCount:
         description: Restricts the number of executable statements to a specified
           limit (default = 30).
-        example: false
+        example: true
         type: boolean
       ExplicitInitialization:
         description: Checks if any class or object member explicitly initialized to
           default for its type value (null for object references, zero for numeric
           types and char and false for boolean.
-        example: true
+        example: false
         type: boolean
       FallThrough:
         description: Checks for fall through in switch statements Finds locations
           where a case contains Java code - but lacks a break, return, throw or continue
           statement.
-        example: false
+        example: true
         type: boolean
       FileLength:
         description: Checks for long source files.
-        example: false
+        example: true
         type: boolean
       FileTabCharacter:
         description: Checks to see if a file contains a tab character.
@@ -340,12 +340,12 @@ definitions:
       FinalClass:
         description: Checks that class which has only private constructors is declared
           as final.
-        example: true
+        example: false
         type: boolean
       FinalLocalVariable:
         description: Ensures that local variables that never get their values changed,
           must be declared final.
-        example: false
+        example: true
         type: boolean
       FinalParameters:
         description: Check that method/constructor/catch/foreach parameters are final.
@@ -373,7 +373,7 @@ definitions:
       IllegalCatch:
         description: Catching java.lang.Exception, java.lang.Error or java.lang.RuntimeException
           is almost never acceptable.
-        example: true
+        example: false
         type: boolean
       IllegalImport:
         description: Checks for imports from a set of illegal packages.
@@ -390,16 +390,16 @@ definitions:
         type: boolean
       IllegalToken:
         description: Checks for illegal tokens.
-        example: true
+        example: false
         type: boolean
       IllegalTokenText:
         description: Checks for illegal token text.
-        example: true
+        example: false
         type: boolean
       IllegalType:
         description: Checks that particular class are never used as types in variable
           declarations, return values or parameters.
-        example: false
+        example: true
         type: boolean
       ImportControl:
         description: Check that controls what packages can be imported in each package.
@@ -431,7 +431,7 @@ definitions:
       InterfaceTypeParameterName:
         description: Checks that interface type parameter names conform to a format
           specified by the format property.
-        example: false
+        example: true
         type: boolean
       JavaNCSS:
         description: This check calculates the Non Commenting Source Statements (NCSS)
@@ -452,11 +452,11 @@ definitions:
         type: boolean
       JavadocStyle:
         description: Custom Checkstyle Check to validate Javadoc.
-        example: true
+        example: false
         type: boolean
       JavadocTagContinuationIndentation:
         description: Checks the indentation of the continuation lines in at-clauses.
-        example: true
+        example: false
         type: boolean
       JavadocType:
         description: Checks the Javadoc of a type.
@@ -478,7 +478,7 @@ definitions:
       LocalFinalVariableName:
         description: Checks that local final variable names conform to a format specified
           by the format property.
-        example: true
+        example: false
         type: boolean
       LocalVariableName:
         description: Checks that local, non-final variable names conform to a format
@@ -487,7 +487,7 @@ definitions:
         type: boolean
       MagicNumber:
         description: Checks for magic numbers.
-        example: false
+        example: true
         type: boolean
       MemberName:
         description: Checks that instance variable names conform to a format specified
@@ -500,7 +500,7 @@ definitions:
         type: boolean
       MethodLength:
         description: Checks for long methods.
-        example: false
+        example: true
         type: boolean
       MethodName:
         description: Checks that method names conform to a format specified by the
@@ -516,23 +516,23 @@ definitions:
       MethodTypeParameterName:
         description: Checks that class type parameter names conform to a format specified
           by the format property.
-        example: true
+        example: false
         type: boolean
       MissingCtor:
         description: Checks that classes (except abstract one) define a ctor and don't
           rely on the default one.
-        example: false
+        example: true
         type: boolean
       MissingDeprecated:
         description: This class is used to verify that both the java.lang.Deprecated
           annotation is present and the @deprecated Javadoc tag is present when either
           is present.
-        example: false
+        example: true
         type: boolean
       MissingOverride:
         description: This class is used to verify that the java.lang.Override annotation
           is present when the {@inheritDoc} javadoc tag is present.
-        example: false
+        example: true
         type: boolean
       MissingSwitchDefault:
         description: Checks that switch statement has 'default' clause.
@@ -541,22 +541,22 @@ definitions:
       ModifiedControlVariable:
         description: Check for ensuring that for loop control variables are not modified
           inside the for block.
-        example: true
+        example: false
         type: boolean
       ModifierOrder:
         description: Checks that the order of modifiers conforms to the suggestions
           in the Java Language specification, sections 8.1.1, 8.3.1 and 8.4.3.
-        example: false
+        example: true
         type: boolean
       MultipleStringLiterals:
         description: Checks for multiple occurrences of the same string literal within
           a single file.
-        example: false
+        example: true
         type: boolean
       MultipleVariableDeclarations:
         description: Checks that each variable declaration is in its own statement
           and on its own line.
-        example: true
+        example: false
         type: boolean
       MutableException:
         description: Ensures that exceptions (defined as any class name conforming
@@ -566,7 +566,7 @@ definitions:
       NPathComplexity:
         description: Checks the npath complexity against a specified limit (default
           = 200).
-        example: true
+        example: false
         type: boolean
       NeedBraces:
         description: Checks for braces around code blocks.
@@ -574,7 +574,7 @@ definitions:
         type: boolean
       NestedForDepth:
         description: Restricts nested for blocks to a specified depth (default = 1).
-        example: false
+        example: true
         type: boolean
       NestedIfDepth:
         description: Restricts nested if-else blocks to a specified depth (default
@@ -593,7 +593,7 @@ definitions:
       NoClone:
         description: Checks that the clone method is not overridden from the Object
           class.
-        example: true
+        example: false
         type: boolean
       NoFinalizer:
         description: Checks that no method having zero parameters is defined using
@@ -606,7 +606,7 @@ definitions:
         type: boolean
       NoWhitespaceAfter:
         description: Checks that there is no whitespace after a token.
-        example: true
+        example: false
         type: boolean
       NoWhitespaceBefore:
         description: Checks that there is no whitespace before a token.
@@ -614,7 +614,7 @@ definitions:
         type: boolean
       NonEmptyAtclauseDescription:
         description: Checks that the at-clause tag is followed by description .
-        example: false
+        example: true
         type: boolean
       OneStatementPerLine:
         description: Checks that there is only one statement per line.
@@ -623,7 +623,7 @@ definitions:
       OneTopLevelClass:
         description: Checks that each top-level class, interfaces or enum resides
           in a source file of its own.
-        example: true
+        example: false
         type: boolean
       OperatorWrap:
         description: Checks line wrapping for operators.
@@ -644,7 +644,7 @@ definitions:
       PackageAnnotation:
         description: This check makes sure that all package annotations are in the
           package-info.java file.
-        example: true
+        example: false
         type: boolean
       PackageDeclaration:
         description: Ensures there is a package declaration and (optionally) in the
@@ -658,12 +658,12 @@ definitions:
         type: boolean
       ParameterAssignment:
         description: Disallow assignment of parameters.
-        example: true
+        example: false
         type: boolean
       ParameterName:
         description: Checks that parameter names conform to a format specified by
           the format property.
-        example: true
+        example: false
         type: boolean
       ParameterNumber:
         description: Checks the number of parameters that a method or constructor
@@ -679,14 +679,14 @@ definitions:
         type: boolean
       RedundantImport:
         description: Checks for imports that are redundant.
-        example: true
+        example: false
         type: boolean
       RedundantModifier:
         description: Checks for redundant modifiers in interface and annotation definitions,
           final modifier on methods of final classes, inner interface declarations
           that are declared as static, non public class constructors and enum constructors,
           nested enum definitions that are declared as static.
-        example: false
+        example: true
         type: boolean
       Regexp:
         description: A check that makes sure that a specified pattern exists (or not)
@@ -706,17 +706,17 @@ definitions:
       RegexpOnFilename:
         description: Implementation of a check that matches based on file and/or folder
           path.
-        example: false
+        example: true
         type: boolean
       RegexpSingleline:
         description: Implementation of a check that looks for a single line in any
           file type.
-        example: true
+        example: false
         type: boolean
       RegexpSinglelineJava:
         description: Implementation of a check that looks for a single line in Java
           files.
-        example: false
+        example: true
         type: boolean
       RequireThis:
         description: Checks that code doesn't rely on the 'this' default.
@@ -724,11 +724,11 @@ definitions:
         type: boolean
       ReturnCount:
         description: Restricts return statements to a specified count (default = 2).
-        example: false
+        example: true
         type: boolean
       RightCurly:
         description: Checks the placement of right curly braces.
-        example: false
+        example: true
         type: boolean
       SeparatorWrap:
         description: Checks line wrapping with separators.
@@ -740,7 +740,7 @@ definitions:
         type: boolean
       SimplifyBooleanReturn:
         description: Checks for overly complicated boolean return statements.
-        example: false
+        example: true
         type: boolean
       SingleLineJavadoc:
         description: Checks that a JavaDoc block which can fit on a single line and
@@ -764,11 +764,11 @@ definitions:
       SummaryJavadoc:
         description: Checks that Javadoc summary sentence does not contain phrases
           that are not recommended to use.
-        example: true
+        example: false
         type: boolean
       SuperClone:
         description: Checks that an overriding clone() method invokes super.clone().
-        example: true
+        example: false
         type: boolean
       SuperFinalize:
         description: Checks that an overriding finalize() method invokes super.finalize().
@@ -776,7 +776,7 @@ definitions:
         type: boolean
       SuppressWarnings:
         description: This check allows you to specify what warnings that
-        example: false
+        example: true
         type: boolean
       SuppressWarningsHolder:
         description: This check allows for finding code that should not be reported
@@ -785,26 +785,26 @@ definitions:
         type: boolean
       ThrowsCount:
         description: Restricts throws statements to a specified count (default = 4).
-        example: false
+        example: true
         type: boolean
       TodoComment:
         description: A check for TODO comments.
-        example: true
+        example: false
         type: boolean
       TrailingComment:
         description: The check to ensure that requires that comments be the only thing
           on a line.
-        example: false
+        example: true
         type: boolean
       Translation:
         description: The TranslationCheck class helps to ensure the correct translation
           of code by checking property files for consistency regarding their keys.
-        example: true
+        example: false
         type: boolean
       TypeName:
         description: Checks that type names conform to a format specified by the format
           property.
-        example: true
+        example: false
         type: boolean
       TypecastParenPad:
         description: Checks the padding of parentheses for typecasts.
@@ -812,7 +812,7 @@ definitions:
         type: boolean
       UncommentedMain:
         description: Detects uncommented main methods.
-        example: true
+        example: false
         type: boolean
       UniqueProperties:
         description: Detects duplicated keys in properties files.
@@ -834,17 +834,17 @@ definitions:
       VariableDeclarationUsageDistance:
         description: Checks the distance between declaration of variable and its first
           usage.
-        example: false
+        example: true
         type: boolean
       VisibilityModifier:
         description: Checks visibility of class members.
-        example: false
+        example: true
         type: boolean
       WhitespaceAfter:
         description: Checks that a token is followed by whitespace, with the exception
           that it does not check for whitespace after the semicolon of an empty for
           iterator.
-        example: false
+        example: true
         type: boolean
       WhitespaceAround:
         description: Checks that a token is surrounded by whitespace.
@@ -852,17 +852,17 @@ definitions:
         type: boolean
       WriteTag:
         description: Outputs a JavaDoc tag as information.
-        example: true
+        example: false
         type: boolean
     title: Checkstyle
     type: object
   Findbugs:
     description: Description of which Findbugs bugs are checked.
     example:
-      name: Porro aut quia.
+      name: Autem perferendis quidem.
     properties:
       name:
-        example: Porro aut quia.
+        example: Autem perferendis quidem.
         type: string
     title: Findbugs
     type: object
@@ -876,25 +876,43 @@ definitions:
         type: string
     title: 'Mediatype identifier: application/githubtoken.mt; view=default'
     type: object
-  UserCreate:
-    description: payload used to sign up a user
+  Login:
+    description: represents the login creditentials which are sent to the server
     example:
-      email: rd
-      name: ye
-      password: njq
+      email: ck
+      password: w0
     properties:
       email:
         description: User email
-        example: rd
+        example: ck
+        format: email
+        minLength: 1
+        type: string
+      password:
+        example: w0
+        minLength: 2
+        type: string
+    title: Login
+    type: object
+  UserCreate:
+    description: payload used to sign up a user
+    example:
+      email: bp
+      name: "4"
+      password: "69"
+    properties:
+      email:
+        description: User email
+        example: bp
         format: email
         minLength: 1
         type: string
       name:
-        example: ye
+        example: "4"
         minLength: 1
         type: string
       password:
-        example: njq
+        example: "69"
         minLength: 2
         type: string
     title: UserCreate
@@ -903,8 +921,8 @@ definitions:
     description: UserMt media type (default view)
     example:
       email: d
-      id: 5.097103e+18
-      name: b
+      id: 8.01937e+18
+      name: 5z0
     properties:
       email:
         description: User email
@@ -913,11 +931,11 @@ definitions:
         minLength: 1
         type: string
       id:
-        example: 5.097103e+18
+        example: 8.01937e+18
         format: int64
         type: integer
       name:
-        example: b
+        example: 5z0
         minLength: 1
         type: string
     title: 'Mediatype identifier: application/user.mt; view=default'
@@ -927,168 +945,168 @@ definitions:
     example:
       checkstyle:
         AbbreviationAsWordInName: true
-        AbstractClassName: true
+        AbstractClassName: false
         AnnotationLocation: false
-        AnnotationUseStyle: true
-        AnonInnerLength: false
-        ArrayTrailingComma: false
+        AnnotationUseStyle: false
+        AnonInnerLength: true
+        ArrayTrailingComma: true
         ArrayTypeStyle: false
-        AtclauseOrder: true
+        AtclauseOrder: false
         AvoidEscapedUnicodeCharacters: true
-        AvoidInlineConditionals: true
+        AvoidInlineConditionals: false
         AvoidNestedBlocks: true
-        AvoidStarImport: true
-        AvoidStaticImport: true
+        AvoidStarImport: false
+        AvoidStaticImport: false
         BooleanExpressionComplexity: false
-        CatchParameterName: true
-        ClassDataAbstractionCoupling: false
-        ClassFanOutComplexity: true
+        CatchParameterName: false
+        ClassDataAbstractionCoupling: true
+        ClassFanOutComplexity: false
         ClassTypeParameterName: true
         CommentsIndentation: false
-        ConstantName: false
+        ConstantName: true
         CovariantEquals: false
-        CustomImportOrder: true
-        CyclomaticComplexity: true
-        DeclarationOrder: false
+        CustomImportOrder: false
+        CyclomaticComplexity: false
+        DeclarationOrder: true
         DefaultComesLast: false
-        DescendantToken: true
+        DescendantToken: false
         DesignForExtension: false
         EmptyBlock: true
-        EmptyCatchBlock: false
+        EmptyCatchBlock: true
         EmptyForInitializerPad: false
-        EmptyForIteratorPad: false
-        EmptyLineSeparator: false
+        EmptyForIteratorPad: true
+        EmptyLineSeparator: true
         EmptyStatement: true
-        EqualsAvoidNull: false
+        EqualsAvoidNull: true
         EqualsHashCode: true
-        ExecutableStatementCount: false
-        ExplicitInitialization: true
-        FallThrough: false
-        FileLength: false
+        ExecutableStatementCount: true
+        ExplicitInitialization: false
+        FallThrough: true
+        FileLength: true
         FileTabCharacter: false
-        FinalClass: true
-        FinalLocalVariable: false
+        FinalClass: false
+        FinalLocalVariable: true
         FinalParameters: false
         GenericWhitespace: false
         Header: true
         HiddenField: true
         HideUtilityClassConstructor: false
-        IllegalCatch: true
+        IllegalCatch: false
         IllegalImport: true
         IllegalInstantiation: true
         IllegalThrows: true
-        IllegalToken: true
-        IllegalTokenText: true
-        IllegalType: false
+        IllegalToken: false
+        IllegalTokenText: false
+        IllegalType: true
         ImportControl: true
         ImportOrder: true
         Indentation: false
         InnerAssignment: false
         InnerTypeLast: true
         InterfaceIsType: false
-        InterfaceTypeParameterName: false
+        InterfaceTypeParameterName: true
         JavaNCSS: true
         JavadocMethod: true
         JavadocPackage: false
         JavadocParagraph: false
-        JavadocStyle: true
-        JavadocTagContinuationIndentation: true
+        JavadocStyle: false
+        JavadocTagContinuationIndentation: false
         JavadocType: true
         JavadocVariable: false
         LeftCurly: false
         LineLength: true
-        LocalFinalVariableName: true
+        LocalFinalVariableName: false
         LocalVariableName: true
-        MagicNumber: false
+        MagicNumber: true
         MemberName: false
         MethodCount: true
-        MethodLength: false
+        MethodLength: true
         MethodName: true
         MethodParamPad: true
-        MethodTypeParameterName: true
-        MissingCtor: false
-        MissingDeprecated: false
-        MissingOverride: false
+        MethodTypeParameterName: false
+        MissingCtor: true
+        MissingDeprecated: true
+        MissingOverride: true
         MissingSwitchDefault: false
-        ModifiedControlVariable: true
-        ModifierOrder: false
-        MultipleStringLiterals: false
-        MultipleVariableDeclarations: true
+        ModifiedControlVariable: false
+        ModifierOrder: true
+        MultipleStringLiterals: true
+        MultipleVariableDeclarations: false
         MutableException: false
-        NPathComplexity: true
+        NPathComplexity: false
         NeedBraces: true
-        NestedForDepth: false
+        NestedForDepth: true
         NestedIfDepth: true
         NestedTryDepth: true
         NewlineAtEndOfFile: true
-        NoClone: true
+        NoClone: false
         NoFinalizer: false
         NoLineWrap: true
-        NoWhitespaceAfter: true
+        NoWhitespaceAfter: false
         NoWhitespaceBefore: true
-        NonEmptyAtclauseDescription: false
+        NonEmptyAtclauseDescription: true
         OneStatementPerLine: false
-        OneTopLevelClass: true
+        OneTopLevelClass: false
         OperatorWrap: true
         OuterTypeFilename: false
         OuterTypeNumber: false
         OverloadMethodsDeclarationOrder: false
-        PackageAnnotation: true
+        PackageAnnotation: false
         PackageDeclaration: true
         PackageName: true
-        ParameterAssignment: true
-        ParameterName: true
+        ParameterAssignment: false
+        ParameterName: false
         ParameterNumber: false
         ParenPad: false
-        RedundantImport: true
-        RedundantModifier: false
+        RedundantImport: false
+        RedundantModifier: true
         Regexp: true
         RegexpHeader: true
         RegexpMultiline: false
-        RegexpOnFilename: false
-        RegexpSingleline: true
-        RegexpSinglelineJava: false
+        RegexpOnFilename: true
+        RegexpSingleline: false
+        RegexpSinglelineJava: true
         RequireThis: false
-        ReturnCount: false
-        RightCurly: false
+        ReturnCount: true
+        RightCurly: true
         SeparatorWrap: true
         SimplifyBooleanExpression: true
-        SimplifyBooleanReturn: false
+        SimplifyBooleanReturn: true
         SingleLineJavadoc: false
         SingleSpaceSeparator: false
         StaticVariableName: false
         StringLiteralEquality: false
-        SummaryJavadoc: true
-        SuperClone: true
+        SummaryJavadoc: false
+        SuperClone: false
         SuperFinalize: true
-        SuppressWarnings: false
+        SuppressWarnings: true
         SuppressWarningsHolder: true
-        ThrowsCount: false
-        TodoComment: true
-        TrailingComment: false
-        Translation: true
-        TypeName: true
+        ThrowsCount: true
+        TodoComment: false
+        TrailingComment: true
+        Translation: false
+        TypeName: false
         TypecastParenPad: true
-        UncommentedMain: true
+        UncommentedMain: false
         UniqueProperties: true
         UnnecessaryParentheses: false
         UnusedImports: false
         UpperEll: false
-        VariableDeclarationUsageDistance: false
-        VisibilityModifier: false
-        WhitespaceAfter: false
+        VariableDeclarationUsageDistance: true
+        VisibilityModifier: true
+        WhitespaceAfter: true
         WhitespaceAround: true
-        WriteTag: true
+        WriteTag: false
       findbugs:
-        name: Porro aut quia.
-      name: Est iure perspiciatis optio.
+        name: Autem perferendis quidem.
+      name: Molestiae porro qui vel.
     properties:
       checkstyle:
         $ref: '#/definitions/Checkstyle'
       findbugs:
         $ref: '#/definitions/Findbugs'
       name:
-        example: Est iure perspiciatis optio.
+        example: Molestiae porro qui vel.
         type: string
     title: bug_profile
     type: object
@@ -1303,6 +1321,29 @@ paths:
       summary: update user
       tags:
       - user
+  /api/user/login:
+    post:
+      description: Log in to a user account
+      operationId: user#login
+      parameters:
+      - description: represents the login creditentials which are sent to the server
+        in: body
+        name: payload
+        required: true
+        schema:
+          $ref: '#/definitions/Login'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/UserMt'
+        "401":
+          description: Unauthorized
+      schemes:
+      - http
+      summary: login user
+      tags:
+      - user
 produces:
 - application/json
 responses:
@@ -1316,6 +1357,8 @@ responses:
     description: Not Found
   OK:
     description: OK
+  Unauthorized:
+    description: Unauthorized
 schemes:
 - http
 securityDefinitions:
@@ -1323,7 +1366,7 @@ securityDefinitions:
     description: |-
       For routes that require an authorization token
 
-      **Token URL**: https://example.com/token
+      **Token URL**: http://localhost:8081/api/login
 
       **Security Scopes**:
         * `profiles:read`: Can read profiles

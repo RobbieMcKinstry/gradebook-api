@@ -31,7 +31,7 @@ func NewJWTSecurity() *goa.JWTSecurity {
 	def := goa.JWTSecurity{
 		In:       goa.LocHeader,
 		Name:     "Authorization",
-		TokenURL: "https://example.com/token",
+		TokenURL: "http://localhost:8081/api/login",
 		Scopes: map[string]string{
 			"profiles:read":  "Can read profiles",
 			"profiles:write": "Can update profiles",

@@ -251,6 +251,7 @@ func handleSwaggerOrigin(h goa.Handler) goa.Handler {
 type UserController interface {
 	goa.Muxer
 	Create(*CreateUserContext) error
+	Login(*LoginUserContext) error
 	Read(*ReadUserContext) error
 	Update(*UpdateUserContext) error
 }
@@ -280,6 +281,27 @@ func MountUserController(service *goa.Service, ctrl UserController) {
 	}
 	service.Mux.Handle("POST", "/api/user", ctrl.MuxHandler("Create", h, unmarshalCreateUserPayload))
 	service.LogInfo("mount", "ctrl", "User", "action", "Create", "route", "POST /api/user")
+
+	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
+		// Check if there was an error loading the request
+		if err := goa.ContextError(ctx); err != nil {
+			return err
+		}
+		// Build the context
+		rctx, err := NewLoginUserContext(ctx, service)
+		if err != nil {
+			return err
+		}
+		// Build the payload
+		if rawPayload := goa.ContextRequest(ctx).Payload; rawPayload != nil {
+			rctx.Payload = rawPayload.(*Login)
+		} else {
+			return goa.MissingPayloadError()
+		}
+		return ctrl.Login(rctx)
+	}
+	service.Mux.Handle("POST", "/api/user/login", ctrl.MuxHandler("Login", h, unmarshalLoginUserPayload))
+	service.LogInfo("mount", "ctrl", "User", "action", "Login", "route", "POST /api/user/login")
 
 	h = func(ctx context.Context, rw http.ResponseWriter, req *http.Request) error {
 		// Check if there was an error loading the request
@@ -321,6 +343,21 @@ func MountUserController(service *goa.Service, ctrl UserController) {
 // unmarshalCreateUserPayload unmarshals the request body into the context request data Payload field.
 func unmarshalCreateUserPayload(ctx context.Context, service *goa.Service, req *http.Request) error {
 	payload := &userCreate{}
+	if err := service.DecodeRequest(req, payload); err != nil {
+		return err
+	}
+	if err := payload.Validate(); err != nil {
+		// Initialize payload with private data structure so it can be logged
+		goa.ContextRequest(ctx).Payload = payload
+		return err
+	}
+	goa.ContextRequest(ctx).Payload = payload.Publicize()
+	return nil
+}
+
+// unmarshalLoginUserPayload unmarshals the request body into the context request data Payload field.
+func unmarshalLoginUserPayload(ctx context.Context, service *goa.Service, req *http.Request) error {
+	payload := &login{}
 	if err := service.DecodeRequest(req, payload); err != nil {
 		return err
 	}

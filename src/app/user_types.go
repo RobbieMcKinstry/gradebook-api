@@ -1119,6 +1119,72 @@ type Findbugs struct {
 	Name *string `form:"name,omitempty" json:"name,omitempty" xml:"name,omitempty"`
 }
 
+// represents the login creditentials which are sent to the server
+type login struct {
+	// User email
+	Email    *string `form:"email,omitempty" json:"email,omitempty" xml:"email,omitempty"`
+	Password *string `form:"password,omitempty" json:"password,omitempty" xml:"password,omitempty"`
+}
+
+// Validate validates the login type instance.
+func (ut *login) Validate() (err error) {
+	if ut.Email != nil {
+		if err2 := goa.ValidateFormat(goa.FormatEmail, *ut.Email); err2 != nil {
+			err = goa.MergeErrors(err, goa.InvalidFormatError(`response.email`, *ut.Email, goa.FormatEmail, err2))
+		}
+	}
+	if ut.Email != nil {
+		if utf8.RuneCountInString(*ut.Email) < 1 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.email`, *ut.Email, utf8.RuneCountInString(*ut.Email), 1, true))
+		}
+	}
+	if ut.Password != nil {
+		if utf8.RuneCountInString(*ut.Password) < 2 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.password`, *ut.Password, utf8.RuneCountInString(*ut.Password), 2, true))
+		}
+	}
+	return
+}
+
+// Publicize creates Login from login
+func (ut *login) Publicize() *Login {
+	var pub Login
+	if ut.Email != nil {
+		pub.Email = ut.Email
+	}
+	if ut.Password != nil {
+		pub.Password = ut.Password
+	}
+	return &pub
+}
+
+// represents the login creditentials which are sent to the server
+type Login struct {
+	// User email
+	Email    *string `form:"email,omitempty" json:"email,omitempty" xml:"email,omitempty"`
+	Password *string `form:"password,omitempty" json:"password,omitempty" xml:"password,omitempty"`
+}
+
+// Validate validates the Login type instance.
+func (ut *Login) Validate() (err error) {
+	if ut.Email != nil {
+		if err2 := goa.ValidateFormat(goa.FormatEmail, *ut.Email); err2 != nil {
+			err = goa.MergeErrors(err, goa.InvalidFormatError(`response.email`, *ut.Email, goa.FormatEmail, err2))
+		}
+	}
+	if ut.Email != nil {
+		if utf8.RuneCountInString(*ut.Email) < 1 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.email`, *ut.Email, utf8.RuneCountInString(*ut.Email), 1, true))
+		}
+	}
+	if ut.Password != nil {
+		if utf8.RuneCountInString(*ut.Password) < 2 {
+			err = goa.MergeErrors(err, goa.InvalidLengthError(`response.password`, *ut.Password, utf8.RuneCountInString(*ut.Password), 2, true))
+		}
+	}
+	return
+}
+
 // payload used to sign up a user
 type userCreate struct {
 	// User email

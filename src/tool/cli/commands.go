@@ -79,6 +79,13 @@ type (
 		PrettyPrint bool
 	}
 
+	// LoginUserCommand is the command line data structure for the login action of user
+	LoginUserCommand struct {
+		Payload     string
+		ContentType string
+		PrettyPrint bool
+	}
+
 	// ReadUserCommand is the command line data structure for the read action of user
 	ReadUserCommand struct {
 		// The user's unique identifier
@@ -120,163 +127,163 @@ Payload example:
 {
    "checkstyle": {
       "AbbreviationAsWordInName": true,
-      "AbstractClassName": true,
+      "AbstractClassName": false,
       "AnnotationLocation": false,
-      "AnnotationUseStyle": true,
-      "AnonInnerLength": false,
-      "ArrayTrailingComma": false,
+      "AnnotationUseStyle": false,
+      "AnonInnerLength": true,
+      "ArrayTrailingComma": true,
       "ArrayTypeStyle": false,
-      "AtclauseOrder": true,
+      "AtclauseOrder": false,
       "AvoidEscapedUnicodeCharacters": true,
-      "AvoidInlineConditionals": true,
+      "AvoidInlineConditionals": false,
       "AvoidNestedBlocks": true,
-      "AvoidStarImport": true,
-      "AvoidStaticImport": true,
+      "AvoidStarImport": false,
+      "AvoidStaticImport": false,
       "BooleanExpressionComplexity": false,
-      "CatchParameterName": true,
-      "ClassDataAbstractionCoupling": false,
-      "ClassFanOutComplexity": true,
+      "CatchParameterName": false,
+      "ClassDataAbstractionCoupling": true,
+      "ClassFanOutComplexity": false,
       "ClassTypeParameterName": true,
       "CommentsIndentation": false,
-      "ConstantName": false,
+      "ConstantName": true,
       "CovariantEquals": false,
-      "CustomImportOrder": true,
-      "CyclomaticComplexity": true,
-      "DeclarationOrder": false,
+      "CustomImportOrder": false,
+      "CyclomaticComplexity": false,
+      "DeclarationOrder": true,
       "DefaultComesLast": false,
-      "DescendantToken": true,
+      "DescendantToken": false,
       "DesignForExtension": false,
       "EmptyBlock": true,
-      "EmptyCatchBlock": false,
+      "EmptyCatchBlock": true,
       "EmptyForInitializerPad": false,
-      "EmptyForIteratorPad": false,
-      "EmptyLineSeparator": false,
+      "EmptyForIteratorPad": true,
+      "EmptyLineSeparator": true,
       "EmptyStatement": true,
-      "EqualsAvoidNull": false,
+      "EqualsAvoidNull": true,
       "EqualsHashCode": true,
-      "ExecutableStatementCount": false,
-      "ExplicitInitialization": true,
-      "FallThrough": false,
-      "FileLength": false,
+      "ExecutableStatementCount": true,
+      "ExplicitInitialization": false,
+      "FallThrough": true,
+      "FileLength": true,
       "FileTabCharacter": false,
-      "FinalClass": true,
-      "FinalLocalVariable": false,
+      "FinalClass": false,
+      "FinalLocalVariable": true,
       "FinalParameters": false,
       "GenericWhitespace": false,
       "Header": true,
       "HiddenField": true,
       "HideUtilityClassConstructor": false,
-      "IllegalCatch": true,
+      "IllegalCatch": false,
       "IllegalImport": true,
       "IllegalInstantiation": true,
       "IllegalThrows": true,
-      "IllegalToken": true,
-      "IllegalTokenText": true,
-      "IllegalType": false,
+      "IllegalToken": false,
+      "IllegalTokenText": false,
+      "IllegalType": true,
       "ImportControl": true,
       "ImportOrder": true,
       "Indentation": false,
       "InnerAssignment": false,
       "InnerTypeLast": true,
       "InterfaceIsType": false,
-      "InterfaceTypeParameterName": false,
+      "InterfaceTypeParameterName": true,
       "JavaNCSS": true,
       "JavadocMethod": true,
       "JavadocPackage": false,
       "JavadocParagraph": false,
-      "JavadocStyle": true,
-      "JavadocTagContinuationIndentation": true,
+      "JavadocStyle": false,
+      "JavadocTagContinuationIndentation": false,
       "JavadocType": true,
       "JavadocVariable": false,
       "LeftCurly": false,
       "LineLength": true,
-      "LocalFinalVariableName": true,
+      "LocalFinalVariableName": false,
       "LocalVariableName": true,
-      "MagicNumber": false,
+      "MagicNumber": true,
       "MemberName": false,
       "MethodCount": true,
-      "MethodLength": false,
+      "MethodLength": true,
       "MethodName": true,
       "MethodParamPad": true,
-      "MethodTypeParameterName": true,
-      "MissingCtor": false,
-      "MissingDeprecated": false,
-      "MissingOverride": false,
+      "MethodTypeParameterName": false,
+      "MissingCtor": true,
+      "MissingDeprecated": true,
+      "MissingOverride": true,
       "MissingSwitchDefault": false,
-      "ModifiedControlVariable": true,
-      "ModifierOrder": false,
-      "MultipleStringLiterals": false,
-      "MultipleVariableDeclarations": true,
+      "ModifiedControlVariable": false,
+      "ModifierOrder": true,
+      "MultipleStringLiterals": true,
+      "MultipleVariableDeclarations": false,
       "MutableException": false,
-      "NPathComplexity": true,
+      "NPathComplexity": false,
       "NeedBraces": true,
-      "NestedForDepth": false,
+      "NestedForDepth": true,
       "NestedIfDepth": true,
       "NestedTryDepth": true,
       "NewlineAtEndOfFile": true,
-      "NoClone": true,
+      "NoClone": false,
       "NoFinalizer": false,
       "NoLineWrap": true,
-      "NoWhitespaceAfter": true,
+      "NoWhitespaceAfter": false,
       "NoWhitespaceBefore": true,
-      "NonEmptyAtclauseDescription": false,
+      "NonEmptyAtclauseDescription": true,
       "OneStatementPerLine": false,
-      "OneTopLevelClass": true,
+      "OneTopLevelClass": false,
       "OperatorWrap": true,
       "OuterTypeFilename": false,
       "OuterTypeNumber": false,
       "OverloadMethodsDeclarationOrder": false,
-      "PackageAnnotation": true,
+      "PackageAnnotation": false,
       "PackageDeclaration": true,
       "PackageName": true,
-      "ParameterAssignment": true,
-      "ParameterName": true,
+      "ParameterAssignment": false,
+      "ParameterName": false,
       "ParameterNumber": false,
       "ParenPad": false,
-      "RedundantImport": true,
-      "RedundantModifier": false,
+      "RedundantImport": false,
+      "RedundantModifier": true,
       "Regexp": true,
       "RegexpHeader": true,
       "RegexpMultiline": false,
-      "RegexpOnFilename": false,
-      "RegexpSingleline": true,
-      "RegexpSinglelineJava": false,
+      "RegexpOnFilename": true,
+      "RegexpSingleline": false,
+      "RegexpSinglelineJava": true,
       "RequireThis": false,
-      "ReturnCount": false,
-      "RightCurly": false,
+      "ReturnCount": true,
+      "RightCurly": true,
       "SeparatorWrap": true,
       "SimplifyBooleanExpression": true,
-      "SimplifyBooleanReturn": false,
+      "SimplifyBooleanReturn": true,
       "SingleLineJavadoc": false,
       "SingleSpaceSeparator": false,
       "StaticVariableName": false,
       "StringLiteralEquality": false,
-      "SummaryJavadoc": true,
-      "SuperClone": true,
+      "SummaryJavadoc": false,
+      "SuperClone": false,
       "SuperFinalize": true,
-      "SuppressWarnings": false,
+      "SuppressWarnings": true,
       "SuppressWarningsHolder": true,
-      "ThrowsCount": false,
-      "TodoComment": true,
-      "TrailingComment": false,
-      "Translation": true,
-      "TypeName": true,
+      "ThrowsCount": true,
+      "TodoComment": false,
+      "TrailingComment": true,
+      "Translation": false,
+      "TypeName": false,
       "TypecastParenPad": true,
-      "UncommentedMain": true,
+      "UncommentedMain": false,
       "UniqueProperties": true,
       "UnnecessaryParentheses": false,
       "UnusedImports": false,
       "UpperEll": false,
-      "VariableDeclarationUsageDistance": false,
-      "VisibilityModifier": false,
-      "WhitespaceAfter": false,
+      "VariableDeclarationUsageDistance": true,
+      "VisibilityModifier": true,
+      "WhitespaceAfter": true,
       "WhitespaceAround": true,
-      "WriteTag": true
+      "WriteTag": false
    },
    "findbugs": {
-      "name": "Porro aut quia."
+      "name": "Autem perferendis quidem."
    },
-   "name": "Est iure perspiciatis optio."
+   "name": "Molestiae porro qui vel."
 }`,
 		RunE: func(cmd *cobra.Command, args []string) error { return tmp1.Run(c, args) },
 	}
@@ -301,9 +308,9 @@ Payload example:
 Payload example:
 
 {
-   "email": "rd",
-   "name": "ye",
-   "password": "njq"
+   "email": "bp",
+   "name": "4",
+   "password": "69"
 }`,
 		RunE: func(cmd *cobra.Command, args []string) error { return tmp3.Run(c, args) },
 	}
@@ -340,36 +347,44 @@ Payload example:
 	command.AddCommand(sub)
 	app.AddCommand(command)
 	command = &cobra.Command{
-		Use:   "read",
-		Short: `read action`,
+		Use:   "login",
+		Short: `Log in to a user account`,
 	}
-	tmp6 := new(ReadGithubTokenCommand)
+	tmp6 := new(LoginUserCommand)
 	sub = &cobra.Command{
-		Use:   `GithubToken ["/api/GHtoken"]`,
-		Short: `This is your GitHub API token`,
-		RunE:  func(cmd *cobra.Command, args []string) error { return tmp6.Run(c, args) },
+		Use:   `user ["/api/user/login"]`,
+		Short: `Represents a user of the site`,
+		Long: `Represents a user of the site
+
+Payload example:
+
+{
+   "email": "ck",
+   "password": "w0"
+}`,
+		RunE: func(cmd *cobra.Command, args []string) error { return tmp6.Run(c, args) },
 	}
 	tmp6.RegisterFlags(sub, c)
 	sub.PersistentFlags().BoolVar(&tmp6.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
-	tmp7 := new(ReadUserCommand)
+	app.AddCommand(command)
+	command = &cobra.Command{
+		Use:   "read",
+		Short: `read action`,
+	}
+	tmp7 := new(ReadGithubTokenCommand)
 	sub = &cobra.Command{
-		Use:   `user ["/api/user/USERID"]`,
-		Short: `Represents a user of the site`,
+		Use:   `GithubToken ["/api/GHtoken"]`,
+		Short: `This is your GitHub API token`,
 		RunE:  func(cmd *cobra.Command, args []string) error { return tmp7.Run(c, args) },
 	}
 	tmp7.RegisterFlags(sub, c)
 	sub.PersistentFlags().BoolVar(&tmp7.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
-	app.AddCommand(command)
-	command = &cobra.Command{
-		Use:   "show",
-		Short: `Show a single bug profile`,
-	}
-	tmp8 := new(ShowBugProfileCommand)
+	tmp8 := new(ReadUserCommand)
 	sub = &cobra.Command{
-		Use:   `bug_profile ["/api/bug-profile/PROFILEID"]`,
-		Short: `Bug profile represents the list of bugs the user wants us to check for`,
+		Use:   `user ["/api/user/USERID"]`,
+		Short: `Represents a user of the site`,
 		RunE:  func(cmd *cobra.Command, args []string) error { return tmp8.Run(c, args) },
 	}
 	tmp8.RegisterFlags(sub, c)
@@ -377,10 +392,24 @@ Payload example:
 	command.AddCommand(sub)
 	app.AddCommand(command)
 	command = &cobra.Command{
+		Use:   "show",
+		Short: `Show a single bug profile`,
+	}
+	tmp9 := new(ShowBugProfileCommand)
+	sub = &cobra.Command{
+		Use:   `bug_profile ["/api/bug-profile/PROFILEID"]`,
+		Short: `Bug profile represents the list of bugs the user wants us to check for`,
+		RunE:  func(cmd *cobra.Command, args []string) error { return tmp9.Run(c, args) },
+	}
+	tmp9.RegisterFlags(sub, c)
+	sub.PersistentFlags().BoolVar(&tmp9.PrettyPrint, "pp", false, "Pretty print response body")
+	command.AddCommand(sub)
+	app.AddCommand(command)
+	command = &cobra.Command{
 		Use:   "update",
 		Short: `update action`,
 	}
-	tmp9 := new(UpdateBugProfileCommand)
+	tmp10 := new(UpdateBugProfileCommand)
 	sub = &cobra.Command{
 		Use:   `bug_profile ["/api/bug-profile/PROFILEID"]`,
 		Short: `Bug profile represents the list of bugs the user wants us to check for`,
@@ -391,170 +420,170 @@ Payload example:
 {
    "checkstyle": {
       "AbbreviationAsWordInName": true,
-      "AbstractClassName": true,
+      "AbstractClassName": false,
       "AnnotationLocation": false,
-      "AnnotationUseStyle": true,
-      "AnonInnerLength": false,
-      "ArrayTrailingComma": false,
+      "AnnotationUseStyle": false,
+      "AnonInnerLength": true,
+      "ArrayTrailingComma": true,
       "ArrayTypeStyle": false,
-      "AtclauseOrder": true,
+      "AtclauseOrder": false,
       "AvoidEscapedUnicodeCharacters": true,
-      "AvoidInlineConditionals": true,
+      "AvoidInlineConditionals": false,
       "AvoidNestedBlocks": true,
-      "AvoidStarImport": true,
-      "AvoidStaticImport": true,
+      "AvoidStarImport": false,
+      "AvoidStaticImport": false,
       "BooleanExpressionComplexity": false,
-      "CatchParameterName": true,
-      "ClassDataAbstractionCoupling": false,
-      "ClassFanOutComplexity": true,
+      "CatchParameterName": false,
+      "ClassDataAbstractionCoupling": true,
+      "ClassFanOutComplexity": false,
       "ClassTypeParameterName": true,
       "CommentsIndentation": false,
-      "ConstantName": false,
+      "ConstantName": true,
       "CovariantEquals": false,
-      "CustomImportOrder": true,
-      "CyclomaticComplexity": true,
-      "DeclarationOrder": false,
+      "CustomImportOrder": false,
+      "CyclomaticComplexity": false,
+      "DeclarationOrder": true,
       "DefaultComesLast": false,
-      "DescendantToken": true,
+      "DescendantToken": false,
       "DesignForExtension": false,
       "EmptyBlock": true,
-      "EmptyCatchBlock": false,
+      "EmptyCatchBlock": true,
       "EmptyForInitializerPad": false,
-      "EmptyForIteratorPad": false,
-      "EmptyLineSeparator": false,
+      "EmptyForIteratorPad": true,
+      "EmptyLineSeparator": true,
       "EmptyStatement": true,
-      "EqualsAvoidNull": false,
+      "EqualsAvoidNull": true,
       "EqualsHashCode": true,
-      "ExecutableStatementCount": false,
-      "ExplicitInitialization": true,
-      "FallThrough": false,
-      "FileLength": false,
+      "ExecutableStatementCount": true,
+      "ExplicitInitialization": false,
+      "FallThrough": true,
+      "FileLength": true,
       "FileTabCharacter": false,
-      "FinalClass": true,
-      "FinalLocalVariable": false,
+      "FinalClass": false,
+      "FinalLocalVariable": true,
       "FinalParameters": false,
       "GenericWhitespace": false,
       "Header": true,
       "HiddenField": true,
       "HideUtilityClassConstructor": false,
-      "IllegalCatch": true,
+      "IllegalCatch": false,
       "IllegalImport": true,
       "IllegalInstantiation": true,
       "IllegalThrows": true,
-      "IllegalToken": true,
-      "IllegalTokenText": true,
-      "IllegalType": false,
+      "IllegalToken": false,
+      "IllegalTokenText": false,
+      "IllegalType": true,
       "ImportControl": true,
       "ImportOrder": true,
       "Indentation": false,
       "InnerAssignment": false,
       "InnerTypeLast": true,
       "InterfaceIsType": false,
-      "InterfaceTypeParameterName": false,
+      "InterfaceTypeParameterName": true,
       "JavaNCSS": true,
       "JavadocMethod": true,
       "JavadocPackage": false,
       "JavadocParagraph": false,
-      "JavadocStyle": true,
-      "JavadocTagContinuationIndentation": true,
+      "JavadocStyle": false,
+      "JavadocTagContinuationIndentation": false,
       "JavadocType": true,
       "JavadocVariable": false,
       "LeftCurly": false,
       "LineLength": true,
-      "LocalFinalVariableName": true,
+      "LocalFinalVariableName": false,
       "LocalVariableName": true,
-      "MagicNumber": false,
+      "MagicNumber": true,
       "MemberName": false,
       "MethodCount": true,
-      "MethodLength": false,
+      "MethodLength": true,
       "MethodName": true,
       "MethodParamPad": true,
-      "MethodTypeParameterName": true,
-      "MissingCtor": false,
-      "MissingDeprecated": false,
-      "MissingOverride": false,
+      "MethodTypeParameterName": false,
+      "MissingCtor": true,
+      "MissingDeprecated": true,
+      "MissingOverride": true,
       "MissingSwitchDefault": false,
-      "ModifiedControlVariable": true,
-      "ModifierOrder": false,
-      "MultipleStringLiterals": false,
-      "MultipleVariableDeclarations": true,
+      "ModifiedControlVariable": false,
+      "ModifierOrder": true,
+      "MultipleStringLiterals": true,
+      "MultipleVariableDeclarations": false,
       "MutableException": false,
-      "NPathComplexity": true,
+      "NPathComplexity": false,
       "NeedBraces": true,
-      "NestedForDepth": false,
+      "NestedForDepth": true,
       "NestedIfDepth": true,
       "NestedTryDepth": true,
       "NewlineAtEndOfFile": true,
-      "NoClone": true,
+      "NoClone": false,
       "NoFinalizer": false,
       "NoLineWrap": true,
-      "NoWhitespaceAfter": true,
+      "NoWhitespaceAfter": false,
       "NoWhitespaceBefore": true,
-      "NonEmptyAtclauseDescription": false,
+      "NonEmptyAtclauseDescription": true,
       "OneStatementPerLine": false,
-      "OneTopLevelClass": true,
+      "OneTopLevelClass": false,
       "OperatorWrap": true,
       "OuterTypeFilename": false,
       "OuterTypeNumber": false,
       "OverloadMethodsDeclarationOrder": false,
-      "PackageAnnotation": true,
+      "PackageAnnotation": false,
       "PackageDeclaration": true,
       "PackageName": true,
-      "ParameterAssignment": true,
-      "ParameterName": true,
+      "ParameterAssignment": false,
+      "ParameterName": false,
       "ParameterNumber": false,
       "ParenPad": false,
-      "RedundantImport": true,
-      "RedundantModifier": false,
+      "RedundantImport": false,
+      "RedundantModifier": true,
       "Regexp": true,
       "RegexpHeader": true,
       "RegexpMultiline": false,
-      "RegexpOnFilename": false,
-      "RegexpSingleline": true,
-      "RegexpSinglelineJava": false,
+      "RegexpOnFilename": true,
+      "RegexpSingleline": false,
+      "RegexpSinglelineJava": true,
       "RequireThis": false,
-      "ReturnCount": false,
-      "RightCurly": false,
+      "ReturnCount": true,
+      "RightCurly": true,
       "SeparatorWrap": true,
       "SimplifyBooleanExpression": true,
-      "SimplifyBooleanReturn": false,
+      "SimplifyBooleanReturn": true,
       "SingleLineJavadoc": false,
       "SingleSpaceSeparator": false,
       "StaticVariableName": false,
       "StringLiteralEquality": false,
-      "SummaryJavadoc": true,
-      "SuperClone": true,
+      "SummaryJavadoc": false,
+      "SuperClone": false,
       "SuperFinalize": true,
-      "SuppressWarnings": false,
+      "SuppressWarnings": true,
       "SuppressWarningsHolder": true,
-      "ThrowsCount": false,
-      "TodoComment": true,
-      "TrailingComment": false,
-      "Translation": true,
-      "TypeName": true,
+      "ThrowsCount": true,
+      "TodoComment": false,
+      "TrailingComment": true,
+      "Translation": false,
+      "TypeName": false,
       "TypecastParenPad": true,
-      "UncommentedMain": true,
+      "UncommentedMain": false,
       "UniqueProperties": true,
       "UnnecessaryParentheses": false,
       "UnusedImports": false,
       "UpperEll": false,
-      "VariableDeclarationUsageDistance": false,
-      "VisibilityModifier": false,
-      "WhitespaceAfter": false,
+      "VariableDeclarationUsageDistance": true,
+      "VisibilityModifier": true,
+      "WhitespaceAfter": true,
       "WhitespaceAround": true,
-      "WriteTag": true
+      "WriteTag": false
    },
    "findbugs": {
-      "name": "Porro aut quia."
+      "name": "Autem perferendis quidem."
    },
-   "name": "Est iure perspiciatis optio."
+   "name": "Molestiae porro qui vel."
 }`,
-		RunE: func(cmd *cobra.Command, args []string) error { return tmp9.Run(c, args) },
+		RunE: func(cmd *cobra.Command, args []string) error { return tmp10.Run(c, args) },
 	}
-	tmp9.RegisterFlags(sub, c)
-	sub.PersistentFlags().BoolVar(&tmp9.PrettyPrint, "pp", false, "Pretty print response body")
+	tmp10.RegisterFlags(sub, c)
+	sub.PersistentFlags().BoolVar(&tmp10.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
-	tmp10 := new(UpdateUserCommand)
+	tmp11 := new(UpdateUserCommand)
 	sub = &cobra.Command{
 		Use:   `user ["/api/user/USERID"]`,
 		Short: `Represents a user of the site`,
@@ -563,14 +592,14 @@ Payload example:
 Payload example:
 
 {
-   "email": "rd",
-   "name": "ye",
-   "password": "njq"
+   "email": "bp",
+   "name": "4",
+   "password": "69"
 }`,
-		RunE: func(cmd *cobra.Command, args []string) error { return tmp10.Run(c, args) },
+		RunE: func(cmd *cobra.Command, args []string) error { return tmp11.Run(c, args) },
 	}
-	tmp10.RegisterFlags(sub, c)
-	sub.PersistentFlags().BoolVar(&tmp10.PrettyPrint, "pp", false, "Pretty print response body")
+	tmp11.RegisterFlags(sub, c)
+	sub.PersistentFlags().BoolVar(&tmp11.PrettyPrint, "pp", false, "Pretty print response body")
 	command.AddCommand(sub)
 	app.AddCommand(command)
 
@@ -999,6 +1028,39 @@ func (cmd *CreateUserCommand) Run(c *client.Client, args []string) error {
 
 // RegisterFlags registers the command flags with the command line.
 func (cmd *CreateUserCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
+	cc.Flags().StringVar(&cmd.Payload, "payload", "", "Request body encoded in JSON")
+	cc.Flags().StringVar(&cmd.ContentType, "content", "", "Request content type override, e.g. 'application/x-www-form-urlencoded'")
+}
+
+// Run makes the HTTP request corresponding to the LoginUserCommand command.
+func (cmd *LoginUserCommand) Run(c *client.Client, args []string) error {
+	var path string
+	if len(args) > 0 {
+		path = args[0]
+	} else {
+		path = "/api/user/login"
+	}
+	var payload client.Login
+	if cmd.Payload != "" {
+		err := json.Unmarshal([]byte(cmd.Payload), &payload)
+		if err != nil {
+			return fmt.Errorf("failed to deserialize payload: %s", err)
+		}
+	}
+	logger := goa.NewLogger(log.New(os.Stderr, "", log.LstdFlags))
+	ctx := goa.WithLogger(context.Background(), logger)
+	resp, err := c.LoginUser(ctx, path, &payload)
+	if err != nil {
+		goa.LogError(ctx, "failed", "err", err)
+		return err
+	}
+
+	goaclient.HandleResponse(c.Client, resp, cmd.PrettyPrint)
+	return nil
+}
+
+// RegisterFlags registers the command flags with the command line.
+func (cmd *LoginUserCommand) RegisterFlags(cc *cobra.Command, c *client.Client) {
 	cc.Flags().StringVar(&cmd.Payload, "payload", "", "Request body encoded in JSON")
 	cc.Flags().StringVar(&cmd.ContentType, "content", "", "Request content type override, e.g. 'application/x-www-form-urlencoded'")
 }

@@ -22,6 +22,15 @@ var _ = Resource("user", func() {
 		Response(Conflict)
 	})
 
+	// Login
+	Action("login", func() {
+		Description("Log in to a user account")
+		Routing(POST("/login"))
+		Payload(Login)
+		Response(OK, UserMedia)
+		Response(Unauthorized)
+	})
+
 	Action("update", func() {
 		Description("Adjust your account settings")
 		Routing(PUT("/:userID"))
@@ -53,6 +62,9 @@ var UserMedia = MediaType("application/user.mt", func() {
 		Attribute("name")
 		Attribute("email")
 		Attribute("password")
+		Attribute("token")
+		Attribute("expiry")
+		Attribute("ghUsername")
 	})
 	View("default", func() {
 		Attribute("id", Integer)
@@ -65,6 +77,13 @@ var UserMedia = MediaType("application/user.mt", func() {
 		Attribute("email")
 		Attribute("password")
 	})
+	View("OnLogin", func() {
+		Attribute("id", Integer)
+		Attribute("name")
+		Attribute("email")
+		Attribute("token")
+		Attribute("expiry")
+	})
 })
 
 var UserCreate = Type("UserCreate", func() {
@@ -72,6 +91,17 @@ var UserCreate = Type("UserCreate", func() {
 	Attribute("name", func() {
 		MinLength(1)
 	})
+	Attribute("email", String, "User email", func() {
+		Format("email")
+		MinLength(1)
+	})
+	Attribute("password", func() {
+		MinLength(2)
+	})
+})
+
+var Login = Type("Login", func() {
+	Description("represents the login creditentials which are sent to the server")
 	Attribute("email", String, "User email", func() {
 		Format("email")
 		MinLength(1)

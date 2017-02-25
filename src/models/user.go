@@ -65,6 +65,9 @@ type UserStorage interface {
 	ListUserMtIncoming(ctx context.Context) []*app.UserMtIncoming
 	OneUserMtIncoming(ctx context.Context, id int) (*app.UserMtIncoming, error)
 
+	ListUserMtOnLogin(ctx context.Context) []*app.UserMtOnLogin
+	OneUserMtOnLogin(ctx context.Context, id int) (*app.UserMtOnLogin, error)
+
 	ListUserMt(ctx context.Context) []*app.UserMt
 	OneUserMt(ctx context.Context, id int) (*app.UserMt, error)
 

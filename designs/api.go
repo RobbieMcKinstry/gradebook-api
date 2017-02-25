@@ -17,7 +17,7 @@ var _ = API("GradebookAPI", func() { // "My API" is the name of the API used in 
 	var JWTAuthModel = JWTSecurity("jwt", func() {
 		Description("For routes that require an authorization token")
 		Header("Authorization")
-		TokenURL("https://example.com/token")
+		TokenURL("/api/login")
 		Scope("settings:write", "Can update settings")
 		Scope("settings:read", "Can read settings")
 		Scope("profiles:write", "Can update profiles")

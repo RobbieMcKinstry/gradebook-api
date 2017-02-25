@@ -113,6 +113,26 @@ define(['axios'] , function (axios) {
     return client(cfg);
   }
 
+  // Log in to a user account
+  // path is the request path, the format is "/api/user/login"
+  // data contains the action payload (request body)
+  // config is an optional object to be merged into the config built by the function prior to making the request.
+  // The content of the config object is described here: https://github.com/mzabriskie/axios#request-api
+  // This function returns a promise which raises an error if the HTTP response is a 4xx or 5xx.
+  client.loginUser = function (path, data, config) {
+    cfg = {
+      timeout: timeout,
+      url: urlPrefix + path,
+      method: 'post',
+    data: data,
+      responseType: 'json'
+    };
+    if (config) {
+      cfg = merge(cfg, config);
+    }
+    return client(cfg);
+  }
+
   // Returns the GH token
   // path is the request path, the format is "/api/GHtoken"
   // config is an optional object to be merged into the config built by the function prior to making the request.
