@@ -1,0 +1,203 @@
+{
+    "memo": "f8bd4bb4da307a99328592d032360b040defdc64aab182866337304651b0c245",
+    "projects": [
+        {
+            "name": "bitbucket.org/pkg/inflect",
+            "branch": "default",
+            "revision": "8961c3750a47b8c0b3e118d52513b97adf85a7e8",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/Sirupsen/logrus",
+            "version": "v0.11.4",
+            "revision": "0208149b40d863d2c1a2f8fe5753096a9cf2cc8b",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/armon/go-metrics",
+            "branch": "master",
+            "revision": "97c69685293dce4c0a2d0b19535179bbc976e4d2",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/dimfeld/httppath",
+            "branch": "master",
+            "revision": "c8e499c3ef3c3e272ed8bdcc1ccf39f73c88debc",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/dimfeld/httptreemux",
+            "branch": "master",
+            "revision": "a12c89c2c0f23f880dfd74af4832a23bae6e837a",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/go-sql-driver/mysql",
+            "branch": "master",
+            "revision": "1309049fd598c1faa0290fd70ab1afde2b6df0f9",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/goadesign/goa",
+            "branch": "master",
+            "revision": "ac954b5a2da3b672ec7921f2d6f8d5d9b109e323",
+            "packages": [
+                ".",
+                "client",
+                "cors",
+                "design",
+                "design/apidsl",
+                "dslengine",
+                "goagen/codegen",
+                "goagen/utils",
+                "goatest",
+                "middleware",
+                "uuid",
+                "version"
+            ]
+        },
+        {
+            "name": "github.com/goadesign/gorma",
+            "branch": "master",
+            "revision": "37e02c0e3b7b779b3e981ec729e4015ea2b9ee29",
+            "packages": [
+                ".",
+                "dsl"
+            ]
+        },
+        {
+            "name": "github.com/inconshreveable/mousetrap",
+            "branch": "master",
+            "revision": "76626ae9c91c4f2a10f34cad8ce83ea42c93bb75",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/jinzhu/gorm",
+            "branch": "master",
+            "revision": "27a442b5ecef401a3ba2325383a96a09b0a983d9",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/kr/pretty",
+            "branch": "master",
+            "revision": "cfb55aafdaf3ec08f0db22699ab822c50091b1c4",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/kr/text",
+            "branch": "master",
+            "revision": "7cafcd837844e784b526369c9bce262804aebc60",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/lib/pq",
+            "branch": "master",
+            "revision": "69552e54d2a9d4c6a2438926a774930f7bc398ec",
+            "packages": [
+                "hstore"
+            ]
+        },
+        {
+            "name": "github.com/manveru/faker",
+            "branch": "master",
+            "revision": "717f7cf83fb78669bfab612749c2e8ff63d5be11",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/pkg/errors",
+            "branch": "master",
+            "revision": "248dadf4e9068a0b3e79f02ed0a610d935de5302",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/satori/go.uuid",
+            "branch": "master",
+            "revision": "b061729afc07e77a8aa4fad0a2fd840958f1942a",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/spf13/cobra",
+            "branch": "master",
+            "revision": "1dd5ff2e11b6dca62fdcb275eb804b94607d8b06",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/spf13/pflag",
+            "branch": "master",
+            "revision": "25f8b5b07aece3207895bf19f7ab517eb3b22a40",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/zach-klippenstein/goregen",
+            "branch": "master",
+            "revision": "795b5e3961ea1912fde60af417ad85e86acc0d6a",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "golang.org/x/crypto",
+            "branch": "master",
+            "revision": "1f22c0103821b9390939b6776727195525381532",
+            "packages": [
+                "bcrypt",
+                "blowfish"
+            ]
+        },
+        {
+            "name": "golang.org/x/net",
+            "branch": "master",
+            "revision": "8fd7f25955530b92e73e9e1932a41b522b22ccd9",
+            "packages": [
+                "context",
+                "websocket"
+            ]
+        },
+        {
+            "name": "golang.org/x/sys",
+            "branch": "master",
+            "revision": "e48874b42435b4347fc52bdee0424a52abc974d7",
+            "packages": [
+                "unix"
+            ]
+        },
+        {
+            "name": "golang.org/x/tools",
+            "branch": "master",
+            "revision": "03d3934baf81f2387349b58864cb98b6fe7cf85e",
+            "packages": [
+                "go/ast/astutil"
+            ]
+        }
+    ]
+}

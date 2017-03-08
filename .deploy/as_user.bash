@@ -30,10 +30,10 @@ function install_godeps {
     sudo chown -R $ME:$ME /opt  # Work around bug in Vagrant
     go get github.com/snikch/goodman
     go get bitbucket.org/liamstask/goose/cmd/goose
-    go get github.com/Masterminds/glide
+    go get -u github.com/golang/dep/cmd/dep
     go get -u github.com/goadesign/goa/...
     cd $APPDIR
-    glide i
+    dep ensure
     cd -
 }
 
