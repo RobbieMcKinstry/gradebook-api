@@ -31,6 +31,8 @@ function install_godeps {
     go get github.com/snikch/goodman
     go get bitbucket.org/liamstask/goose/cmd/goose
     go get -u github.com/golang/dep/cmd/dep
+    go get -u github.com/mh-cbon/gump
+    go get -u github.com/mh-cbon/changelog
     go get -u github.com/goadesign/goa/...
     cd $APPDIR
     dep ensure

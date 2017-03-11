@@ -1,0 +1,46 @@
+
+UNRELEASED
+
+  * remove unneeded glide files
+  * add dep as the default dependency manager
+  * Login spec designed, not implemented
+  * moving db connection to be injected through the controller
+  * From the backend, allow user-create, without issuing JWT
+  * Authentication on the backend
+  * Adding the swagger documentation as a downloadable file served by the API
+  * unuse the SSL port
+  * Update provisioning to serialize the Vagrantbox correctly
+  * Merge branch 'master' of github.com:alligrader/gradebook-api
+  * window changes
+  * Merge pull request #3 from alligrader/virtualize-kubernetes
+    
+    read in the gh token from a filesystem
+  * read in the gh token from a filesystem
+  * Merge pull request #2 from alligrader/virtualize-kubernetes
+    
+    Virtualize kubernetes
+  * updating box to use Kubernetes and provision correctly
+  * Create the SSL files in a hidden directory instead of at the top level
+  * Virtualize kubernetes
+  * whoops, forgot this file
+  * Add token route
+  * Resolving conflict by regenerating the file
+  * Merge branch 'security'
+  * Adding apiary hook
+  * Uhhh this should go elsewhere...
+  * Connects and pushes a user to the database
+  * Check in the goa-generated code
+  * Small changes
+  * Add checkstyle boolean representations
+  * Add the kubernetes submodule
+  * Documentation update
+  * Reduce memory requirement
+  * Adding new Goa designs
+  * adding provisioning files
+  * Initial commit
+
+  - Robbie McKinstry <rem89@pitt.edu>
+
+-- Robbie McKinstry <rem89@pitt.edu>; Tue, 07 Mar 2017 19:58:41 -0500
+
+
